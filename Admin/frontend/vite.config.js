@@ -37,7 +37,6 @@ export default defineConfig(({mode}) => {
       preprocessorOptions: {
         scss: {
           // 确保 SCSS 预处理正确工作
-          additionalData: `@import "@/styles/index.scss";`
         }
       }
     }
