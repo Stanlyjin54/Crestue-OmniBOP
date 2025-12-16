@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuafuweb.web.mapper.TransferInfoAllMapper">
+    <sql id="transfer_info_list_sql">
+        select
+        ti.transfer_info_id   ,
+        ti.create_time   ,
+        ti.update_time   ,
+        ti.transfer_name   ,
+        ti.transfer_amount   ,
+        ti.transfer_date   ,
+        ti.transfer_type   ,
+        ti.source_account   ,
+        ti.target_account   ,
+        ti.remark   ,
+        ti.status   ,
+        ti.operator_user_info_id   
+    
+    
+        FROM transfer_info ti
+    
+        </sql>
+    
+        <resultMap id="selectListNewMap" type="com.kuafuweb.web.entity.TransferInfoAll">
+    
+        <result property="transferInfoId" column="transfer_info_id"/>
+    
+        <result property="createTime" column="create_time"/>
+    
+        <result property="updateTime" column="update_time"/>
+    
+        <result property="transferName" column="transfer_name"/>
+    
+        <result property="transferAmount" column="transfer_amount"/>
+    
+        <result property="transferDate" column="transfer_date"/>
+    
+        <result property="transferType" column="transfer_type"/>
+    
+        <result property="sourceAccount" column="source_account"/>
+    
+        <result property="targetAccount" column="target_account"/>
+    
+        <result property="remark" column="remark"/>
+    
+        <result property="status" column="status"/>
+    
+        <result property="operatorUserInfoId" column="operator_user_info_id"/>
+    
+    
+    
+    
+        </resultMap>
+    
+<select id="selectListNew"  resultMap="selectListNewMap">
+select
+ti.transfer_info_id   ,
+ti.create_time   ,
+ti.update_time   ,
+ti.transfer_name   ,
+ti.transfer_amount   ,
+ti.transfer_date   ,
+ti.transfer_type   ,
+ti.source_account   ,
+ti.target_account   ,
+ti.remark   ,
+ti.status   ,
+ti.operator_user_info_id   
+    
+    
+    
+        FROM transfer_info ti
+    
+    
+    
+${ew.customSqlSegment}
+        </select>
+    
+<select id="selectList" resultType="com.kuafuweb.web.entity.TransferInfoAll">
+select
+ti.transfer_info_id   ,
+ti.create_time   ,
+ti.update_time   ,
+ti.transfer_name   ,
+ti.transfer_amount   ,
+ti.transfer_date   ,
+ti.transfer_type   ,
+ti.source_account   ,
+ti.target_account   ,
+ti.remark   ,
+ti.status   ,
+ti.operator_user_info_id   
+    
+    
+        FROM transfer_info ti
+    
+    
+${ew.customSqlSegment}
+        </select>
+    
+<select id="selectPage" resultType="com.kuafuweb.web.entity.TransferInfoAll">
+select
+ti.transfer_info_id  ,
+ti.create_time  ,
+ti.update_time  ,
+ti.transfer_name  ,
+ti.transfer_amount  ,
+ti.transfer_date  ,
+ti.transfer_type  ,
+ti.source_account  ,
+ti.target_account  ,
+ti.remark  ,
+ti.status  ,
+ti.operator_user_info_id  
+    
+    
+    
+        FROM transfer_info ti
+    
+    
+    
+    
+    
+${ew.customSqlSegment}
+        </select>
+    
+<select id="selectById" resultType="com.kuafuweb.web.entity.TransferInfoAll">
+select
+ti.transfer_info_id  ,
+ti.create_time  ,
+ti.update_time  ,
+ti.transfer_name  ,
+ti.transfer_amount  ,
+ti.transfer_date  ,
+ti.transfer_type  ,
+ti.source_account  ,
+ti.target_account  ,
+ti.remark  ,
+ti.status  ,
+ti.operator_user_info_id  
+    
+    
+        FROM transfer_info ti
+    
+    
+    
+        where ti.transfer_info_id = #{id}
+        </select>
+    
+<select id="selectCount" resultType="java.lang.Long">
+select
+count(*)
+    
+    
+    
+FROM transfer_info ti
+    
+    
+    
+${ew.customSqlSegment}
+    
+    
+        </select>
+    
+        </mapper>

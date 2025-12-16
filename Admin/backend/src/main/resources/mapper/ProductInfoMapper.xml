@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuafuweb.web.mapper.ProductInfoMapper">
+
+    <resultMap id="selectListNewMap" type="com.kuafuweb.web.entity.ProductInfo">
+            <result property="productInfoId" column="product_info_id"/>
+            <result property="productName" column="product_name"/>
+            <result property="barcode" column="barcode"/>
+            <result property="category" column="category"/>
+            <result property="brand" column="brand"/>
+            <result property="specification" column="specification"/>
+            <result property="unit" column="unit"/>
+            <result property="imagesResourceKey" column="images_resource_key"/>
+            <result property="serialNumber" column="serial_number"/>
+            <result property="shelfLife" column="shelf_life"/>
+            <result property="minStock" column="min_stock"/>
+            <result property="productStatusEnumProductStatusEnumId1" column="product_status_enum_product_status_enum_id_1"/>
+            <collection property="images" ofType="com.kuafuweb.common.domin.StaticResource">
+                <id property="resourceId" column="images_resource_id"/>
+                <result property="resourceName" column="images_resource_name"/>
+                <result property="resourcePath" column="images_resource_path"/>
+                <result property="relatedTableName" column="images_related_table_name"/>
+                <result property="relatedTableKey" column="images_related_table_key"/>
+                <result property="relateTableColumnName" column="images_relate_table_column_name"/>
+            </collection>
+    </resultMap>
+
+
+    <select id="selectList" resultMap="selectListNewMap">
+        select
+            pi.product_info_id   ,
+            pi.product_name   ,
+            pi.barcode   ,
+            pi.category   ,
+            pi.brand   ,
+            pi.specification   ,
+            pi.unit   ,
+            pi.images_resource_key   ,
+            pi.serial_number   ,
+            pi.shelf_life   ,
+            pi.min_stock   ,
+            pi.product_status_enum_product_status_enum_id_1   
+            ,images.resource_id as  images_resource_id
+            ,images.resource_name as images_resource_name
+            ,images.resource_path as  images_resource_path
+            ,images.related_table_name as  images_related_table_name
+            ,images.related_table_key as  images_related_table_key
+            ,images.relate_table_column_name as images_relate_table_column_name
+        FROM product_info pi
+            left join
+        (select resource_id,
+        resource_name,
+        resource_path,
+        related_table_name,
+        related_table_key,
+        relate_table_column_name
+        from static_resources
+        where related_table_name='product_info' and relate_table_column_name='images'
+        ) as images on images.related_table_key=pi.product_info_id
+
+        ${ew.customSqlSegment}
+    </select>
+
+    <select id="selectPage" resultMap="selectListNewMap">
+        select
+        pi.product_info_id   ,
+        pi.product_name   ,
+        pi.barcode   ,
+        pi.category   ,
+        pi.brand   ,
+        pi.specification   ,
+        pi.unit   ,
+        pi.images_resource_key   ,
+        pi.serial_number   ,
+        pi.shelf_life   ,
+        pi.min_stock   ,
+        pi.product_status_enum_product_status_enum_id_1   
+        ,images.resource_id as  images_resource_id
+        ,images.resource_name as images_resource_name
+        ,images.resource_path as  images_resource_path
+        ,images.related_table_name as  images_related_table_name
+        ,images.related_table_key as  images_related_table_key
+        ,images.relate_table_column_name as images_relate_table_column_name
+        FROM product_info pi
+        left join
+        (select resource_id,
+        resource_name,
+        resource_path,
+        related_table_name,
+        related_table_key,
+        relate_table_column_name
+        from static_resources
+        where related_table_name='product_info' and relate_table_column_name='images'
+        ) as images on images.related_table_key=pi.product_info_id
+
+        ${ew.customSqlSegment}
+    </select>
+
+    <select id="selectById" resultMap="selectListNewMap">
+        select
+        pi.product_info_id   ,
+        pi.product_name   ,
+        pi.barcode   ,
+        pi.category   ,
+        pi.brand   ,
+        pi.specification   ,
+        pi.unit   ,
+        pi.images_resource_key   ,
+        pi.serial_number   ,
+        pi.shelf_life   ,
+        pi.min_stock   ,
+        pi.product_status_enum_product_status_enum_id_1   
+        ,images.resource_id as  images_resource_id
+        ,images.resource_name as images_resource_name
+        ,images.resource_path as  images_resource_path
+        ,images.related_table_name as  images_related_table_name
+        ,images.related_table_key as  images_related_table_key
+        ,images.relate_table_column_name as images_relate_table_column_name
+        FROM product_info pi
+        left join
+        (select resource_id,
+        resource_name,
+        resource_path,
+        related_table_name,
+        related_table_key,
+        relate_table_column_name
+        from static_resources
+        where related_table_name='product_info' and relate_table_column_name='images'
+        ) as images on images.related_table_key=pi.product_info_id
+
+
+        where pi.product_info_id = #{id}
+    </select>
+
+</mapper>
+
+
+
+
+

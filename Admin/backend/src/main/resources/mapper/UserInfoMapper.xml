@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuafuweb.web.mapper.UserInfoMapper">
+
+    <resultMap id="selectListNewMap" type="com.kuafuweb.web.entity.UserInfo">
+            <result property="userInfoId" column="user_info_id"/>
+            <result property="phoneNumber" column="phone_number"/>
+            <result property="username" column="username"/>
+            <result property="password" column="password"/>
+            <result property="avatarResourceKey" column="avatar_resource_key"/>
+            <result property="registrationDate" column="registration_date"/>
+            <collection property="avatar" ofType="com.kuafuweb.common.domin.StaticResource">
+                <id property="resourceId" column="avatar_resource_id"/>
+                <result property="resourceName" column="avatar_resource_name"/>
+                <result property="resourcePath" column="avatar_resource_path"/>
+                <result property="relatedTableName" column="avatar_related_table_name"/>
+                <result property="relatedTableKey" column="avatar_related_table_key"/>
+                <result property="relateTableColumnName" column="avatar_relate_table_column_name"/>
+            </collection>
+    </resultMap>
+
+
+    <select id="selectList" resultMap="selectListNewMap">
+        select
+            ui.user_info_id   ,
+            ui.phone_number   ,
+            ui.username   ,
+            ui.password   ,
+            ui.avatar_resource_key   ,
+            ui.registration_date   
+            ,avatar.resource_id as  avatar_resource_id
+            ,avatar.resource_name as avatar_resource_name
+            ,avatar.resource_path as  avatar_resource_path
+            ,avatar.related_table_name as  avatar_related_table_name
+            ,avatar.related_table_key as  avatar_related_table_key
+            ,avatar.relate_table_column_name as avatar_relate_table_column_name
+        FROM user_info ui
+            left join
+        (select resource_id,
+        resource_name,
+        resource_path,
+        related_table_name,
+        related_table_key,
+        relate_table_column_name
+        from static_resources
+        where related_table_name='user_info' and relate_table_column_name='avatar'
+        ) as avatar on avatar.related_table_key=ui.user_info_id
+
+        ${ew.customSqlSegment}
+    </select>
+
+    <select id="selectPage" resultMap="selectListNewMap">
+        select
+        ui.user_info_id   ,
+        ui.phone_number   ,
+        ui.username   ,
+        ui.password   ,
+        ui.avatar_resource_key   ,
+        ui.registration_date   
+        ,avatar.resource_id as  avatar_resource_id
+        ,avatar.resource_name as avatar_resource_name
+        ,avatar.resource_path as  avatar_resource_path
+        ,avatar.related_table_name as  avatar_related_table_name
+        ,avatar.related_table_key as  avatar_related_table_key
+        ,avatar.relate_table_column_name as avatar_relate_table_column_name
+        FROM user_info ui
+        left join
+        (select resource_id,
+        resource_name,
+        resource_path,
+        related_table_name,
+        related_table_key,
+        relate_table_column_name
+        from static_resources
+        where related_table_name='user_info' and relate_table_column_name='avatar'
+        ) as avatar on avatar.related_table_key=ui.user_info_id
+
+        ${ew.customSqlSegment}
+    </select>
+
+    <select id="selectById" resultMap="selectListNewMap">
+        select
+        ui.user_info_id   ,
+        ui.phone_number   ,
+        ui.username   ,
+        ui.password   ,
+        ui.avatar_resource_key   ,
+        ui.registration_date   
+        ,avatar.resource_id as  avatar_resource_id
+        ,avatar.resource_name as avatar_resource_name
+        ,avatar.resource_path as  avatar_resource_path
+        ,avatar.related_table_name as  avatar_related_table_name
+        ,avatar.related_table_key as  avatar_related_table_key
+        ,avatar.relate_table_column_name as avatar_relate_table_column_name
+        FROM user_info ui
+        left join
+        (select resource_id,
+        resource_name,
+        resource_path,
+        related_table_name,
+        related_table_key,
+        relate_table_column_name
+        from static_resources
+        where related_table_name='user_info' and relate_table_column_name='avatar'
+        ) as avatar on avatar.related_table_key=ui.user_info_id
+
+
+        where ui.user_info_id = #{id}
+    </select>
+
+</mapper>
+
+
+
+
+

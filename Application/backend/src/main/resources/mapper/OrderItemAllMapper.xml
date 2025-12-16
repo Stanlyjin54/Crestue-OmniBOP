@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuafuweb.web.mapper.OrderItemAllMapper">
+    <sql id="order_item_list_sql">
+        select
+        oi1.order_no   ,
+        oi1.order_status_enum_order_status_enum_id_1   ,
+        pi.shelf_life   ,
+        oi1.customer_info_customer_info_id_1   ,
+        oi1.commission   ,
+        pi.barcode   ,
+        pi.brand   ,
+        oi.quantity   ,
+        oi1.user_info_user_info_id_1   ,
+        oi.total_price   ,
+        pi.product_status_enum_product_status_enum_id_1   ,
+        pi.specification   ,
+        pi.serial_number   ,
+        oi.product_info_product_info_id_1   ,
+        oi.unit_price   ,
+        oi1.profit_amount   ,
+        pi.product_name   ,
+        oi.order_info_order_info_id_1   ,
+        oi.order_item_id   ,
+        oi1.shipping_fee   ,
+        oi1.order_date   ,
+        oi1.general_orders   ,
+        pi.unit   ,
+        oi1.total_amount   ,
+        pi.min_stock   ,
+        pi.category   
+    
+    
+        FROM order_item oi
+        left join order_info oi1 on oi.order_info_order_info_id_1 = oi1.order_info_id
+        left join product_info pi on oi.product_info_product_info_id_1 = pi.product_info_id
+    
+        </sql>
+    
+        <resultMap id="selectListNewMap" type="com.kuafuweb.web.entity.OrderItemAll">
+    
+        <result property="orderNo" column="order_no"/>
+    
+        <result property="orderStatusEnumOrderStatusEnumId1" column="order_status_enum_order_status_enum_id_1"/>
+    
+        <result property="shelfLife" column="shelf_life"/>
+    
+        <result property="customerInfoCustomerInfoId1" column="customer_info_customer_info_id_1"/>
+    
+        <result property="commission" column="commission"/>
+    
+        <result property="barcode" column="barcode"/>
+    
+        <result property="brand" column="brand"/>
+    
+        <result property="quantity" column="quantity"/>
+    
+        <result property="userInfoUserInfoId1" column="user_info_user_info_id_1"/>
+    
+        <result property="totalPrice" column="total_price"/>
+    
+        <result property="productStatusEnumProductStatusEnumId1" column="product_status_enum_product_status_enum_id_1"/>
+    
+        <result property="specification" column="specification"/>
+    
+        <result property="serialNumber" column="serial_number"/>
+    
+        <result property="productInfoProductInfoId1" column="product_info_product_info_id_1"/>
+    
+        <result property="unitPrice" column="unit_price"/>
+    
+        <result property="profitAmount" column="profit_amount"/>
+    
+        <result property="productName" column="product_name"/>
+    
+        <result property="orderInfoOrderInfoId1" column="order_info_order_info_id_1"/>
+    
+        <result property="orderItemId" column="order_item_id"/>
+    
+        <result property="shippingFee" column="shipping_fee"/>
+    
+        <result property="orderDate" column="order_date"/>
+    
+        <result property="generalOrders" column="general_orders"/>
+    
+        <result property="unit" column="unit"/>
+    
+        <result property="totalAmount" column="total_amount"/>
+    
+        <result property="minStock" column="min_stock"/>
+    
+        <result property="category" column="category"/>
+    
+    
+    
+    
+        </resultMap>
+    
+<select id="selectListNew"  resultMap="selectListNewMap">
+select
+oi1.order_no   ,
+oi1.order_status_enum_order_status_enum_id_1   ,
+pi.shelf_life   ,
+oi1.customer_info_customer_info_id_1   ,
+oi1.commission   ,
+pi.barcode   ,
+pi.brand   ,
+oi.quantity   ,
+oi1.user_info_user_info_id_1   ,
+oi.total_price   ,
+pi.product_status_enum_product_status_enum_id_1   ,
+pi.specification   ,
+pi.serial_number   ,
+oi.product_info_product_info_id_1   ,
+oi.unit_price   ,
+oi1.profit_amount   ,
+pi.product_name   ,
+oi.order_info_order_info_id_1   ,
+oi.order_item_id   ,
+oi1.shipping_fee   ,
+oi1.order_date   ,
+oi1.general_orders   ,
+pi.unit   ,
+oi1.total_amount   ,
+pi.min_stock   ,
+pi.category   
+    
+    
+    
+        FROM order_item oi
+        left join
+    
+        order_info
+    
+        oi1 on oi.order_info_order_info_id_1 = oi1.order_info_id
+        left join
+    
+        product_info
+    
+        pi on oi.product_info_product_info_id_1 = pi.product_info_id
+    
+    
+    
+${ew.customSqlSegment}
+        </select>
+    
+<select id="selectList" resultType="com.kuafuweb.web.entity.OrderItemAll">
+select
+oi1.order_no   ,
+oi1.order_status_enum_order_status_enum_id_1   ,
+pi.shelf_life   ,
+oi1.customer_info_customer_info_id_1   ,
+oi1.commission   ,
+pi.barcode   ,
+pi.brand   ,
+oi.quantity   ,
+oi1.user_info_user_info_id_1   ,
+oi.total_price   ,
+pi.product_status_enum_product_status_enum_id_1   ,
+pi.specification   ,
+pi.serial_number   ,
+oi.product_info_product_info_id_1   ,
+oi.unit_price   ,
+oi1.profit_amount   ,
+pi.product_name   ,
+oi.order_info_order_info_id_1   ,
+oi.order_item_id   ,
+oi1.shipping_fee   ,
+oi1.order_date   ,
+oi1.general_orders   ,
+pi.unit   ,
+oi1.total_amount   ,
+pi.min_stock   ,
+pi.category   
+    
+    
+        FROM order_item oi
+        left join order_info oi1 on oi.order_info_order_info_id_1 = oi1.order_info_id
+        left join product_info pi on oi.product_info_product_info_id_1 = pi.product_info_id
+    
+    
+${ew.customSqlSegment}
+        </select>
+    
+<select id="selectPage" resultType="com.kuafuweb.web.entity.OrderItemAll">
+select
+oi1.order_no  ,
+oi1.order_status_enum_order_status_enum_id_1  ,
+pi.shelf_life  ,
+oi1.customer_info_customer_info_id_1  ,
+oi1.commission  ,
+pi.barcode  ,
+pi.brand  ,
+oi.quantity  ,
+oi1.user_info_user_info_id_1  ,
+oi.total_price  ,
+pi.product_status_enum_product_status_enum_id_1  ,
+pi.specification  ,
+pi.serial_number  ,
+oi.product_info_product_info_id_1  ,
+oi.unit_price  ,
+oi1.profit_amount  ,
+pi.product_name  ,
+oi.order_info_order_info_id_1  ,
+oi.order_item_id  ,
+oi1.shipping_fee  ,
+oi1.order_date  ,
+oi1.general_orders  ,
+pi.unit  ,
+oi1.total_amount  ,
+pi.min_stock  ,
+pi.category  
+    
+    
+    
+        FROM order_item oi
+        left join order_info oi1 on oi.order_info_order_info_id_1 = oi1.order_info_id
+        left join product_info pi on oi.product_info_product_info_id_1 = pi.product_info_id
+    
+    
+    
+    
+    
+${ew.customSqlSegment}
+        </select>
+    
+<select id="selectById" resultType="com.kuafuweb.web.entity.OrderItemAll">
+select
+oi1.order_no  ,
+oi1.order_status_enum_order_status_enum_id_1  ,
+pi.shelf_life  ,
+oi1.customer_info_customer_info_id_1  ,
+oi1.commission  ,
+pi.barcode  ,
+pi.brand  ,
+oi.quantity  ,
+oi1.user_info_user_info_id_1  ,
+oi.total_price  ,
+pi.product_status_enum_product_status_enum_id_1  ,
+pi.specification  ,
+pi.serial_number  ,
+oi.product_info_product_info_id_1  ,
+oi.unit_price  ,
+oi1.profit_amount  ,
+pi.product_name  ,
+oi.order_info_order_info_id_1  ,
+oi.order_item_id  ,
+oi1.shipping_fee  ,
+oi1.order_date  ,
+oi1.general_orders  ,
+pi.unit  ,
+oi1.total_amount  ,
+pi.min_stock  ,
+pi.category  
+    
+    
+        FROM order_item oi
+        left join order_info oi1 on oi.order_info_order_info_id_1 = oi1.order_info_id
+        left join product_info pi on oi.product_info_product_info_id_1 = pi.product_info_id
+    
+    
+    
+        where oi.order_item_id = #{id}
+        </select>
+    
+<select id="selectCount" resultType="java.lang.Long">
+select
+count(*)
+    
+    
+    
+FROM order_item oi
+left join order_info oi1 on oi.order_info_order_info_id_1 = oi1.order_info_id
+left join product_info pi on oi.product_info_product_info_id_1 = pi.product_info_id
+    
+    
+    
+${ew.customSqlSegment}
+    
+    
+        </select>
+    
+        </mapper>

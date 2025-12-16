@@ -1,0 +1,274 @@
+{
+    "easycom": {
+        "autoscan": true,
+        "custom": {
+            "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue",
+"fui-(.*)": "firstui-uni/firstui/fui-$1/fui-$1.vue","^base-(.*)": "@/components/base-$1.vue"        }
+    },
+    "pages": [{
+        "path": "pages/login/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "pages/web_view/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }] ,
+"subPackages":[{"root": "pagesA",
+"pages":[{
+        "path": "ad_recommend_info/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "ai_assistant/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "business_card_ocr/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "business_opportunity/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "business_opportunity_edit/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "customer/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "customer_detail/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "customer_edit/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "home/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "inventory/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "inventory_scan/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "order_create/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "order_detail/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "order_edit/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "order_list/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "order_pay/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "permission_assign/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "permission_log/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "permission_manage/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "procurement_suggestion/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "product_detail/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "profile/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "profile_edit/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "purchase/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "purchase_detail/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "purchase_edit/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "role_manage/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "transfer/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "transfer_edit/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "user_permission_view/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "user_role_manage/index",
+        "style":  {
+                "navigationBarTitleText": "",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "procurement/procurement-dashboard",
+        "style":  {
+                "navigationBarTitleText": "政府采购信息采集",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "procurement/tender-collection",
+        "style":  {
+                "navigationBarTitleText": "招标信息采集",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "procurement/procurement-opportunities",
+        "style":  {
+                "navigationBarTitleText": "采购商机匹配",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "procurement/crawler-monitor",
+        "style":  {
+                "navigationBarTitleText": "爬虫监控面板",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "social-media/index",
+        "style":  {
+                "navigationBarTitleText": "社交媒体商机",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "social-media/opportunity",
+        "style":  {
+                "navigationBarTitleText": "商机管理",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "social-media/monitor",
+        "style":  {
+                "navigationBarTitleText": "实时监控",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "social-media/compliance",
+        "style":  {
+                "navigationBarTitleText": "合规检查",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "social-media/monitor-results",
+        "style":  {
+                "navigationBarTitleText": "监控结果",
+                "navigationStyle": "default"
+            }
+    }, {
+        "path": "api-test",
+        "style":  {
+                "navigationBarTitleText": "API测试",
+                "navigationStyle": "default"
+            }
+    }]}],    "globalStyle": {
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "uni-app",
+        "navigationBarBackgroundColor": "#F8F8F8",
+        "backgroundColor": "#F8F8F8"
+    }
+}

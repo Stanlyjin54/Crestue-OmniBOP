@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuafuweb.web.mapper.AiAssistantLogStatisticsMapper">
+
+    <resultMap id="ai_assistant_log_query_time_datetime_statistic_9b682c72_countStatistic0" type="com.kuafuweb.web.entity.AiAssistantLogQueryTimeDatetimeStatistic9b682c72Count$Statistic0">
+        <result property="queryTime" column="query_time"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+<resultMap id="ai_assistant_log_query_time_datetime_statistic_df5261a6_countStatistic0" type="com.kuafuweb.web.entity.AiAssistantLogQueryTimeDatetimeStatisticDf5261a6Count$Statistic0">
+        <result property="queryTime" column="query_time"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+<resultMap id="ai_assistant_log_query_time_datetime_statistic_d691e2ab_countStatistic0" type="com.kuafuweb.web.entity.AiAssistantLogQueryTimeDatetimeStatisticD691e2abCount$Statistic0">
+        <result property="queryTime" column="query_time"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+
+
+
+    <select id="ai_assistant_log_query_time_datetime_statistic_9b682c72_count" resultMap="ai_assistant_log_query_time_datetime_statistic_9b682c72_countStatistic0">
+        select
+                aal.query_time  
+                ,  count(aal.ai_assistant_log_id)
+ as result_kf
+        FROM ai_assistant_log aal
+
+        ${ew.customSqlSegment}
+        group by 
+            aal.query_time
+    </select>
+
+
+    <select id="ai_assistant_log_query_time_datetime_statistic_df5261a6_count" resultMap="ai_assistant_log_query_time_datetime_statistic_df5261a6_countStatistic0">
+        select
+                aal.query_time  
+                ,  count(aal.ai_assistant_log_id)
+ as result_kf
+        FROM ai_assistant_log aal
+
+        ${ew.customSqlSegment}
+        group by 
+            aal.query_time
+    </select>
+
+
+    <select id="ai_assistant_log_query_time_datetime_statistic_d691e2ab_count" resultMap="ai_assistant_log_query_time_datetime_statistic_d691e2ab_countStatistic0">
+        select
+                aal.query_time  
+                ,  count(aal.ai_assistant_log_id)
+ as result_kf
+        FROM ai_assistant_log aal
+
+        ${ew.customSqlSegment}
+        group by 
+            aal.query_time
+    </select>
+
+
+
+</mapper>
+
+
+
+
+

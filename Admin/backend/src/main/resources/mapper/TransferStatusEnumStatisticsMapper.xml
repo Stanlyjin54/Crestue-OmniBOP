@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuafuweb.web.mapper.TransferStatusEnumStatisticsMapper">
+
+    <resultMap id="transfer_status_enum_transfer_status_enum_id_status_statistic_5bfcb35a_countStatistic0" type="com.kuafuweb.web.entity.TransferStatusEnumTransferStatusEnumIdStatusStatistic5bfcb35aCount$Statistic0">
+        <result property="transferStatusEnumId" column="transfer_status_enum_id"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+<resultMap id="transfer_status_enum_transfer_status_enum_id_status_statistic_35b1149a_countStatistic0" type="com.kuafuweb.web.entity.TransferStatusEnumTransferStatusEnumIdStatusStatistic35b1149aCount$Statistic0">
+        <result property="transferStatusEnumId" column="transfer_status_enum_id"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+<resultMap id="transfer_status_enum_transfer_status_enum_id_status_statistic_26443357_countStatistic0" type="com.kuafuweb.web.entity.TransferStatusEnumTransferStatusEnumIdStatusStatistic26443357Count$Statistic0">
+        <result property="transferStatusEnumId" column="transfer_status_enum_id"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+<resultMap id="transfer_status_enum_status_name_status_statistic_29f93e61_countStatistic0" type="com.kuafuweb.web.entity.TransferStatusEnumStatusNameStatusStatistic29f93e61Count$Statistic0">
+        <result property="statusName" column="status_name"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+<resultMap id="transfer_status_enum_status_name_status_statistic_a78fbbbf_countStatistic0" type="com.kuafuweb.web.entity.TransferStatusEnumStatusNameStatusStatisticA78fbbbfCount$Statistic0">
+        <result property="statusName" column="status_name"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+<resultMap id="transfer_status_enum_status_name_status_statistic_58b07edd_countStatistic0" type="com.kuafuweb.web.entity.TransferStatusEnumStatusNameStatusStatistic58b07eddCount$Statistic0">
+        <result property="statusName" column="status_name"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+
+
+
+    <select id="transfer_status_enum_transfer_status_enum_id_status_statistic_5bfcb35a_count" resultMap="transfer_status_enum_transfer_status_enum_id_status_statistic_5bfcb35a_countStatistic0">
+        select
+                tse.transfer_status_enum_id  
+                ,  count(tse.transfer_status_enum_id)
+ as result_kf
+        FROM transfer_status_enum tse
+
+        ${ew.customSqlSegment}
+        group by 
+            tse.transfer_status_enum_id
+    </select>
+
+
+    <select id="transfer_status_enum_transfer_status_enum_id_status_statistic_35b1149a_count" resultMap="transfer_status_enum_transfer_status_enum_id_status_statistic_35b1149a_countStatistic0">
+        select
+                tse.transfer_status_enum_id  
+                ,  count(tse.transfer_status_enum_id)
+ as result_kf
+        FROM transfer_status_enum tse
+
+        ${ew.customSqlSegment}
+        group by 
+            tse.transfer_status_enum_id
+    </select>
+
+
+    <select id="transfer_status_enum_transfer_status_enum_id_status_statistic_26443357_count" resultMap="transfer_status_enum_transfer_status_enum_id_status_statistic_26443357_countStatistic0">
+        select
+                tse.transfer_status_enum_id  
+                ,  count(tse.transfer_status_enum_id)
+ as result_kf
+        FROM transfer_status_enum tse
+
+        ${ew.customSqlSegment}
+        group by 
+            tse.transfer_status_enum_id
+    </select>
+
+
+    <select id="transfer_status_enum_status_name_status_statistic_29f93e61_count" resultMap="transfer_status_enum_status_name_status_statistic_29f93e61_countStatistic0">
+        select
+                tse.status_name  
+                ,  count(tse.transfer_status_enum_id)
+ as result_kf
+        FROM transfer_status_enum tse
+
+        ${ew.customSqlSegment}
+        group by 
+            tse.status_name
+    </select>
+
+
+    <select id="transfer_status_enum_status_name_status_statistic_a78fbbbf_count" resultMap="transfer_status_enum_status_name_status_statistic_a78fbbbf_countStatistic0">
+        select
+                tse.status_name  
+                ,  count(tse.transfer_status_enum_id)
+ as result_kf
+        FROM transfer_status_enum tse
+
+        ${ew.customSqlSegment}
+        group by 
+            tse.status_name
+    </select>
+
+
+    <select id="transfer_status_enum_status_name_status_statistic_58b07edd_count" resultMap="transfer_status_enum_status_name_status_statistic_58b07edd_countStatistic0">
+        select
+                tse.status_name  
+                ,  count(tse.transfer_status_enum_id)
+ as result_kf
+        FROM transfer_status_enum tse
+
+        ${ew.customSqlSegment}
+        group by 
+            tse.status_name
+    </select>
+
+
+
+</mapper>
+
+
+
+
+

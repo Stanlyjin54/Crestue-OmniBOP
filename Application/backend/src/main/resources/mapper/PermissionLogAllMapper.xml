@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuafuweb.web.mapper.PermissionLogAllMapper">
+    <sql id="permission_log_list_sql">
+        select
+        ui.password   ,
+        pl.action_time   ,
+        ui.registration_date   ,
+        pl.action_type   ,
+        pl.target_object   ,
+        ui.phone_number   ,
+        pl.permission_log_id   ,
+        pl.user_info_id   ,
+        pl.change_content   ,
+        ui.username   
+
+
+        FROM permission_log pl
+        left join user_info ui on pl.user_info_id = ui.user_info_id
+
+        </sql>
+
+        <resultMap id="selectListNewMap" type="com.kuafuweb.web.entity.PermissionLogAll">
+
+        <result property="password" column="password"/>
+
+        <result property="actionTime" column="action_time"/>
+
+        <result property="registrationDate" column="registration_date"/>
+
+        <result property="actionType" column="action_type"/>
+
+        <result property="targetObject" column="target_object"/>
+
+        <result property="phoneNumber" column="phone_number"/>
+
+        <result property="permissionLogId" column="permission_log_id"/>
+
+        <result property="userInfoId" column="user_info_id"/>
+
+        <result property="changeContent" column="change_content"/>
+
+        <result property="username" column="username"/>
+
+
+
+
+        </resultMap>
+
+<select id="selectListNew"  resultMap="selectListNewMap">
+select
+ui.password   ,
+pl.action_time   ,
+ui.registration_date   ,
+pl.action_type   ,
+pl.target_object   ,
+ui.phone_number   ,
+pl.permission_log_id   ,
+pl.user_info_id   ,
+pl.change_content   ,
+ui.username   
+
+
+
+        FROM permission_log pl
+        left join
+
+        user_info
+
+        ui on pl.user_info_id = ui.user_info_id
+
+
+
+${ew.customSqlSegment}
+        </select>
+
+<select id="selectList" resultType="com.kuafuweb.web.entity.PermissionLogAll">
+select
+ui.password   ,
+pl.action_time   ,
+ui.registration_date   ,
+pl.action_type   ,
+pl.target_object   ,
+ui.phone_number   ,
+pl.permission_log_id   ,
+pl.user_info_id   ,
+pl.change_content   ,
+ui.username   
+
+
+        FROM permission_log pl
+        left join user_info ui on pl.user_info_id = ui.user_info_id
+
+
+${ew.customSqlSegment}
+        </select>
+
+<select id="selectPage" resultType="com.kuafuweb.web.entity.PermissionLogAll">
+select
+ui.password  ,
+pl.action_time  ,
+ui.registration_date  ,
+pl.action_type  ,
+pl.target_object  ,
+ui.phone_number  ,
+pl.permission_log_id  ,
+pl.user_info_id  ,
+pl.change_content  ,
+ui.username  
+
+
+
+        FROM permission_log pl
+        left join user_info ui on pl.user_info_id = ui.user_info_id
+
+
+
+
+
+${ew.customSqlSegment}
+        </select>
+
+<select id="selectById" resultType="com.kuafuweb.web.entity.PermissionLogAll">
+select
+ui.password  ,
+pl.action_time  ,
+ui.registration_date  ,
+pl.action_type  ,
+pl.target_object  ,
+ui.phone_number  ,
+pl.permission_log_id  ,
+pl.user_info_id  ,
+pl.change_content  ,
+ui.username  
+
+
+        FROM permission_log pl
+        left join user_info ui on pl.user_info_id = ui.user_info_id
+
+
+
+        where pl.permission_log_id = #{id}
+        </select>
+
+<select id="selectCount" resultType="java.lang.Long">
+select
+count(*)
+
+
+
+FROM permission_log pl
+left join user_info ui on pl.user_info_id = ui.user_info_id
+
+
+
+${ew.customSqlSegment}
+
+
+        </select>
+
+        </mapper>

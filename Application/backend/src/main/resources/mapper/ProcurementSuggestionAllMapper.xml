@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuafuweb.web.mapper.ProcurementSuggestionAllMapper">
+    <sql id="procurement_suggestion_list_sql">
+        select
+        ps.reason   ,
+        pi.product_status_enum_product_status_enum_id_1   ,
+        pi.specification   ,
+        pi.serial_number   ,
+        ps.product_info_product_info_id_1   ,
+        pi.product_name   ,
+        ps.suggest_date   ,
+        ps.suggest_quantity   ,
+        pi.shelf_life   ,
+        pi.unit   ,
+        pi.min_stock   ,
+        pi.category   ,
+        ps.procurement_suggestion_id   ,
+        pi.barcode   ,
+        pi.brand   
+
+
+        FROM procurement_suggestion ps
+        left join product_info pi on ps.product_info_product_info_id_1 = pi.product_info_id
+
+        </sql>
+
+        <resultMap id="selectListNewMap" type="com.kuafuweb.web.entity.ProcurementSuggestionAll">
+
+        <result property="reason" column="reason"/>
+
+        <result property="productStatusEnumProductStatusEnumId1" column="product_status_enum_product_status_enum_id_1"/>
+
+        <result property="specification" column="specification"/>
+
+        <result property="serialNumber" column="serial_number"/>
+
+        <result property="productInfoProductInfoId1" column="product_info_product_info_id_1"/>
+
+        <result property="productName" column="product_name"/>
+
+        <result property="suggestDate" column="suggest_date"/>
+
+        <result property="suggestQuantity" column="suggest_quantity"/>
+
+        <result property="shelfLife" column="shelf_life"/>
+
+        <result property="unit" column="unit"/>
+
+        <result property="minStock" column="min_stock"/>
+
+        <result property="category" column="category"/>
+
+        <result property="procurementSuggestionId" column="procurement_suggestion_id"/>
+
+        <result property="barcode" column="barcode"/>
+
+        <result property="brand" column="brand"/>
+
+
+
+
+        </resultMap>
+
+<select id="selectListNew"  resultMap="selectListNewMap">
+select
+ps.reason   ,
+pi.product_status_enum_product_status_enum_id_1   ,
+pi.specification   ,
+pi.serial_number   ,
+ps.product_info_product_info_id_1   ,
+pi.product_name   ,
+ps.suggest_date   ,
+ps.suggest_quantity   ,
+pi.shelf_life   ,
+pi.unit   ,
+pi.min_stock   ,
+pi.category   ,
+ps.procurement_suggestion_id   ,
+pi.barcode   ,
+pi.brand   
+
+
+
+        FROM procurement_suggestion ps
+        left join
+
+        product_info
+
+        pi on ps.product_info_product_info_id_1 = pi.product_info_id
+
+
+
+${ew.customSqlSegment}
+        </select>
+
+<select id="selectList" resultType="com.kuafuweb.web.entity.ProcurementSuggestionAll">
+select
+ps.reason   ,
+pi.product_status_enum_product_status_enum_id_1   ,
+pi.specification   ,
+pi.serial_number   ,
+ps.product_info_product_info_id_1   ,
+pi.product_name   ,
+ps.suggest_date   ,
+ps.suggest_quantity   ,
+pi.shelf_life   ,
+pi.unit   ,
+pi.min_stock   ,
+pi.category   ,
+ps.procurement_suggestion_id   ,
+pi.barcode   ,
+pi.brand   
+
+
+        FROM procurement_suggestion ps
+        left join product_info pi on ps.product_info_product_info_id_1 = pi.product_info_id
+
+
+${ew.customSqlSegment}
+        </select>
+
+<select id="selectPage" resultType="com.kuafuweb.web.entity.ProcurementSuggestionAll">
+select
+ps.reason  ,
+pi.product_status_enum_product_status_enum_id_1  ,
+pi.specification  ,
+pi.serial_number  ,
+ps.product_info_product_info_id_1  ,
+pi.product_name  ,
+ps.suggest_date  ,
+ps.suggest_quantity  ,
+pi.shelf_life  ,
+pi.unit  ,
+pi.min_stock  ,
+pi.category  ,
+ps.procurement_suggestion_id  ,
+pi.barcode  ,
+pi.brand  
+
+
+
+        FROM procurement_suggestion ps
+        left join product_info pi on ps.product_info_product_info_id_1 = pi.product_info_id
+
+
+
+
+
+${ew.customSqlSegment}
+        </select>
+
+<select id="selectById" resultType="com.kuafuweb.web.entity.ProcurementSuggestionAll">
+select
+ps.reason  ,
+pi.product_status_enum_product_status_enum_id_1  ,
+pi.specification  ,
+pi.serial_number  ,
+ps.product_info_product_info_id_1  ,
+pi.product_name  ,
+ps.suggest_date  ,
+ps.suggest_quantity  ,
+pi.shelf_life  ,
+pi.unit  ,
+pi.min_stock  ,
+pi.category  ,
+ps.procurement_suggestion_id  ,
+pi.barcode  ,
+pi.brand  
+
+
+        FROM procurement_suggestion ps
+        left join product_info pi on ps.product_info_product_info_id_1 = pi.product_info_id
+
+
+
+        where ps.procurement_suggestion_id = #{id}
+        </select>
+
+<select id="selectCount" resultType="java.lang.Long">
+select
+count(*)
+
+
+
+FROM procurement_suggestion ps
+left join product_info pi on ps.product_info_product_info_id_1 = pi.product_info_id
+
+
+
+${ew.customSqlSegment}
+
+
+        </select>
+
+        </mapper>

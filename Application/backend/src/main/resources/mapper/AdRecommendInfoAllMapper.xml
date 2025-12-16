@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuafuweb.web.mapper.AdRecommendInfoAllMapper">
+    <sql id="ad_recommend_info_list_sql">
+        select
+        ari.ad_recommend_info_id   ,
+        ari.ad_url   ,
+        ari.cpc_fee   ,
+        ari.ad_title   
+    
+    
+        FROM ad_recommend_info ari
+    
+        </sql>
+    
+        <resultMap id="selectListNewMap" type="com.kuafuweb.web.entity.AdRecommendInfoAll">
+    
+        <result property="adRecommendInfoId" column="ad_recommend_info_id"/>
+    
+        <result property="adUrl" column="ad_url"/>
+    
+        <result property="cpcFee" column="cpc_fee"/>
+    
+        <result property="adTitle" column="ad_title"/>
+    
+    
+    
+                <collection property="adImage" ofType="com.kuafuweb.common.entity.StaticResource">
+                            <id property="resourceId" column="ad_image_resource_id"/>
+                            <result property="resourceName" column="ad_image_resource_name"/>
+                            <result property="resourcePath" column="ad_image_resource_path"/>
+                            <result property="relatedTableName" column="ad_image_related_table_name"/>
+                            <result property="relatedTableKey" column="ad_image_related_table_key"/>
+                            <result property="relateTableColumnName" column="ad_image_relate_table_column_name"/>
+                </collection>
+    
+        </resultMap>
+    
+<select id="selectListNew"  resultMap="selectListNewMap">
+select
+ari.ad_recommend_info_id   ,
+ari.ad_url   ,
+ari.cpc_fee   ,
+ari.ad_title   
+    
+        ,ad_image.resource_id as  ad_image_resource_id
+        ,ad_image.resource_name as ad_image_resource_name
+        ,ad_image.resource_path as  ad_image_resource_path
+        ,ad_image.related_table_name as  ad_image_related_table_name
+        ,ad_image.related_table_key as  ad_image_related_table_key
+        ,ad_image.relate_table_column_name as ad_image_relate_table_column_name
+    
+    
+        FROM ad_recommend_info ari
+    
+    
+        left join
+        (select resource_id,
+        resource_name,
+        resource_path,
+        related_table_name,
+        related_table_key,
+        relate_table_column_name
+        from static_resources where related_table_name='ad_recommend_info' and relate_table_column_name='ad_image') as ad_image
+        on ad_image.related_table_key=ari.ad_recommend_info_id
+    
+${ew.customSqlSegment}
+        </select>
+    
+<select id="selectList" resultType="com.kuafuweb.web.entity.AdRecommendInfoAll">
+select
+ari.ad_recommend_info_id   ,
+ari.ad_url   ,
+ari.cpc_fee   ,
+ari.ad_title   
+    
+    
+        FROM ad_recommend_info ari
+    
+    
+${ew.customSqlSegment}
+        </select>
+    
+<select id="selectPage" resultType="com.kuafuweb.web.entity.AdRecommendInfoAll">
+select
+ari.ad_recommend_info_id  ,
+ari.ad_url  ,
+ari.cpc_fee  ,
+ari.ad_title  
+    
+    
+    
+        FROM ad_recommend_info ari
+    
+    
+    
+    
+    
+${ew.customSqlSegment}
+        </select>
+    
+<select id="selectById" resultType="com.kuafuweb.web.entity.AdRecommendInfoAll">
+select
+ari.ad_recommend_info_id  ,
+ari.ad_url  ,
+ari.cpc_fee  ,
+ari.ad_title  
+    
+    
+        FROM ad_recommend_info ari
+    
+    
+    
+        where ari.ad_recommend_info_id = #{id}
+        </select>
+    
+<select id="selectCount" resultType="java.lang.Long">
+select
+count(*)
+    
+    
+    
+FROM ad_recommend_info ari
+    
+    
+    
+${ew.customSqlSegment}
+    
+    
+        </select>
+    
+        </mapper>

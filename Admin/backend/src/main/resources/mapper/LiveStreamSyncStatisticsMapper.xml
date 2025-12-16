@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuafuweb.web.mapper.LiveStreamSyncStatisticsMapper">
+
+    <resultMap id="live_stream_sync_sync_time_datetime_statistic_f04701f0_countStatistic0" type="com.kuafuweb.web.entity.LiveStreamSyncSyncTimeDatetimeStatisticF04701f0Count$Statistic0">
+        <result property="syncTime" column="sync_time"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+<resultMap id="live_stream_sync_sync_time_datetime_statistic_9943545f_countStatistic0" type="com.kuafuweb.web.entity.LiveStreamSyncSyncTimeDatetimeStatistic9943545fCount$Statistic0">
+        <result property="syncTime" column="sync_time"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+<resultMap id="live_stream_sync_sync_time_datetime_statistic_5ec92ac3_countStatistic0" type="com.kuafuweb.web.entity.LiveStreamSyncSyncTimeDatetimeStatistic5ec92ac3Count$Statistic0">
+        <result property="syncTime" column="sync_time"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+
+
+
+    <select id="live_stream_sync_sync_time_datetime_statistic_f04701f0_count" resultMap="live_stream_sync_sync_time_datetime_statistic_f04701f0_countStatistic0">
+        select
+                lss.sync_time  
+                ,  count(lss.live_stream_sync_id)
+ as result_kf
+        FROM live_stream_sync lss
+
+        ${ew.customSqlSegment}
+        group by 
+            lss.sync_time
+    </select>
+
+
+    <select id="live_stream_sync_sync_time_datetime_statistic_9943545f_count" resultMap="live_stream_sync_sync_time_datetime_statistic_9943545f_countStatistic0">
+        select
+                lss.sync_time  
+                ,  count(lss.live_stream_sync_id)
+ as result_kf
+        FROM live_stream_sync lss
+
+        ${ew.customSqlSegment}
+        group by 
+            lss.sync_time
+    </select>
+
+
+    <select id="live_stream_sync_sync_time_datetime_statistic_5ec92ac3_count" resultMap="live_stream_sync_sync_time_datetime_statistic_5ec92ac3_countStatistic0">
+        select
+                lss.sync_time  
+                ,  count(lss.live_stream_sync_id)
+ as result_kf
+        FROM live_stream_sync lss
+
+        ${ew.customSqlSegment}
+        group by 
+            lss.sync_time
+    </select>
+
+
+
+</mapper>
+
+
+
+
+

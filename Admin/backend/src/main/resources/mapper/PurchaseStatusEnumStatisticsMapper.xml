@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuafuweb.web.mapper.PurchaseStatusEnumStatisticsMapper">
+
+    <resultMap id="purchase_status_enum_purchase_status_enum_id_status_statistic_cac5b56b_countStatistic0" type="com.kuafuweb.web.entity.PurchaseStatusEnumPurchaseStatusEnumIdStatusStatisticCac5b56bCount$Statistic0">
+        <result property="purchaseStatusEnumId" column="purchase_status_enum_id"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+<resultMap id="purchase_status_enum_purchase_status_enum_id_status_statistic_4879421d_countStatistic0" type="com.kuafuweb.web.entity.PurchaseStatusEnumPurchaseStatusEnumIdStatusStatistic4879421dCount$Statistic0">
+        <result property="purchaseStatusEnumId" column="purchase_status_enum_id"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+<resultMap id="purchase_status_enum_purchase_status_enum_id_status_statistic_d51abb7f_countStatistic0" type="com.kuafuweb.web.entity.PurchaseStatusEnumPurchaseStatusEnumIdStatusStatisticD51abb7fCount$Statistic0">
+        <result property="purchaseStatusEnumId" column="purchase_status_enum_id"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+<resultMap id="purchase_status_enum_status_name_status_statistic_ae1dfb7a_countStatistic0" type="com.kuafuweb.web.entity.PurchaseStatusEnumStatusNameStatusStatisticAe1dfb7aCount$Statistic0">
+        <result property="statusName" column="status_name"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+<resultMap id="purchase_status_enum_status_name_status_statistic_b11589b5_countStatistic0" type="com.kuafuweb.web.entity.PurchaseStatusEnumStatusNameStatusStatisticB11589b5Count$Statistic0">
+        <result property="statusName" column="status_name"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+<resultMap id="purchase_status_enum_status_name_status_statistic_4fce27d5_countStatistic0" type="com.kuafuweb.web.entity.PurchaseStatusEnumStatusNameStatusStatistic4fce27d5Count$Statistic0">
+        <result property="statusName" column="status_name"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+
+
+
+    <select id="purchase_status_enum_purchase_status_enum_id_status_statistic_cac5b56b_count" resultMap="purchase_status_enum_purchase_status_enum_id_status_statistic_cac5b56b_countStatistic0">
+        select
+                pse.purchase_status_enum_id  
+                ,  count(pse.purchase_status_enum_id)
+ as result_kf
+        FROM purchase_status_enum pse
+
+        ${ew.customSqlSegment}
+        group by 
+            pse.purchase_status_enum_id
+    </select>
+
+
+    <select id="purchase_status_enum_purchase_status_enum_id_status_statistic_4879421d_count" resultMap="purchase_status_enum_purchase_status_enum_id_status_statistic_4879421d_countStatistic0">
+        select
+                pse.purchase_status_enum_id  
+                ,  count(pse.purchase_status_enum_id)
+ as result_kf
+        FROM purchase_status_enum pse
+
+        ${ew.customSqlSegment}
+        group by 
+            pse.purchase_status_enum_id
+    </select>
+
+
+    <select id="purchase_status_enum_purchase_status_enum_id_status_statistic_d51abb7f_count" resultMap="purchase_status_enum_purchase_status_enum_id_status_statistic_d51abb7f_countStatistic0">
+        select
+                pse.purchase_status_enum_id  
+                ,  count(pse.purchase_status_enum_id)
+ as result_kf
+        FROM purchase_status_enum pse
+
+        ${ew.customSqlSegment}
+        group by 
+            pse.purchase_status_enum_id
+    </select>
+
+
+    <select id="purchase_status_enum_status_name_status_statistic_ae1dfb7a_count" resultMap="purchase_status_enum_status_name_status_statistic_ae1dfb7a_countStatistic0">
+        select
+                pse.status_name  
+                ,  count(pse.purchase_status_enum_id)
+ as result_kf
+        FROM purchase_status_enum pse
+
+        ${ew.customSqlSegment}
+        group by 
+            pse.status_name
+    </select>
+
+
+    <select id="purchase_status_enum_status_name_status_statistic_b11589b5_count" resultMap="purchase_status_enum_status_name_status_statistic_b11589b5_countStatistic0">
+        select
+                pse.status_name  
+                ,  count(pse.purchase_status_enum_id)
+ as result_kf
+        FROM purchase_status_enum pse
+
+        ${ew.customSqlSegment}
+        group by 
+            pse.status_name
+    </select>
+
+
+    <select id="purchase_status_enum_status_name_status_statistic_4fce27d5_count" resultMap="purchase_status_enum_status_name_status_statistic_4fce27d5_countStatistic0">
+        select
+                pse.status_name  
+                ,  count(pse.purchase_status_enum_id)
+ as result_kf
+        FROM purchase_status_enum pse
+
+        ${ew.customSqlSegment}
+        group by 
+            pse.status_name
+    </select>
+
+
+
+</mapper>
+
+
+
+
+

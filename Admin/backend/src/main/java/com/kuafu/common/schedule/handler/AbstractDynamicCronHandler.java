@@ -1,0 +1,30 @@
+﻿package com.kuafuweb.common.schedule.handler;
+
+import com.kuafuweb.common.schedule.manger.DynamicCronScheduleTaskManager;
+import org.springframework.beans.factory.annotation.Autowired;
+
+public abstract class AbstractDynamicCronHandler {
+
+    @Autowired
+    protected DynamicCronScheduleTaskManager dynamicCronScheduleTaskManager;
+    /**
+     * 获取cron表达式
+     * @return
+     */
+    public abstract String getCronExpression(String cronName);
+
+    /**
+     * 更新cronName对应的定时任务的触发时机
+     * @param cronName
+     */
+    public void updateTriggerTask(String cronName) {
+        dynamicCronScheduleTaskManager.updateTriggerTask(cronName);
+    }
+
+
+}
+
+
+
+
+

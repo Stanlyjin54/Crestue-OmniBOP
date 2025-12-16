@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuafuweb.web.mapper.BusinessCardOcrAllMapper">
+    <sql id="business_card_ocr_list_sql">
+        select
+        ci.wechat_id   ,
+        ci.address   ,
+        bco.customer_info_customer_info_id_1   ,
+        ci.phone   ,
+        ci.wechat_data_encrypted   ,
+        bco.business_card_ocr_id   ,
+        ci.rfm_level_enum_rfm_level_enum_id_1   ,
+        ci.customer_tag_enum_customer_tag_enum_id_1   ,
+        ci.customer_name   ,
+        ci.source   ,
+        bco.ocr_result   ,
+        ci.email   
+
+        FROM business_card_ocr bco
+        left join customer_info ci on bco.customer_info_customer_info_id_1 = ci.customer_info_id
+        </sql>
+
+        <resultMap id="selectListNewMap" type="com.kuafuweb.web.entity.BusinessCardOcrAll">
+        <result property="wechatId" column="wechat_id"/>
+        <result property="address" column="address"/>
+        <result property="customerInfoCustomerInfoId1" column="customer_info_customer_info_id_1"/>
+        <result property="phone" column="phone"/>
+        <result property="wechatDataEncrypted" column="wechat_data_encrypted"/>
+        <result property="businessCardOcrId" column="business_card_ocr_id"/>
+        <result property="rfmLevelEnumRfmLevelEnumId1" column="rfm_level_enum_rfm_level_enum_id_1"/>
+        <result property="customerTagEnumCustomerTagEnumId1" column="customer_tag_enum_customer_tag_enum_id_1"/>
+        <result property="customerName" column="customer_name"/>
+        <result property="source" column="source"/>
+        <result property="ocrResult" column="ocr_result"/>
+        <result property="email" column="email"/>
+
+                <collection property="cardImage" ofType="com.kuafuweb.common.entity.StaticResource">
+                            <id property="resourceId" column="card_image_resource_id"/>
+                            <result property="resourceName" column="card_image_resource_name"/>
+                            <result property="resourcePath" column="card_image_resource_path"/>
+                            <result property="relatedTableName" column="card_image_related_table_name"/>
+                            <result property="relatedTableKey" column="card_image_related_table_key"/>
+                            <result property="relateTableColumnName" column="card_image_relate_table_column_name"/>
+                </collection>
+        </resultMap>
+
+<select id="selectListNew"  resultMap="selectListNewMap">
+select
+ci.wechat_id   ,
+ci.address   ,
+bco.customer_info_customer_info_id_1   ,
+ci.phone   ,
+ci.wechat_data_encrypted   ,
+bco.business_card_ocr_id   ,
+ci.rfm_level_enum_rfm_level_enum_id_1   ,
+ci.customer_tag_enum_customer_tag_enum_id_1   ,
+ci.customer_name   ,
+ci.source   ,
+bco.ocr_result   ,
+ci.email   
+        ,card_image.resource_id as  card_image_resource_id
+        ,card_image.resource_name as card_image_resource_name
+        ,card_image.resource_path as  card_image_resource_path
+        ,card_image.related_table_name as  card_image_related_table_name
+        ,card_image.related_table_key as  card_image_related_table_key
+        ,card_image.relate_table_column_name as card_image_relate_table_column_name
+        FROM business_card_ocr bco
+        left join customer_info ci on bco.customer_info_customer_info_id_1 = ci.customer_info_id
+        left join
+        (select resource_id,
+        resource_name,
+        resource_path,
+        related_table_name,
+        related_table_key,
+        relate_table_column_name
+        from static_resources where related_table_name='business_card_ocr' and relate_table_column_name='card_image') as card_image
+        on card_image.related_table_key=bco.business_card_ocr_id
+${ew.customSqlSegment}
+        </select>
+
+<select id="selectList" resultType="com.kuafuweb.web.entity.BusinessCardOcrAll">
+select
+ci.wechat_id   ,
+ci.address   ,
+bco.customer_info_customer_info_id_1   ,
+ci.phone   ,
+ci.wechat_data_encrypted   ,
+bco.business_card_ocr_id   ,
+ci.rfm_level_enum_rfm_level_enum_id_1   ,
+ci.customer_tag_enum_customer_tag_enum_id_1   ,
+ci.customer_name   ,
+ci.source   ,
+bco.ocr_result   ,
+ci.email   
+        FROM business_card_ocr bco
+        left join customer_info ci on bco.customer_info_customer_info_id_1 = ci.customer_info_id
+${ew.customSqlSegment}
+        </select>
+
+<select id="selectPage" resultType="com.kuafuweb.web.entity.BusinessCardOcrAll">
+select
+ci.wechat_id  ,
+ci.address  ,
+bco.customer_info_customer_info_id_1  ,
+ci.phone  ,
+ci.wechat_data_encrypted  ,
+bco.business_card_ocr_id  ,
+ci.rfm_level_enum_rfm_level_enum_id_1  ,
+ci.customer_tag_enum_customer_tag_enum_id_1  ,
+ci.customer_name  ,
+ci.source  ,
+bco.ocr_result  ,
+ci.email  
+        FROM business_card_ocr bco
+        left join customer_info ci on bco.customer_info_customer_info_id_1 = ci.customer_info_id
+${ew.customSqlSegment}
+        </select>
+
+<select id="selectById" resultType="com.kuafuweb.web.entity.BusinessCardOcrAll">
+select
+ci.wechat_id  ,
+ci.address  ,
+bco.customer_info_customer_info_id_1  ,
+ci.phone  ,
+ci.wechat_data_encrypted  ,
+bco.business_card_ocr_id  ,
+ci.rfm_level_enum_rfm_level_enum_id_1  ,
+ci.customer_tag_enum_customer_tag_enum_id_1  ,
+ci.customer_name  ,
+ci.source  ,
+bco.ocr_result  ,
+ci.email  
+        FROM business_card_ocr bco
+        left join customer_info ci on bco.customer_info_customer_info_id_1 = ci.customer_info_id
+        where bco.business_card_ocr_id = #{id}
+        </select>
+
+<select id="selectCount" resultType="java.lang.Long">
+select
+count(*)
+FROM business_card_ocr bco
+left join customer_info ci on bco.customer_info_customer_info_id_1 = ci.customer_info_id
+${ew.customSqlSegment}
+        </select>
+        </mapper>

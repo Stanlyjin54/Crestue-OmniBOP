@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuafuweb.web.mapper.PermissionLogStatisticsMapper">
+
+    <resultMap id="permission_log_action_time_datetime_statistic_84170e10_countStatistic0" type="com.kuafuweb.web.entity.PermissionLogActionTimeDatetimeStatistic84170e10Count$Statistic0">
+        <result property="actionTime" column="action_time"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+<resultMap id="permission_log_action_time_datetime_statistic_975db700_countStatistic0" type="com.kuafuweb.web.entity.PermissionLogActionTimeDatetimeStatistic975db700Count$Statistic0">
+        <result property="actionTime" column="action_time"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+<resultMap id="permission_log_action_time_datetime_statistic_8cf06955_countStatistic0" type="com.kuafuweb.web.entity.PermissionLogActionTimeDatetimeStatistic8cf06955Count$Statistic0">
+        <result property="actionTime" column="action_time"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+
+
+
+    <select id="permission_log_action_time_datetime_statistic_84170e10_count" resultMap="permission_log_action_time_datetime_statistic_84170e10_countStatistic0">
+        select
+                pl.action_time  
+                ,  count(pl.permission_log_id)
+ as result_kf
+        FROM permission_log pl
+
+        ${ew.customSqlSegment}
+        group by 
+            pl.action_time
+    </select>
+
+
+    <select id="permission_log_action_time_datetime_statistic_975db700_count" resultMap="permission_log_action_time_datetime_statistic_975db700_countStatistic0">
+        select
+                pl.action_time  
+                ,  count(pl.permission_log_id)
+ as result_kf
+        FROM permission_log pl
+
+        ${ew.customSqlSegment}
+        group by 
+            pl.action_time
+    </select>
+
+
+    <select id="permission_log_action_time_datetime_statistic_8cf06955_count" resultMap="permission_log_action_time_datetime_statistic_8cf06955_countStatistic0">
+        select
+                pl.action_time  
+                ,  count(pl.permission_log_id)
+ as result_kf
+        FROM permission_log pl
+
+        ${ew.customSqlSegment}
+        group by 
+            pl.action_time
+    </select>
+
+
+
+</mapper>
+
+
+
+
+

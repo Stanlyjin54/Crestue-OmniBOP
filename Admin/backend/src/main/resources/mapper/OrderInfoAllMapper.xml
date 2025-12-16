@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuafuweb.web.mapper.OrderInfoAllMapper">
+
+
+        <select id="selectList" resultType="com.kuafuweb.web.entity.OrderInfoAll">
+            select
+            go.products_id   ,
+            oi.order_no   ,
+            go.order_status   ,
+            oi.order_status_enum_order_status_enum_id_1   ,
+            oi.profit_amount   ,
+            go.op_id   ,
+            go.user_id   ,
+            go.deliver_time   ,
+            go.is_deleted   ,
+            go.payment_amount   ,
+            oi.general_orders   ,
+            go.complete_time   ,
+            go.actual_amount   ,
+            go.tel   ,
+            go.refund_amount   ,
+            go.order_no  as order_no_go  ,
+            go.refund_type   ,
+            go.shipping_method   ,
+            go.quality   ,
+            oi.total_amount   ,
+            go.refund_status   ,
+            go.delivery_status   ,
+            go.order_type   ,
+            go.payment_channel   ,
+            go.remark   ,
+            oi.order_date   ,
+            oi.shipping_fee   ,
+            go.discount_amount   ,
+            go.payment_order_id   ,
+            go.tracking_number   ,
+            oi.commission   ,
+            go.table_name   ,
+            go.refund_id   ,
+            go.shipping_address   ,
+            oi.user_info_user_info_id_1   ,
+            go.create_time   ,
+            go.cancel_time   ,
+            go.refund_reason   ,
+            go.payment_time   ,
+            go.field_name   ,
+            oi.customer_info_customer_info_id_1   ,
+            go.refund_no   ,
+            oi.order_info_id   ,
+            go.pay_status   ,
+            go.recipient   ,
+            go.shipping_fee  as shipping_fee_go  ,
+            go.shipping_company   ,
+            go.total_amount  as total_amount_go  ,
+            go.update_time   
+            FROM order_info oi
+                left join general_orders go on oi.general_orders = go.id
+            ${ew.customSqlSegment}
+        </select>
+
+        <select id="selectPage" resultType="com.kuafuweb.web.entity.OrderInfoAll">
+            select
+            go.products_id  ,
+            oi.order_no  ,
+            go.order_status  ,
+            oi.order_status_enum_order_status_enum_id_1  ,
+            oi.profit_amount  ,
+            go.op_id  ,
+            go.user_id  ,
+            go.deliver_time  ,
+            go.is_deleted  ,
+            go.payment_amount  ,
+            oi.general_orders  ,
+            go.complete_time  ,
+            go.actual_amount  ,
+            go.tel  ,
+            go.refund_amount  ,
+            go.order_no  as order_no_go ,
+            go.refund_type  ,
+            go.shipping_method  ,
+            go.quality  ,
+            oi.total_amount  ,
+            go.refund_status  ,
+            go.delivery_status  ,
+            go.order_type  ,
+            go.payment_channel  ,
+            go.remark  ,
+            oi.order_date  ,
+            oi.shipping_fee  ,
+            go.discount_amount  ,
+            go.payment_order_id  ,
+            go.tracking_number  ,
+            oi.commission  ,
+            go.table_name  ,
+            go.refund_id  ,
+            go.shipping_address  ,
+            oi.user_info_user_info_id_1  ,
+            go.create_time  ,
+            go.cancel_time  ,
+            go.refund_reason  ,
+            go.payment_time  ,
+            go.field_name  ,
+            oi.customer_info_customer_info_id_1  ,
+            go.refund_no  ,
+            oi.order_info_id  ,
+            go.pay_status  ,
+            go.recipient  ,
+            go.shipping_fee  as shipping_fee_go ,
+            go.shipping_company  ,
+            go.total_amount  as total_amount_go ,
+            go.update_time  
+            FROM order_info oi
+                left join general_orders go on oi.general_orders = go.id
+            ${ew.customSqlSegment}
+        </select>
+
+        <select id="selectById" resultType="com.kuafuweb.web.entity.OrderInfoAll">
+            select
+            go.products_id  ,
+            oi.order_no  ,
+            go.order_status  ,
+            oi.order_status_enum_order_status_enum_id_1  ,
+            oi.profit_amount  ,
+            go.op_id  ,
+            go.user_id  ,
+            go.deliver_time  ,
+            go.is_deleted  ,
+            go.payment_amount  ,
+            oi.general_orders  ,
+            go.complete_time  ,
+            go.actual_amount  ,
+            go.tel  ,
+            go.refund_amount  ,
+            go.order_no  as order_no_go ,
+            go.refund_type  ,
+            go.shipping_method  ,
+            go.quality  ,
+            oi.total_amount  ,
+            go.refund_status  ,
+            go.delivery_status  ,
+            go.order_type  ,
+            go.payment_channel  ,
+            go.remark  ,
+            oi.order_date  ,
+            oi.shipping_fee  ,
+            go.discount_amount  ,
+            go.payment_order_id  ,
+            go.tracking_number  ,
+            oi.commission  ,
+            go.table_name  ,
+            go.refund_id  ,
+            go.shipping_address  ,
+            oi.user_info_user_info_id_1  ,
+            go.create_time  ,
+            go.cancel_time  ,
+            go.refund_reason  ,
+            go.payment_time  ,
+            go.field_name  ,
+            oi.customer_info_customer_info_id_1  ,
+            go.refund_no  ,
+            oi.order_info_id  ,
+            go.pay_status  ,
+            go.recipient  ,
+            go.shipping_fee  as shipping_fee_go ,
+            go.shipping_company  ,
+            go.total_amount  as total_amount_go ,
+            go.update_time  
+            FROM order_info oi
+                left join general_orders go on oi.general_orders = go.id
+            where oi.order_info_id = #{id}
+        </select>
+
+
+</mapper>
+
+
+
+
+

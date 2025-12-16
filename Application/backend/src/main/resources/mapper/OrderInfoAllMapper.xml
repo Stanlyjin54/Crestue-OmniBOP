@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuafuweb.web.mapper.OrderInfoAllMapper">
+    <sql id="order_info_list_sql">
+        select
+        oi.order_no   ,
+        oi.order_status_enum_order_status_enum_id_1   ,
+        oi.customer_info_customer_info_id_1   ,
+        oi.commission   ,
+        oi.quantity   ,
+        oi.user_info_user_info_id_1   ,
+        oi.total_price   ,
+        oi.shipping_fee   ,
+        oi.order_date   ,
+        oi.general_orders   ,
+        oi.total_amount   ,
+        oi.profit_amount   ,
+        oi.order_info_id   
+    
+    
+        FROM order_info oi
+    
+        </sql>
+    
+        <resultMap id="selectListNewMap" type="com.kuafuweb.web.entity.OrderInfoAll">
+    
+        <result property="orderNo" column="order_no"/>
+    
+        <result property="orderStatusEnumOrderStatusEnumId1" column="order_status_enum_order_status_enum_id_1"/>
+    
+        <result property="customerInfoCustomerInfoId1" column="customer_info_customer_info_id_1"/>
+    
+        <result property="commission" column="commission"/>
+    
+        <result property="quantity" column="quantity"/>
+    
+        <result property="userInfoUserInfoId1" column="user_info_user_info_id_1"/>
+    
+        <result property="totalPrice" column="total_price"/>
+    
+        <result property="shippingFee" column="shipping_fee"/>
+    
+        <result property="orderDate" column="order_date"/>
+    
+        <result property="generalOrders" column="general_orders"/>
+    
+        <result property="totalAmount" column="total_amount"/>
+    
+        <result property="profitAmount" column="profit_amount"/>
+    
+        <result property="orderInfoId" column="order_info_id"/>
+    
+    
+    
+    
+        </resultMap>
+    
+<select id="selectListNew"  resultMap="selectListNewMap">
+select
+oi.order_no   ,
+oi.order_status_enum_order_status_enum_id_1   ,
+oi.customer_info_customer_info_id_1   ,
+oi.commission   ,
+oi.quantity   ,
+oi.user_info_user_info_id_1   ,
+oi.total_price   ,
+oi.shipping_fee   ,
+oi.order_date   ,
+oi.general_orders   ,
+oi.total_amount   ,
+oi.profit_amount   ,
+oi.order_info_id   
+    
+    
+    
+        FROM order_info oi
+    
+    
+    
+${ew.customSqlSegment}
+        </select>
+    
+<select id="selectList" resultType="com.kuafuweb.web.entity.OrderInfoAll">
+select
+oi.order_no   ,
+oi.order_status_enum_order_status_enum_id_1   ,
+oi.customer_info_customer_info_id_1   ,
+oi.commission   ,
+oi.quantity   ,
+oi.user_info_user_info_id_1   ,
+oi.total_price   ,
+oi.shipping_fee   ,
+oi.order_date   ,
+oi.general_orders   ,
+oi.total_amount   ,
+oi.profit_amount   ,
+oi.order_info_id   
+    
+    
+        FROM order_info oi
+    
+    
+${ew.customSqlSegment}
+        </select>
+    
+<select id="selectPage" resultType="com.kuafuweb.web.entity.OrderInfoAll">
+select
+oi.order_no  ,
+oi.order_status_enum_order_status_enum_id_1  ,
+oi.customer_info_customer_info_id_1  ,
+oi.commission  ,
+oi.quantity  ,
+oi.user_info_user_info_id_1  ,
+oi.total_price  ,
+oi.shipping_fee  ,
+oi.order_date  ,
+oi.general_orders  ,
+oi.total_amount  ,
+oi.profit_amount  ,
+oi.order_info_id  
+    
+    
+    
+        FROM order_info oi
+    
+    
+    
+    
+    
+${ew.customSqlSegment}
+        </select>
+    
+<select id="selectById" resultType="com.kuafuweb.web.entity.OrderInfoAll">
+select
+oi.order_no  ,
+oi.order_status_enum_order_status_enum_id_1  ,
+oi.customer_info_customer_info_id_1  ,
+oi.commission  ,
+oi.quantity  ,
+oi.user_info_user_info_id_1  ,
+oi.total_price  ,
+oi.shipping_fee  ,
+oi.order_date  ,
+oi.general_orders  ,
+oi.total_amount  ,
+oi.profit_amount  ,
+oi.order_info_id  
+    
+    
+        FROM order_info oi
+    
+    
+    
+        where oi.order_info_id = #{id}
+        </select>
+    
+<select id="selectCount" resultType="java.lang.Long">
+select
+count(*)
+    
+    
+    
+FROM order_info oi
+    
+    
+    
+${ew.customSqlSegment}
+    
+    
+        </select>
+    
+        </mapper>

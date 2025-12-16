@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuafuweb.web.mapper.CustomerInfoAllMapper">
+    <sql id="customer_info_list_sql">
+        select
+        ci.wechat_id   ,
+        ci.address   ,
+        ci.customer_info_id   ,
+        cte.tag_name   ,
+        ci.source   ,
+        rle.level_name   ,
+        ci.phone   ,
+        ci.wechat_data_encrypted   ,
+        cte.is_ai_generated   ,
+        ci.rfm_level_enum_rfm_level_enum_id_1   ,
+        ci.customer_tag_enum_customer_tag_enum_id_1   ,
+        ci.customer_name   ,
+        ci.email   
+
+
+        FROM customer_info ci
+        left join rfm_level_enum rle on ci.rfm_level_enum_rfm_level_enum_id_1 = rle.rfm_level_enum_id
+        left join customer_tag_enum cte on ci.customer_tag_enum_customer_tag_enum_id_1 = cte.customer_tag_enum_id
+
+        </sql>
+
+        <resultMap id="selectListNewMap" type="com.kuafuweb.web.entity.CustomerInfoAll">
+
+        <result property="wechatId" column="wechat_id"/>
+
+        <result property="address" column="address"/>
+
+        <result property="customerInfoId" column="customer_info_id"/>
+
+        <result property="tagName" column="tag_name"/>
+
+        <result property="source" column="source"/>
+
+        <result property="levelName" column="level_name"/>
+
+        <result property="phone" column="phone"/>
+
+        <result property="wechatDataEncrypted" column="wechat_data_encrypted"/>
+
+        <result property="isAiGenerated" column="is_ai_generated"/>
+
+        <result property="rfmLevelEnumRfmLevelEnumId1" column="rfm_level_enum_rfm_level_enum_id_1"/>
+
+        <result property="customerTagEnumCustomerTagEnumId1" column="customer_tag_enum_customer_tag_enum_id_1"/>
+
+        <result property="customerName" column="customer_name"/>
+
+        <result property="email" column="email"/>
+
+
+
+
+        </resultMap>
+
+<select id="selectListNew"  resultMap="selectListNewMap">
+select
+ci.wechat_id   ,
+ci.address   ,
+ci.customer_info_id   ,
+cte.tag_name   ,
+ci.source   ,
+rle.level_name   ,
+ci.phone   ,
+ci.wechat_data_encrypted   ,
+cte.is_ai_generated   ,
+ci.rfm_level_enum_rfm_level_enum_id_1   ,
+ci.customer_tag_enum_customer_tag_enum_id_1   ,
+ci.customer_name   ,
+ci.email   
+
+
+
+        FROM customer_info ci
+        left join
+
+        rfm_level_enum
+
+        rle on ci.rfm_level_enum_rfm_level_enum_id_1 = rle.rfm_level_enum_id
+        left join
+
+        customer_tag_enum
+
+        cte on ci.customer_tag_enum_customer_tag_enum_id_1 = cte.customer_tag_enum_id
+
+
+
+${ew.customSqlSegment}
+        </select>
+
+<select id="selectList" resultType="com.kuafuweb.web.entity.CustomerInfoAll">
+select
+ci.wechat_id   ,
+ci.address   ,
+ci.customer_info_id   ,
+cte.tag_name   ,
+ci.source   ,
+rle.level_name   ,
+ci.phone   ,
+ci.wechat_data_encrypted   ,
+cte.is_ai_generated   ,
+ci.rfm_level_enum_rfm_level_enum_id_1   ,
+ci.customer_tag_enum_customer_tag_enum_id_1   ,
+ci.customer_name   ,
+ci.email   
+
+
+        FROM customer_info ci
+        left join rfm_level_enum rle on ci.rfm_level_enum_rfm_level_enum_id_1 = rle.rfm_level_enum_id
+        left join customer_tag_enum cte on ci.customer_tag_enum_customer_tag_enum_id_1 = cte.customer_tag_enum_id
+
+
+${ew.customSqlSegment}
+        </select>
+
+<select id="selectPage" resultType="com.kuafuweb.web.entity.CustomerInfoAll">
+select
+ci.wechat_id  ,
+ci.address  ,
+ci.customer_info_id  ,
+cte.tag_name  ,
+ci.source  ,
+rle.level_name  ,
+ci.phone  ,
+ci.wechat_data_encrypted  ,
+cte.is_ai_generated  ,
+ci.rfm_level_enum_rfm_level_enum_id_1  ,
+ci.customer_tag_enum_customer_tag_enum_id_1  ,
+ci.customer_name  ,
+ci.email  
+
+
+
+        FROM customer_info ci
+        left join rfm_level_enum rle on ci.rfm_level_enum_rfm_level_enum_id_1 = rle.rfm_level_enum_id
+        left join customer_tag_enum cte on ci.customer_tag_enum_customer_tag_enum_id_1 = cte.customer_tag_enum_id
+
+
+
+
+
+${ew.customSqlSegment}
+        </select>
+
+<select id="selectById" resultType="com.kuafuweb.web.entity.CustomerInfoAll">
+select
+ci.wechat_id  ,
+ci.address  ,
+ci.customer_info_id  ,
+cte.tag_name  ,
+ci.source  ,
+rle.level_name  ,
+ci.phone  ,
+ci.wechat_data_encrypted  ,
+cte.is_ai_generated  ,
+ci.rfm_level_enum_rfm_level_enum_id_1  ,
+ci.customer_tag_enum_customer_tag_enum_id_1  ,
+ci.customer_name  ,
+ci.email  
+
+
+        FROM customer_info ci
+        left join rfm_level_enum rle on ci.rfm_level_enum_rfm_level_enum_id_1 = rle.rfm_level_enum_id
+        left join customer_tag_enum cte on ci.customer_tag_enum_customer_tag_enum_id_1 = cte.customer_tag_enum_id
+
+
+
+        where ci.customer_info_id = #{id}
+        </select>
+
+<select id="selectCount" resultType="java.lang.Long">
+select
+count(*)
+
+
+
+FROM customer_info ci
+left join rfm_level_enum rle on ci.rfm_level_enum_rfm_level_enum_id_1 = rle.rfm_level_enum_id
+left join customer_tag_enum cte on ci.customer_tag_enum_customer_tag_enum_id_1 = cte.customer_tag_enum_id
+
+
+
+${ew.customSqlSegment}
+
+
+        </select>
+
+        </mapper>

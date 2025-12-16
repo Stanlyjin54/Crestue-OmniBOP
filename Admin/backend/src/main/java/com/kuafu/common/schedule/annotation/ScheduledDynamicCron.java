@@ -1,0 +1,33 @@
+﻿package com.kuafuweb.common.schedule.annotation;
+
+import com.kuafuweb.common.schedule.handler.AbstractDynamicCronHandler;
+
+import java.lang.annotation.*;
+
+@Target({ElementType.METHOD, ElementType.ANNOTATION_TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface ScheduledDynamicCron {
+
+    /**
+     * cornName的名称
+     * @return
+     */
+    String cornName();
+
+
+
+
+
+    /**
+     * 动态cron处理类
+     * @return
+     */
+    Class<? extends AbstractDynamicCronHandler> handler();
+
+}
+
+
+
+
+

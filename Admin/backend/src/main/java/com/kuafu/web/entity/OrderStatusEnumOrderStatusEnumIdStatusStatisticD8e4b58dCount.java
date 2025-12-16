@@ -1,0 +1,42 @@
+﻿package com.kuafuweb.web.entity;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.util.List;
+
+
+@Data
+public class OrderStatusEnumOrderStatusEnumIdStatusStatisticD8e4b58dCount {
+
+        @Data
+        @NoArgsConstructor
+        public static class Statistic0{
+
+
+                        @JsonProperty("name")
+
+
+
+
+
+                private   String orderStatusEnumId;
+
+
+
+                @JsonProperty("value")
+
+
+
+                private   String result_kf;
+
+        }
+}
+
+
+
+
+

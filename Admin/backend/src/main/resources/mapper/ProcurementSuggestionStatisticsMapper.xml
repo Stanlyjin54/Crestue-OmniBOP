@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuafuweb.web.mapper.ProcurementSuggestionStatisticsMapper">
+
+    <resultMap id="procurement_suggestion_suggest_date_datetime_statistic_ec8b49be_countStatistic0" type="com.kuafuweb.web.entity.ProcurementSuggestionSuggestDateDatetimeStatisticEc8b49beCount$Statistic0">
+        <result property="suggestDate" column="suggest_date"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+<resultMap id="procurement_suggestion_suggest_date_datetime_statistic_26e934d3_countStatistic0" type="com.kuafuweb.web.entity.ProcurementSuggestionSuggestDateDatetimeStatistic26e934d3Count$Statistic0">
+        <result property="suggestDate" column="suggest_date"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+<resultMap id="procurement_suggestion_suggest_date_datetime_statistic_00313900_countStatistic0" type="com.kuafuweb.web.entity.ProcurementSuggestionSuggestDateDatetimeStatistic00313900Count$Statistic0">
+        <result property="suggestDate" column="suggest_date"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+
+
+
+    <select id="procurement_suggestion_suggest_date_datetime_statistic_ec8b49be_count" resultMap="procurement_suggestion_suggest_date_datetime_statistic_ec8b49be_countStatistic0">
+        select
+                ps.suggest_date  
+                ,  count(ps.procurement_suggestion_id)
+ as result_kf
+        FROM procurement_suggestion ps
+
+        ${ew.customSqlSegment}
+        group by 
+            ps.suggest_date
+    </select>
+
+
+    <select id="procurement_suggestion_suggest_date_datetime_statistic_26e934d3_count" resultMap="procurement_suggestion_suggest_date_datetime_statistic_26e934d3_countStatistic0">
+        select
+                ps.suggest_date  
+                ,  count(ps.procurement_suggestion_id)
+ as result_kf
+        FROM procurement_suggestion ps
+
+        ${ew.customSqlSegment}
+        group by 
+            ps.suggest_date
+    </select>
+
+
+    <select id="procurement_suggestion_suggest_date_datetime_statistic_00313900_count" resultMap="procurement_suggestion_suggest_date_datetime_statistic_00313900_countStatistic0">
+        select
+                ps.suggest_date  
+                ,  count(ps.procurement_suggestion_id)
+ as result_kf
+        FROM procurement_suggestion ps
+
+        ${ew.customSqlSegment}
+        group by 
+            ps.suggest_date
+    </select>
+
+
+
+</mapper>
+
+
+
+
+

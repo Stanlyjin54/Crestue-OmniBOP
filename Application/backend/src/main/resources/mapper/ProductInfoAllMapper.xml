@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuafuweb.web.mapper.ProductInfoAllMapper">
+    <sql id="product_info_list_sql">
+        select
+        pi.unit   ,
+        pi.product_info_id   ,
+        pi.product_status_enum_product_status_enum_id_1   ,
+        pse.status_name   ,
+        pi.specification   ,
+        pi.serial_number   ,
+        pi.min_stock   ,
+        pi.category   ,
+        pi.product_name   ,
+        pi.barcode   ,
+        pi.brand   ,
+        pi.shelf_life   
+        FROM product_info pi
+        left join product_status_enum pse on pi.product_status_enum_product_status_enum_id_1 = pse.product_status_enum_id
+        </sql>
+
+        <resultMap id="selectListNewMap" type="com.kuafuweb.web.entity.ProductInfoAll">
+        <result property="unit" column="unit"/>
+        <result property="productInfoId" column="product_info_id"/>
+        <result property="productStatusEnumProductStatusEnumId1" column="product_status_enum_product_status_enum_id_1"/>
+        <result property="statusName" column="status_name"/>
+        <result property="specification" column="specification"/>
+        <result property="serialNumber" column="serial_number"/>
+        <result property="minStock" column="min_stock"/>
+        <result property="category" column="category"/>
+        <result property="productName" column="product_name"/>
+        <result property="barcode" column="barcode"/>
+        <result property="brand" column="brand"/>
+        <result property="shelfLife" column="shelf_life"/>
+
+                <collection property="images" ofType="com.kuafuweb.common.entity.StaticResource">
+                            <id property="resourceId" column="images_resource_id"/>
+                            <result property="resourceName" column="images_resource_name"/>
+                            <result property="resourcePath" column="images_resource_path"/>
+                            <result property="relatedTableName" column="images_related_table_name"/>
+                            <result property="relatedTableKey" column="images_related_table_key"/>
+                            <result property="relateTableColumnName" column="images_relate_table_column_name"/>
+                </collection>
+        </resultMap>
+
+<select id="selectListNew"  resultMap="selectListNewMap">
+select
+pi.unit   ,
+pi.product_info_id   ,
+pi.product_status_enum_product_status_enum_id_1   ,
+pse.status_name   ,
+pi.specification   ,
+pi.serial_number   ,
+pi.min_stock   ,
+pi.category   ,
+pi.product_name   ,
+pi.barcode   ,
+pi.brand   ,
+pi.shelf_life   
+        ,images.resource_id as  images_resource_id
+        ,images.resource_name as images_resource_name
+        ,images.resource_path as  images_resource_path
+        ,images.related_table_name as  images_related_table_name
+        ,images.related_table_key as  images_related_table_key
+        ,images.relate_table_column_name as images_relate_table_column_name
+        FROM product_info pi
+        left join product_status_enum pse on pi.product_status_enum_product_status_enum_id_1 = pse.product_status_enum_id
+        left join
+        (select resource_id,
+        resource_name,
+        resource_path,
+        related_table_name,
+        related_table_key,
+        relate_table_column_name
+        from static_resources where related_table_name='product_info' and relate_table_column_name='images') as images
+        on images.related_table_key=pi.product_info_id
+${ew.customSqlSegment}
+        </select>
+
+<select id="selectList" resultType="com.kuafuweb.web.entity.ProductInfoAll">
+select
+pi.unit   ,
+pi.product_info_id   ,
+pi.product_status_enum_product_status_enum_id_1   ,
+pse.status_name   ,
+pi.specification   ,
+pi.serial_number   ,
+pi.min_stock   ,
+pi.category   ,
+pi.product_name   ,
+pi.barcode   ,
+pi.brand   ,
+pi.shelf_life   
+        FROM product_info pi
+        left join product_status_enum pse on pi.product_status_enum_product_status_enum_id_1 = pse.product_status_enum_id
+${ew.customSqlSegment}
+        </select>
+
+<select id="selectPage" resultType="com.kuafuweb.web.entity.ProductInfoAll">
+select
+pi.unit  ,
+pi.product_info_id  ,
+pi.product_status_enum_product_status_enum_id_1  ,
+pse.status_name  ,
+pi.specification  ,
+pi.serial_number  ,
+pi.min_stock  ,
+pi.category  ,
+pi.product_name  ,
+pi.barcode  ,
+pi.brand  ,
+pi.shelf_life  
+        FROM product_info pi
+        left join product_status_enum pse on pi.product_status_enum_product_status_enum_id_1 = pse.product_status_enum_id
+${ew.customSqlSegment}
+        </select>
+
+<select id="selectById" resultType="com.kuafuweb.web.entity.ProductInfoAll">
+select
+pi.unit  ,
+pi.product_info_id  ,
+pi.product_status_enum_product_status_enum_id_1  ,
+pse.status_name  ,
+pi.specification  ,
+pi.serial_number  ,
+pi.min_stock  ,
+pi.category  ,
+pi.product_name  ,
+pi.barcode  ,
+pi.brand  ,
+pi.shelf_life  
+        FROM product_info pi
+        left join product_status_enum pse on pi.product_status_enum_product_status_enum_id_1 = pse.product_status_enum_id
+        where pi.product_info_id = #{id}
+        </select>
+
+<select id="selectCount" resultType="java.lang.Long">
+select
+count(*)
+FROM product_info pi
+left join product_status_enum pse on pi.product_status_enum_product_status_enum_id_1 = pse.product_status_enum_id
+${ew.customSqlSegment}
+        </select>
+        </mapper>

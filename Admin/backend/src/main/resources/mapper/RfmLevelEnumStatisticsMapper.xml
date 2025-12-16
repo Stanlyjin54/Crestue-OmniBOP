@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuafuweb.web.mapper.RfmLevelEnumStatisticsMapper">
+
+    <resultMap id="rfm_level_enum_rfm_level_enum_id_status_statistic_37bad8f0_countStatistic0" type="com.kuafuweb.web.entity.RfmLevelEnumRfmLevelEnumIdStatusStatistic37bad8f0Count$Statistic0">
+        <result property="rfmLevelEnumId" column="rfm_level_enum_id"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+<resultMap id="rfm_level_enum_rfm_level_enum_id_status_statistic_23d416cb_countStatistic0" type="com.kuafuweb.web.entity.RfmLevelEnumRfmLevelEnumIdStatusStatistic23d416cbCount$Statistic0">
+        <result property="rfmLevelEnumId" column="rfm_level_enum_id"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+<resultMap id="rfm_level_enum_rfm_level_enum_id_status_statistic_bcb4c0b6_countStatistic0" type="com.kuafuweb.web.entity.RfmLevelEnumRfmLevelEnumIdStatusStatisticBcb4c0b6Count$Statistic0">
+        <result property="rfmLevelEnumId" column="rfm_level_enum_id"/>
+        <result property="result_kf" column="result_kf"/>
+    </resultMap>
+
+
+
+    <select id="rfm_level_enum_rfm_level_enum_id_status_statistic_37bad8f0_count" resultMap="rfm_level_enum_rfm_level_enum_id_status_statistic_37bad8f0_countStatistic0">
+        select
+                rle.rfm_level_enum_id  
+                ,  count(rle.rfm_level_enum_id)
+ as result_kf
+        FROM rfm_level_enum rle
+
+        ${ew.customSqlSegment}
+        group by 
+            rle.rfm_level_enum_id
+    </select>
+
+
+    <select id="rfm_level_enum_rfm_level_enum_id_status_statistic_23d416cb_count" resultMap="rfm_level_enum_rfm_level_enum_id_status_statistic_23d416cb_countStatistic0">
+        select
+                rle.rfm_level_enum_id  
+                ,  count(rle.rfm_level_enum_id)
+ as result_kf
+        FROM rfm_level_enum rle
+
+        ${ew.customSqlSegment}
+        group by 
+            rle.rfm_level_enum_id
+    </select>
+
+
+    <select id="rfm_level_enum_rfm_level_enum_id_status_statistic_bcb4c0b6_count" resultMap="rfm_level_enum_rfm_level_enum_id_status_statistic_bcb4c0b6_countStatistic0">
+        select
+                rle.rfm_level_enum_id  
+                ,  count(rle.rfm_level_enum_id)
+ as result_kf
+        FROM rfm_level_enum rle
+
+        ${ew.customSqlSegment}
+        group by 
+            rle.rfm_level_enum_id
+    </select>
+
+
+
+</mapper>
+
+
+
+
+

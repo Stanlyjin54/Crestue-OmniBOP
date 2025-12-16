@@ -1,0 +1,85 @@
+const BASE_API = "/apiProxy";
+import service from "@/utils/request";
+
+export default {
+    /**
+     * 获取当前的经纬度信息
+     * @param type      返回的坐标类型，gcj02 返回国测局加密坐标，默认为 wgs84 返回 gps 坐标（高德，百度，Google Maps使用这个坐标）
+     * @param altitude  是否返回高度信息
+     * @param isHighAccuracy 是否使用高精度定位
+     */
+    getCurrentLocation(param) {
+        if (!param) {
+            param = {}
+        }
+        const {type = 'wgs84', altitude = false, isHighAccuracy = false} = param
+        return new Promise((resolve, reject) => {
+            uni.getLocation({
+                type: type, // 默认使用 'wgs84' 类型，可以根据需求修改为 'gcj02' 等
+                success: (res) => {
+                    const {latitude, longitude, speed, altitude, horizontalAccuracy} = res;
+                    resolve({
+                        success: true,
+                        latitude, // 纬度，浮点数，范围为-90~90，负数表示南纬
+                        longitude, // 经度，浮点数，范围为-180~180，负数表示西经
+                        speed, // 速度，浮点数，单位m/s
+                        altitude, // 高度，单位 m
+                        horizontalAccuracy // 水平精度，单位 m
+                    });
+                },
+                fail: (err) => {
+                    console.error('获取位置失败', err);
+                    reject(err); // 错误信息传递给调用者
+                }
+            });
+        });
+    },
+
+
+    /**
+     * 根据经纬度获取详细的地址信息
+     * @param param
+     */
+    getAddressByLocation(param = {}) {
+        // 参数验证
+        if (!param.latitude || !param.longitude) {
+            return Promise.reject(new Error('Missing latitude or longitude'));
+        }
+
+        return service({
+            url: BASE_API,
+            method: "post",
+            data: {
+                apiId: "geocoder",
+                params: {
+                    location: `${param.latitude},${param.longitude}`
+                }
+            }
+        }).then(res => {
+            let result = res.data
+            result.success= true
+            return result
+        }); // 直接返回需要的数据
+
+    },
+
+    /**
+     * 打开地图选择一个地址返回
+     * @param param
+     * @returns {Promise<unknown>}
+     */
+    chooseLocation(param) {
+        return new Promise((resolve, reject) => {
+            // 小程序平台可直接使用 chooseLocation
+            uni.chooseLocation({
+                success: res => {
+                    res.success = true;
+                    resolve(res);
+                },
+                fail: function (err) {
+                    reject(err);
+                }
+            });
+        });
+    }
+}

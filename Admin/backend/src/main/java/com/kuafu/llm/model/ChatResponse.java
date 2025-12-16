@@ -1,0 +1,14 @@
+﻿package com.kuafuweb.llm.model;
+
+import lombok.Data;
+
+@Data
+public class ChatResponse {
+    private String conversionId;
+    private String answer;
+}
+
+
+
+
+
