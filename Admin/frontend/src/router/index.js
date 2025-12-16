@@ -2,6 +2,14 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 export const constantRouters = [
     {
+        path: '/',
+        meta: {
+            isParentView: true,
+            title: "仪表板",
+        },
+        component: () => import('@/views/dashboard/index.vue'),
+    },
+    {
         path: '/login',
         meta: {
             isParentView: true,

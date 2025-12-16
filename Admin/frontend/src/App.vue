@@ -1,20 +1,14 @@
 <template>
-  <pc_new v-if="type==='PC'" />
-  <phone_new v-else />
-  
+  <router-view />
 </template>
 
 <script setup>
-import pc from '@/layout/pc.vue'
-import pc_new from '@/layout/pc_new.vue'
-import phone from '@/layout/phone.vue'
-
-import phone_new from '@/layout/phone_new.vue'
-
-const type = import.meta.env.VITE_APP_TYPE;
-
 </script>
 
 <style scoped>
-
+#app {
+  width: 100%;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
 </style>

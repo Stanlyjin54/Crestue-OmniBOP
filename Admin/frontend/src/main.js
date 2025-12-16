@@ -1,8 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-// 自定义样式 - 暂时禁用SCSS导入
-// import '@/styles/index.scss';
+// 导入样式文件
+import '@/styles/index.scss';
 
 const app = createApp(App);
 

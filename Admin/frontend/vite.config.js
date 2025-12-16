@@ -11,7 +11,16 @@ export default defineConfig(({mode}) => {
   return { 
     base: env.VITE_BASE,
     plugins: [
-      vue(),
+      vue({
+        // SCSS 配置
+        style: {
+          preprocessOptions: {
+            scss: {
+              additionalData: `@import "@/styles/index.scss";`
+            }
+          }
+        }
+      }),
       AutoImport({
         imports: [
           'vue',
@@ -22,13 +31,8 @@ export default defineConfig(({mode}) => {
     ],
     server: {
       host: "0.0.0.0",
-      proxy: {
-        [env.VITE_APP_BASE_API]: {
-          target: env.VITE_APP_SERVICE_API,
-          changeOrigin: true,
-          rewrite: (path) => path.replace(new RegExp('^' + env.VITE_APP_BASE_API), ''),
-        },
-      }
+      port: 5173,
+      proxy: {}
     },
     resolve: {
       alias: {
@@ -36,6 +40,14 @@ export default defineConfig(({mode}) => {
         '~': path.resolve(__dirname, './'),
         // 设置别名
         '@': path.resolve(__dirname, './src')
+      }
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // 确保 SCSS 预处理正确工作
+          additionalData: `@import "@/styles/index.scss";`
+        }
       }
     }
   }
