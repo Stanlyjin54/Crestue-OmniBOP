@@ -11,16 +11,7 @@ export default defineConfig(({mode}) => {
   return { 
     base: env.VITE_BASE,
     plugins: [
-      vue({
-        // SCSS 配置
-        style: {
-          preprocessOptions: {
-            scss: {
-              additionalData: `@import "@/styles/index.scss";`
-            }
-          }
-        }
-      }),
+      vue(),
       AutoImport({
         imports: [
           'vue',
