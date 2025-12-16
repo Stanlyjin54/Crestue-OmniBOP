@@ -1,22 +1,21 @@
-# 版本 0.1.6 (2025-12-16)
+# 版本 0.1.7 (2025-12-16)
 
-## 修复构建错误，添加缺失资源文件
+## 修复网络请求错误处理和API配置问题
 
 ### 主要改动：
-- 修复了库存管理页面缺少 `inventory.png` 图片文件的问题
-- 解决了 `image_search/index.vue` 中不存在的 `Brain` 图标导入问题，将 `Brain` 替换为 `Opportunity` 图标
-- 成功解决了所有构建错误，项目现在可以正常构建和运行
+- 修复了axios请求错误处理中的安全性问题，解决了当 `error.response` 为 `undefined` 时的崩溃
+- 修复了API基础URL配置问题，现在正确使用后端服务器地址而不是开发服务器地址
+- 提升了网络错误时的用户体验和错误信息显示
 
 ### 技术细节：
-- 在 `src/assets/logo/` 目录下复制 `document.png` 并重命名为 `inventory.png` 解决图片缺失问题
-- 修改了 `src/views/image_search/index.vue` 中的图标导入和使用，将 `Brain` 图标替换为 `Opportunity` 图标
-- 项目构建成功，开发服务器在端口 5175 上正常运行
+- 修改了 `src/utils/request.js` 中的错误拦截器，添加了安全的错误信息获取逻辑
+- 更新了axios实例的baseURL配置，优先使用 `VITE_APP_SERVICE_API` (后端API地址)
+- 增强了网络异常时的错误提示信息，确保不会因为网络问题导致应用崩溃
 
 ### 文件变更：
-- `src/assets/logo/inventory.png` - 新增库存管理页面图标
-- `src/views/image_search/index.vue` - 修复图标导入和使用
+- `src/utils/request.js` - 修复错误处理逻辑和API配置
 
 ### 测试状态：
 - ✅ 项目构建成功
-- ✅ 开发服务器启动正常
-- ✅ 所有主要页面图标加载正常
+- ✅ 网络请求错误处理更稳定
+- ✅ API请求指向正确的后端地址

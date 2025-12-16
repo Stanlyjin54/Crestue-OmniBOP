@@ -4,7 +4,7 @@ import {ElMessage, ElMessageBox} from 'element-plus';
 
 // 创建axios实例
 const service = axios.create({
-    baseURL: import.meta.env.VITE_APP_BASE_API,
+    baseURL: import.meta.env.VITE_APP_SERVICE_API || import.meta.env.VITE_APP_BASE_API,
     timeout: 50000, // 请求超时时间：50s
     headers: {'Content-Type': 'application/json;charset=utf-8'},
 });
@@ -56,18 +56,26 @@ service.interceptors.response.use(
     },
     (error) => {
         console.log('请求异常：', error);
-        const {message} = error.response.data;
+        let message = '网络异常，请稍后再试!';
+        
+        // 安全地获取错误信息
+        if (error.response && error.response.data) {
+            message = error.response.data.message || message;
+        } else if (error.message) {
+            message = error.message;
+        }
+        
         // 未认证
-        if (error.response.status === 401) {
+        if (error.response && error.response.status === 401) {
             localStorage.removeItem('token')
             location.href = import.meta.env.VITE_BASE;
         } else {
             ElMessage({
-                message: '网络异常，请稍后再试!',
+                message: message,
                 type: 'error',
                 duration: 5 * 1000,
             });
-            return Promise.reject(new Error(message || 'Error'));
+            return Promise.reject(new Error(message));
         }
     },
 );
