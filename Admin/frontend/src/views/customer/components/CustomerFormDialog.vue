@@ -437,6 +437,13 @@ const formData = reactive({
   contactEmail: ''
 })
 
+// 计算属性（必须在表单规则之前定义）
+const isEnterprise = computed(() => {
+  return formData.customerType === 'enterprise' || 
+         formData.customerType === 'distributor' || 
+         formData.customerType === 'supplier'
+})
+
 // 表单验证规则
 const formRules = {
   customerName: [
@@ -486,12 +493,6 @@ const dialogVisible = computed({
 
 const dialogTitle = computed(() => {
   return props.type === 'create' ? '新建客户' : '编辑客户'
-})
-
-const isEnterprise = computed(() => {
-  return formData.customerType === 'enterprise' || 
-         formData.customerType === 'distributor' || 
-         formData.customerType === 'supplier'
 })
 
 // 监听客户类型变化，重置企业相关字段

@@ -80,7 +80,7 @@
                 <el-icon><Goods /></el-icon>
               </div>
               <div class="stat-content">
-                <div class="stat-number">{{ stockStatistics.total }}</div>
+                <div class="stat-number">{{ getStockStatistics.total }}</div>
                 <div class="stat-label">商品总数</div>
               </div>
             </div>
@@ -93,7 +93,7 @@
                 <el-icon><CircleCheck /></el-icon>
               </div>
               <div class="stat-content">
-                <div class="stat-number">{{ stockStatistics.normal }}</div>
+                <div class="stat-number">{{ getStockStatistics.normal }}</div>
                 <div class="stat-label">库存正常</div>
               </div>
             </div>
@@ -106,7 +106,7 @@
                 <el-icon><Warning /></el-icon>
               </div>
               <div class="stat-content">
-                <div class="stat-number">{{ stockStatistics.low_stock }}</div>
+                <div class="stat-number">{{ getStockStatistics.low_stock }}</div>
                 <div class="stat-label">库存预警</div>
               </div>
             </div>
@@ -119,7 +119,7 @@
                 <el-icon><CircleClose /></el-icon>
               </div>
               <div class="stat-content">
-                <div class="stat-number">{{ stockStatistics.out_of_stock }}</div>
+                <div class="stat-number">{{ getStockStatistics.out_of_stock }}</div>
                 <div class="stat-label">缺货商品</div>
               </div>
             </div>
@@ -264,7 +264,7 @@ const {
   updateProduct,
   deleteProduct,
   getStockAlertStatus,
-  stockStatistics
+  getStockStatistics
 } = useProduct()
 
 // 搜索表单

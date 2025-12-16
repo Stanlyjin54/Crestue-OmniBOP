@@ -218,7 +218,7 @@
             <!-- LLM智能分析 -->
             <div class="result-section" v-if="resultData.intelligentAnalysis">
               <h3 class="section-title">
-                <el-icon><Brain /></el-icon>
+                <el-icon><Opportunity /></el-icon>
                 智能分析
               </h3>
               <el-card shadow="never" class="result-card">
@@ -284,7 +284,7 @@
 
 <script setup>
 import { ref, computed, onMounted, nextTick } from 'vue'
-import { UploadFilled, Document, View, Collection, Location, Brain } from '@element-plus/icons-vue'
+import { UploadFilled, Document, View, Collection, Location, Opportunity } from '@element-plus/icons-vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 
 const { proxy } = getCurrentInstance()

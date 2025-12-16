@@ -440,6 +440,27 @@ export const dynamicRoutes = [{
         },
         component: ()=> import('@/views/report/index.vue'),
     }, {
+        path: '/product',
+        meta: {
+            title: '商品管理',
+            shownot: false
+        },
+        component: ()=> import('@/views/product/index.vue'),
+    }, {
+        path: '/inventory',
+        meta: {
+            title: '库存查询',
+            shownot: false
+        },
+        component: ()=> import('@/views/inventory/index.vue'),
+    }, {
+        path: '/order/create',
+        meta: {
+            title: '新增订单',
+            shownot: false
+        },
+        component: ()=> import('@/views/order/index.vue'),
+    }, {
         path: '/config',
         meta: {
             title: '系统配置',
