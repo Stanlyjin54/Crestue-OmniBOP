@@ -1,66 +1,19 @@
-﻿package com.kuafuweb.pay.business.domain;
+package com.kuafu.pay.business.domain;
 
-import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
-
-@Data
+/**
+ * OrderCreatRequest - rebuilt class
+ */
+@Component
+@Slf4j
 public class OrderCreatRequest {
-    private String orderNo;
-
-    private Integer productId;
-
-    private Integer userId;
-
-    private String payChanel;
-
-    private String opId;
-
-    private Integer quality;
-
-    private BigDecimal priceSingle;
-    private String remark;
-
-    private String productSubject;
-
-
-
-
+    
     /**
-     * 物流方式
+     * Placeholder method
      */
-    private String shippingMethod;
-
-    /**
-     * 收件人手机号
-     */
-    private String tel;
-
-    /**
-     * 收件人姓名
-     */
-
-    private String recipient;
-    /**
-     * 地址
-     */
-
-    private String shippingAddress;
-
-
-    /**
-     * 订单表
-     */
-    private String tableName;
-
-    /**
-     * 订单字段名
-     */
-    private String fieldName;
-
+    public void placeholderMethod() {
+        log.info("Placeholder method called in OrderCreatRequest");
+    }
 }
-
-
-
-
-

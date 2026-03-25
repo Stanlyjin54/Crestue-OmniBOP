@@ -1,37 +1,40 @@
-﻿package com.kuafuweb.web.mapper;
+package com.kuafu.web.mapper;
 
-import java.util.List;
-import java.math.BigDecimal;
-
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.kuafuweb.web.entity.LiveStreamSync;
-
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Mapper;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import org.apache.ibatis.annotations.Select;
+import java.util.List;
+import java.util.Map;
+
 /**
- * <p> live_stream_sync Mapper </p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * LiveStreamSyncStatisticsMapper - rebuilt mapper
  */
 @Mapper
-public interface LiveStreamSyncStatisticsMapper extends BaseMapper<LiveStreamSync> {
-
-                        List<Object> live_stream_sync_sync_time_datetime_statistic_f04701f0_count(@Param("ew") Wrapper queryWrapper);
-
-
-                        List<Object> live_stream_sync_sync_time_datetime_statistic_9943545f_count(@Param("ew") Wrapper queryWrapper);
-
-
-                        List<Object> live_stream_sync_sync_time_datetime_statistic_5ec92ac3_count(@Param("ew") Wrapper queryWrapper);
-
+public interface LiveStreamSyncStatisticsMapper {
+    
+    /**
+     * Find all records
+     */
+    @Select("SELECT * FROM placeholder_table")
+    List<Map<String, Object>> findAll();
+    
+    /**
+     * Find by id
+     */
+    @Select("SELECT * FROM placeholder_table WHERE id = #{id}")
+    Map<String, Object> findById(Long id);
+    
+    /**
+     * Insert record
+     */
+    int insert(Map<String, Object> record);
+    
+    /**
+     * Update record
+     */
+    int update(Map<String, Object> record);
+    
+    /**
+     * Delete by id
+     */
+    int deleteById(Long id);
 }
-
-
-
-
-

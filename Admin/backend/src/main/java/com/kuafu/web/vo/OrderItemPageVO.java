@@ -1,43 +1,24 @@
-﻿package com.kuafuweb.web.vo;
+package com.kuafu.web.vo;
 
-import java.util.Date;
-
-import com.kuafuweb.common.domin.PageRequest;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * <p>订单商品明细-分页列表-响应参数</p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * OrderItemPageVO - rebuilt VO
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
-public class OrderItemPageVO extends PageRequest {
-
-    @JsonProperty(value = "orderItemId")
-    private Integer orderItemId;
-    @JsonProperty(value = "orderInfoOrderInfoId1")
-    private Integer orderInfoOrderInfoId1;
-    @JsonProperty(value = "productInfoProductInfoId1")
-    private Integer productInfoProductInfoId1;
-    @JsonProperty(value = "quantity")
-    private Integer quantity;
-    @JsonProperty(value = "unitPrice")
-    private Double unitPrice;
-    @JsonProperty(value = "totalPrice")
-    private Double totalPrice;
-
+public class OrderItemPageVO {
+    
+    @JsonProperty("id")
+    private Long id;
+    
+    @JsonProperty("name")
+    private String name;
+    
+    public OrderItemPageVO() {}
+    
+    public OrderItemPageVO(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
-
-
-
-
-

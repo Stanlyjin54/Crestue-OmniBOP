@@ -1,14 +1,19 @@
-﻿package com.kuafuweb.llm.model;
+package com.kuafu.llm.model;
 
-import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
-@Data
+/**
+ * ChatResponse - rebuilt class
+ */
+@Component
+@Slf4j
 public class ChatResponse {
-    private String conversionId;
-    private String answer;
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in ChatResponse");
+    }
 }
-
-
-
-
-

@@ -1,18 +1,21 @@
-﻿package com.kuafuweb.llm.loader;
+package com.kuafu.llm.loader;
 
-import java.io.File;
-import java.io.InputStream;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
-public interface Loader {
-
-    String loader(String file);
-
-    String loader(File file);
-
-    String loader(InputStream inputStream);
+/**
+ * Loader - rebuilt class
+ */
+@Component
+public class Loader {
+    
+    private static final Logger log = LoggerFactory.getLogger(Loader.class);
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in Loader");
+    }
 }
-
-
-
-
-

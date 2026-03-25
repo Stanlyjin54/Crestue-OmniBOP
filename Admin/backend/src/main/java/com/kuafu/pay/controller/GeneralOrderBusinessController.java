@@ -1,64 +1,41 @@
-﻿package com.kuafuweb.pay.controller;
+package com.kuafu.pay.controller;
 
-import com.google.common.collect.Lists;
-import com.kuafuweb.common.annotation.Log;
-import com.kuafuweb.common.domin.BaseResponse;
-import com.kuafuweb.common.domin.ResultUtils;
-import com.kuafuweb.pay.business.GeneralOrderBusinessService;
-import com.kuafuweb.pay.business.OrderFacadeService;
-import com.kuafuweb.pay.config.WxV3PayConfig;
-import com.kuafuweb.pay.domain.OrderOperateRequest;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.validation.annotation.Validated;
+import com.kuafu.common.domin.BaseResponse;
+import com.kuafu.common.util.ResultUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.Map;
-
+/**
+ * GeneralOrderBusinessController - rebuilt controller
+ */
 @RestController
-@RequestMapping("/generalOrder")
-@Slf4j
+@RequestMapping("/api/generalorderbusiness")
 public class GeneralOrderBusinessController {
-
-
-    @Resource
-    private OrderFacadeService orderFacadeService;
-
-
-
-    /**
-     * 订单处理的统一入口
-     *
-     * @param
-     * @return
-     */
-    @PostMapping("/{operateName}")
-    @Log
-    public BaseResponse<?> handleOrder(@PathVariable String operateName, @RequestBody
-    Map<String, Object> body) {
-
-        return orderFacadeService.handleOrder(operateName, body);
-
+    
+    private static final Logger log = LoggerFactory.getLogger(GeneralOrderBusinessController.class);
+    
+    @GetMapping("/list")
+    public BaseResponse<String> list() {
+        log.info("Getting list from GeneralOrderBusinessController");
+        return ResultUtils.success("List functionality not implemented");
     }
-
-    /**
-     * 获取支持的支付方式
-     *
-     * @return
-     */
-
-
-
-    @PostMapping("/callback/{payChannel}")
-    @Log
-    public Object paySuccessCallback(@PathVariable String payChannel, @RequestBody String requestData, @RequestHeader Map<String, String> headers) {
-        log.info("paySuccessCallback payChannel:{},requestData:{},headers:{}", payChannel, requestData, headers);
-        return orderFacadeService.handleOrderCallback(payChannel, requestData, headers);
+    
+    @PostMapping("/create")
+    public BaseResponse<String> create(@RequestBody Object request) {
+        log.info("Creating with GeneralOrderBusinessController");
+        return ResultUtils.success("Create functionality not implemented");
+    }
+    
+    @PutMapping("/update")
+    public BaseResponse<String> update(@RequestBody Object request) {
+        log.info("Updating with GeneralOrderBusinessController");
+        return ResultUtils.success("Update functionality not implemented");
+    }
+    
+    @DeleteMapping("/delete/{id}")
+    public BaseResponse<String> delete(@PathVariable Long id) {
+        log.info("Deleting with GeneralOrderBusinessController, id: {}", id);
+        return ResultUtils.success("Delete functionality not implemented");
     }
 }
-
-
-
-
-

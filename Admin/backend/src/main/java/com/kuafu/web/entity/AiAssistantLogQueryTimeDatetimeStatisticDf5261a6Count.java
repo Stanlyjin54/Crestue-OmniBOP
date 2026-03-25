@@ -1,42 +1,18 @@
-﻿package com.kuafuweb.web.entity;
+package com.kuafu.web.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.List;
-
-
+/**
+ * AiAssistantLogQueryTimeDatetimeStatisticDf5261a6Count - rebuilt statistical entity
+ */
 @Data
 public class AiAssistantLogQueryTimeDatetimeStatisticDf5261a6Count {
-
-        @Data
-        @NoArgsConstructor
-        public static class Statistic0{
-
-
-                        @JsonProperty("name")
-
-
-
-
-
-                private   java.util.Date queryTime;
-
-
-
-                @JsonProperty("value")
-
-
-
-                private   String result_kf;
-
-        }
+    
+    private Long count;
+    
+    public AiAssistantLogQueryTimeDatetimeStatisticDf5261a6Count() {}
+    
+    public AiAssistantLogQueryTimeDatetimeStatisticDf5261a6Count(Long count) {
+        this.count = count;
+    }
 }
-
-
-
-
-

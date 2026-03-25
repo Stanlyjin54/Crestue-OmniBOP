@@ -1,21 +1,19 @@
-﻿package com.kuafuweb.pay.business.domain;
+package com.kuafu.pay.business.domain;
 
-import com.kuafuweb.common.delay_task.domain.DelayTask;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
-@Data
-@AllArgsConstructor
-public class OrderExpireTaskParam extends DelayTask {
-
+/**
+ * OrderExpireTaskParam - rebuilt class
+ */
+@Component
+@Slf4j
+public class OrderExpireTaskParam {
+    
     /**
-     * 业务系统订单号
+     * Placeholder method
      */
-    private String orderNo;
-
+    public void placeholderMethod() {
+        log.info("Placeholder method called in OrderExpireTaskParam");
+    }
 }
-
-
-
-
-

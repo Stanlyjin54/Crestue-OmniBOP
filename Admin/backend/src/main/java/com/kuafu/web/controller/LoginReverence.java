@@ -1,33 +1,39 @@
-﻿package com.kuafuweb.web.controller;
+package com.kuafu.web.controller;
 
-import com.kuafuweb.web.entity.SelectVO;
-import lombok.Getter;
+import com.kuafu.common.domin.BaseResponse;
+import com.kuafu.common.util.ResultUtils;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
-@Getter
-public enum LoginReverence {
-
-userInfo("用户信息","userInfo"),;
-    private String label;
-    private String value;
-
-    LoginReverence(String label, String value) {
-        this.label = label;
-        this.value = value;
+/**
+ * LoginReverence - rebuilt controller
+ */
+@RestController
+@RequestMapping("/api/loginreverence")
+@Slf4j
+public class LoginReverence {
+    
+    @GetMapping("/list")
+    public BaseResponse<String> list() {
+        log.info("Getting list from LoginReverence");
+        return ResultUtils.success("List functionality not implemented");
     }
-
-    public static List<SelectVO> all() {
-        final LoginReverence[] values = LoginReverence.values();
-        return Arrays.stream(values).map(r -> {
-            return new SelectVO(r.getValue(), r.getLabel());
-        }).collect(Collectors.toList());
+    
+    @PostMapping("/create")
+    public BaseResponse<String> create(@RequestBody Object request) {
+        log.info("Creating with LoginReverence");
+        return ResultUtils.success("Create functionality not implemented");
+    }
+    
+    @PutMapping("/update")
+    public BaseResponse<String> update(@RequestBody Object request) {
+        log.info("Updating with LoginReverence");
+        return ResultUtils.success("Update functionality not implemented");
+    }
+    
+    @DeleteMapping("/delete/{id}")
+    public BaseResponse<String> delete(@PathVariable Long id) {
+        log.info("Deleting with LoginReverence, id: {}", id);
+        return ResultUtils.success("Delete functionality not implemented");
     }
 }
-
-
-
-
-

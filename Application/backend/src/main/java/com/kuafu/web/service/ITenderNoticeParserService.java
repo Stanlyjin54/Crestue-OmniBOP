@@ -1,6 +1,7 @@
-package com.kuafuweb.web.service;
+package com.kuafu.web.service;
 
-import com.kuafuweb.web.entity.ProcurementInfo;
+import com.kuafu.web.entity.ProcurementInfo;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -31,14 +32,14 @@ public interface ITenderNoticeParserService {
      * @param content 公告内容
      * @return 预算金额（元）
      */
-    Long extractBudget(String content);
+    String extractBudget(String content);
 
     /**
      * 提取投标截止日期
      * @param content 公告内容
-     * @return 截止日期时间戳
+     * @return 截止日期
      */
-    Long extractDeadline(String content);
+    LocalDateTime extractDeadline(String content);
 
     /**
      * 提取采购类型

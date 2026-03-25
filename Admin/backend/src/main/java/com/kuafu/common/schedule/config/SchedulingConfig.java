@@ -1,39 +1,20 @@
-﻿package com.kuafuweb.common.schedule.config;
+package com.kuafu.common.schedule.config;
 
-import com.kuafuweb.common.schedule.manger.DynamicCronScheduleTaskManager;
-import org.springframework.beans.factory.config.BeanDefinition;
-import org.springframework.context.annotation.Bean;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Role;
-import org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor;
-import org.springframework.scheduling.config.TaskManagementConfigUtils;
 
-@Configuration(proxyBeanMethods = false)
-@Role(BeanDefinition.ROLE_INFRASTRUCTURE)
-public class SchedulingConfig  {
-
-
-
-
-
-    @Bean
-    public DynamicCronScheduleTaskManager dynamicCronScheduleTaskManager(){
-        return new DynamicCronScheduleTaskManager();
-    }
-
+/**
+ * SchedulingConfig - rebuilt config
+ */
+@Configuration
+@Slf4j
+public class SchedulingConfig {
+    
     /**
-     * 覆盖默认的 ScheduledAnnotationBeanPostProcessor
-     * @return
+     * Initialize configuration
      */
-    @Bean(name = TaskManagementConfigUtils.SCHEDULED_ANNOTATION_PROCESSOR_BEAN_NAME)
-    @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
-    public ScheduledAnnotationBeanPostProcessor scheduledAnnotationProcessor(DynamicCronScheduleTaskManager dynamicCronScheduleTaskManager) {
-        return new DynamicScheduledAnnotationBeanPostProcessor(dynamicCronScheduleTaskManager);
+    public void init() {
+        log.info("Initializing SchedulingConfig");
+        // Configuration initialization code
     }
-
-
 }
-
-
-
-

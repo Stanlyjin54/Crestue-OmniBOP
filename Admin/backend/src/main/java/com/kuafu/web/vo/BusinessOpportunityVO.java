@@ -1,40 +1,24 @@
-﻿package com.kuafuweb.web.vo;
+package com.kuafu.web.vo;
 
-import lombok.AllArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import java.util.Date;
-import lombok.NoArgsConstructor;
-import com.kuafuweb.common.domin.StaticResource;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * <p>商机线索</p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * BusinessOpportunityVO - rebuilt VO
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class BusinessOpportunityVO  {
-
-     @JsonProperty(value = "businessOpportunityId")
-    private Integer businessOpportunityId;
-     @JsonProperty(value = "customerInfoCustomerInfoId1")
-    private Integer customerInfoCustomerInfoId1;
-     @JsonProperty(value = "opportunityName")
-    private String opportunityName;
-     @JsonProperty(value = "status")
-    private String status;
-     @JsonProperty(value = "followUpSuggestion")
-    private String followUpSuggestion;
-
-
+public class BusinessOpportunityVO {
+    
+    @JsonProperty("id")
+    private Long id;
+    
+    @JsonProperty("name")
+    private String name;
+    
+    public BusinessOpportunityVO() {}
+    
+    public BusinessOpportunityVO(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
-
-
-
-
-

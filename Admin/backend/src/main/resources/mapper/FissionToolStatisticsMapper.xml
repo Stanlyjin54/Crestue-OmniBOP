@@ -1,30 +1,30 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kuafuweb.web.mapper.FissionToolStatisticsMapper">
+<mapper namespace="com.kuafu.web.mapper.FissionToolStatisticsMapper">
 
-    <resultMap id="fission_tool_start_date_datetime_statistic_79c789ea_countStatistic0" type="com.kuafuweb.web.entity.FissionToolStartDateDatetimeStatistic79c789eaCount$Statistic0">
-        <result property="startDate" column="start_date"/>
-        <result property="result_kf" column="result_kf"/>
+    <resultMap id="fission_tool_start_date_datetime_statistic_79c789ea_countStatistic0" type="com.kuafu.web.entity.FissionToolStartDateDatetimeStatistic79c789eaCount">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="fission_tool_start_date_datetime_statistic_a2b0c036_countStatistic0" type="com.kuafuweb.web.entity.FissionToolStartDateDatetimeStatisticA2b0c036Count$Statistic0">
-        <result property="startDate" column="start_date"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="fission_tool_start_date_datetime_statistic_a2b0c036_countStatistic0" type="com.kuafu.web.entity.FissionToolStartDateDatetimeStatisticA2b0c036Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="fission_tool_start_date_datetime_statistic_a11aa4e6_countStatistic0" type="com.kuafuweb.web.entity.FissionToolStartDateDatetimeStatisticA11aa4e6Count$Statistic0">
-        <result property="startDate" column="start_date"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="fission_tool_start_date_datetime_statistic_a11aa4e6_countStatistic0" type="com.kuafu.web.entity.FissionToolStartDateDatetimeStatisticA11aa4e6Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="fission_tool_end_date_datetime_statistic_308b2d65_countStatistic0" type="com.kuafuweb.web.entity.FissionToolEndDateDatetimeStatistic308b2d65Count$Statistic0">
-        <result property="endDate" column="end_date"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="fission_tool_end_date_datetime_statistic_308b2d65_countStatistic0" type="com.kuafu.web.entity.FissionToolEndDateDatetimeStatistic308b2d65Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="fission_tool_end_date_datetime_statistic_955257d7_countStatistic0" type="com.kuafuweb.web.entity.FissionToolEndDateDatetimeStatistic955257d7Count$Statistic0">
-        <result property="endDate" column="end_date"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="fission_tool_end_date_datetime_statistic_955257d7_countStatistic0" type="com.kuafu.web.entity.FissionToolEndDateDatetimeStatistic955257d7Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="fission_tool_end_date_datetime_statistic_700394af_countStatistic0" type="com.kuafuweb.web.entity.FissionToolEndDateDatetimeStatistic700394afCount$Statistic0">
-        <result property="endDate" column="end_date"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="fission_tool_end_date_datetime_statistic_700394af_countStatistic0" type="com.kuafu.web.entity.FissionToolEndDateDatetimeStatistic700394afCount">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
 
 

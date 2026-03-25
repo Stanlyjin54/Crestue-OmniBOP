@@ -1,43 +1,24 @@
-﻿package com.kuafuweb.web.vo;
+package com.kuafu.web.vo;
 
-import java.util.Date;
-
-import com.kuafuweb.common.domin.PageRequest;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * <p>用户信息-分页列表-响应参数</p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * UserInfoPageVO - rebuilt VO
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
-public class UserInfoPageVO extends PageRequest {
-
-    @JsonProperty(value = "userInfoId")
-    private Integer userInfoId;
-    @JsonProperty(value = "phoneNumber")
-    private String phoneNumber;
-    @JsonProperty(value = "username")
-    private String username;
-    @JsonProperty(value = "password")
-    private String password;
-    @JsonProperty(value = "avatarResourceKey")
-    private String avatarResourceKey;
-    @JsonProperty(value = "registrationDate")
-    private Date registrationDate;
-
+public class UserInfoPageVO {
+    
+    @JsonProperty("id")
+    private Long id;
+    
+    @JsonProperty("name")
+    private String name;
+    
+    public UserInfoPageVO() {}
+    
+    public UserInfoPageVO(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
-
-
-
-
-

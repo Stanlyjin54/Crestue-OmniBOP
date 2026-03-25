@@ -1,4 +1,4 @@
-package com.kuafuweb.web.service.impl;
+package com.kuafu.web.service.impl;
 
 import java.util.List;
 import org.springframework.util.CollectionUtils;
@@ -10,9 +10,9 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
-import com.kuafuweb.web.mapper.BusinessOpportunityMapper;
-import com.kuafuweb.web.entity.BusinessOpportunity;
-import com.kuafuweb.web.service.IBusinessOpportunityService;
+import com.kuafu.web.mapper.BusinessOpportunityMapper;
+import com.kuafu.web.entity.BusinessOpportunity;
+import com.kuafu.web.service.IBusinessOpportunityService;
 import lombok.extern.slf4j.Slf4j;
 
 /**

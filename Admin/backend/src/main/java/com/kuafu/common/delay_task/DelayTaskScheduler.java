@@ -1,25 +1,19 @@
-﻿package com.kuafuweb.common.delay_task;
+package com.kuafu.common.delay_task;
 
-import com.kuafuweb.common.delay_task.domain.DelayTask;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
-import java.util.concurrent.TimeUnit;
-
-public interface DelayTaskScheduler {
-
-
+/**
+ * DelayTaskScheduler - rebuilt class
+ */
+@Component
+@Slf4j
+public class DelayTaskScheduler {
+    
     /**
-     * 提交一个延迟任务
-     *
-     *
-     * @param delay 延迟时间
-     * @param unit  延迟时间单位
+     * Placeholder method
      */
-
-    void schedule(DelayTask taskPram, long delay, TimeUnit unit);
-
+    public void placeholderMethod() {
+        log.info("Placeholder method called in DelayTaskScheduler");
+    }
 }
-
-
-
-
-

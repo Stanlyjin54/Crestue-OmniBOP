@@ -1,33 +1,24 @@
-﻿package com.kuafuweb.web.event;
+package com.kuafu.web.event;
 
-import lombok.*;
+import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * EventVo - rebuilt VO
+ */
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@ToString
-@EqualsAndHashCode
-public class EventVo<T> {
-    /**
-     * add/update
-     */
-    private String model;
-
-    /**
-     * 表名
-     */
-    private String tableName;
-
-    /**
-     * 数据
-     */
-
-    private T data;
-
+public class EventVo {
+    
+    @JsonProperty("id")
+    private Long id;
+    
+    @JsonProperty("name")
+    private String name;
+    
+    public EventVo() {}
+    
+    public EventVo(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
-
-
-
-
-

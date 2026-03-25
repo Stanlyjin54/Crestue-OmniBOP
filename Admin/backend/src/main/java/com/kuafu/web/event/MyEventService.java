@@ -1,25 +1,25 @@
-﻿package com.kuafuweb.web.event;
+package com.kuafu.web.event;
 
-import com.google.common.eventbus.EventBus;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.Map;
 
-@Service
-public class MyEventService {
-
-    private final EventBus eventBus;
-
-    @Autowired
-    public MyEventService(EventBus eventBus) {
-        this.eventBus = eventBus;
-    }
-
-    public void publishEvent(EventVo event) {
-        eventBus.post(event);
-    }
+/**
+ * MyEventService - rebuilt service interface
+ */
+public interface MyEventService {
+    
+    /**
+     * Find all records
+     */
+    List<Map<String, Object>> findAll();
+    
+    /**
+     * Find by id
+     */
+    Map<String, Object> findById(Long id);
+    
+    /**
+     * Save record
+     */
+    int save(Map<String, Object> record);
 }
-
-
-
-
-

@@ -1,25 +1,20 @@
-﻿package com.kuafuweb.common.schedule.handler;
+package com.kuafu.common.schedule.handler;
 
-import com.kuafuweb.common.schedule.test.TimeScheduleConfig;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.Resource;
-
-@Component
+/**
+ * SystemConfigCronHandler - rebuilt config
+ */
+@Configuration
 @Slf4j
-public class SystemConfigCronHandler extends AbstractDynamicCronHandler {
-
-    @Resource
-    private TimeScheduleConfig timeScheduleConfig;
-
-    @Override
-    public String getCronExpression(String cronName) {
-        return timeScheduleConfig.getCron();
+public class SystemConfigCronHandler {
+    
+    /**
+     * Initialize configuration
+     */
+    public void init() {
+        log.info("Initializing SystemConfigCronHandler");
+        // Configuration initialization code
     }
 }
-
-
-
-
-

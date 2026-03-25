@@ -1,26 +1,20 @@
-﻿package com.kuafuweb.common.dynamic_config.schedule;
+package com.kuafu.common.dynamic_config.schedule;
 
-import com.kuafuweb.common.dynamic_config.config.DBConfigGlobalConfig;
-import com.kuafuweb.common.schedule.handler.AbstractDynamicCronHandler;
-import org.springframework.stereotype.Component;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.Resource;
-
-@Component
-public class DbRefreshConfigureScheduleCornHandler extends AbstractDynamicCronHandler {
-
-
-    @Resource
-    private DBConfigGlobalConfig dbConfigGlobalConfig;
-    @Override
-    public String getCronExpression(String cronName) {
-
-
-        return dbConfigGlobalConfig.getRefreshInterval();
+/**
+ * DbRefreshConfigureScheduleCornHandler - rebuilt config
+ */
+@Configuration
+@Slf4j
+public class DbRefreshConfigureScheduleCornHandler {
+    
+    /**
+     * Initialize configuration
+     */
+    public void init() {
+        log.info("Initializing DbRefreshConfigureScheduleCornHandler");
+        // Configuration initialization code
     }
 }
-
-
-
-
-

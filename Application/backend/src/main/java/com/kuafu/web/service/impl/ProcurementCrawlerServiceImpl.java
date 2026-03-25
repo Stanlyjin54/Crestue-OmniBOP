@@ -35,11 +35,13 @@ public class ProcurementCrawlerServiceImpl extends ServiceImpl<ProcurementInfoMa
     private static final int TIMEOUT_MS = 10000; // 10秒超时
     
     // 合规的政府采购网站列表
-    private static final Map<String, String> GOVERNMENT_SOURCES = Map.of(
-        "中国政府采购网", "http://www.ccgp.gov.cn",
-        "各地方政府采购网", "http://www.ccgp-local.gov.cn",
-        "招标公告平台", "http://www.cebpubservice.com"
-    );
+    private static final Map<String, String> GOVERNMENT_SOURCES = new HashMap<String, String>() {
+        {
+            put("中国政府采购网", "http://www.ccgp.gov.cn");
+            put("各地方政府采购网", "http://www.ccgp-local.gov.cn");
+            put("招标公告平台", "http://www.cebpubservice.com");
+        }
+    };
 
     @Override
     @Transactional
@@ -298,6 +300,69 @@ public class ProcurementCrawlerServiceImpl extends ServiceImpl<ProcurementInfoMa
                 .complianceRate(95.5) // 模拟合规率
                 .lastCrawlTime(LocalDateTime.now().toString())
                 .build();
+    }
+
+    @Override
+    public List<BusinessOpportunity> matchBusinessOpportunities(ProcurementInfo procurementInfo) {
+        List<BusinessOpportunity> opportunities = new ArrayList<>();
+        
+        try {
+            // 简单的匹配逻辑：根据行业和预算匹配商机
+            String industry = procurementInfo.getIndustry();
+            String budget = procurementInfo.getBudget();
+            
+            // 可以根据不同行业生成不同的商机类型
+            if (industry.contains("办公用品")) {
+                BusinessOpportunity opportunity = convertToOpportunity(procurementInfo);
+                opportunities.add(opportunity);
+            } else if (industry.contains("IT设备")) {
+                BusinessOpportunity opportunity = convertToOpportunity(procurementInfo);
+                opportunities.add(opportunity);
+            } else if (industry.contains("软件服务")) {
+                BusinessOpportunity opportunity = convertToOpportunity(procurementInfo);
+                opportunities.add(opportunity);
+            }
+            
+        } catch (Exception e) {
+            log.error("匹配商机失败", e);
+        }
+        
+        return opportunities;
+    }
+
+    @Override
+    public BusinessOpportunity convertToOpportunity(ProcurementInfo procurementInfo) {
+        try {
+            Double estimatedValue = null;
+            if (procurementInfo.getBudget() != null && !procurementInfo.getBudget().trim().isEmpty()) {
+                try {
+                    estimatedValue = Double.parseDouble(procurementInfo.getBudget().replaceAll("[^0-9.]", ""));
+                } catch (NumberFormatException e) {
+                    log.warn("Invalid budget format: {}", procurementInfo.getBudget());
+                }
+            }
+            
+            BusinessOpportunity opportunity = BusinessOpportunity.builder()
+                    .opportunityName(procurementInfo.getTitle())
+                    .description(procurementInfo.getContent())
+                    .estimatedValue(estimatedValue)
+                    .expectedCloseDate(procurementInfo.getDeadline() != null ? java.sql.Timestamp.valueOf(procurementInfo.getDeadline()) : null)
+                    .sourceId(procurementInfo.getProcurementInfoId().toString())
+                    .sourceUrl(procurementInfo.getSourceUrl())
+                    .contactInfo(procurementInfo.getContactInfo())
+                    .company(procurementInfo.getSourceWebsite())
+                    .industry(procurementInfo.getIndustry())
+                    .status("pending")
+                    .createdTime(java.sql.Timestamp.valueOf(LocalDateTime.now()))
+                    .updatedTime(java.sql.Timestamp.valueOf(LocalDateTime.now()))
+                    .build();
+            
+            return opportunity;
+            
+        } catch (Exception e) {
+            log.error("转换为商机失败", e);
+            return null;
+        }
     }
 
     /**

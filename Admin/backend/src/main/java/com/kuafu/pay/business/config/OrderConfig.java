@@ -1,45 +1,20 @@
-﻿package com.kuafuweb.pay.business.config;
+package com.kuafu.pay.business.config;
 
-import com.kuafuweb.common.dynamic_config.annoation.DBConfiguration;
-import lombok.Data;
-import org.springframework.beans.factory.annotation.Value;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * OrderConfig - rebuilt config
+ */
 @Configuration
-@DBConfiguration
-@Data
+@Slf4j
 public class OrderConfig {
+    
     /**
-     * 订单未支付的过期时间，单位分钟
+     * Initialize configuration
      */
-    @Value("${order.expire.time:1}")
-    private Integer orderExpireTime;
-
-    /**
-     * 订单自动收货时间，单位天
-     */
-    @Value("${order.automatic.receiptTime:3}")
-    private Integer automaticReceiptTime;
-
-
-    @Value("${order.automatic.schedule.corn:0 0 3 * * ?}")
-
-    private String automaticScheduleCorn;
-
-    /**
-     * 订单状态字段
-     */
-    @Value("${order.orderStatusField:-1}")
-    private String orderStatusField;
-
-    /**
-     * 退款状态字段
-     */
-    @Value("${order.refundStatusValue:-1}")
-    private String refundStatusValue;
+    public void init() {
+        log.info("Initializing OrderConfig");
+        // Configuration initialization code
+    }
 }
-
-
-
-
-

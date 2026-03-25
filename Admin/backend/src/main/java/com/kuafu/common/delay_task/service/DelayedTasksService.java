@@ -1,24 +1,25 @@
-﻿package com.kuafuweb.common.delay_task.service;
+package com.kuafu.common.delay_task.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.kuafuweb.common.delay_task.domain.DBDelayTask;
-import com.kuafuweb.common.delay_task.domain.DelayTask;
-import com.kuafuweb.common.delay_task.domain.DelayedTasks;
-
-import java.util.concurrent.TimeUnit;
+import java.util.List;
+import java.util.Map;
 
 /**
-* @description 针对表【delayed_tasks】的数据库操作Service
-* @createDate 2025-05-09 14:24:05
-*/
-public interface DelayedTasksService extends IService<DelayedTasks> {
-
-    Integer saveDelayTaskToDb(DelayTask taskPram, long delay, TimeUnit unit, String taskName);
-
-    Boolean updateTaskResult(DBDelayTask dbDelayTask, String status);
+ * DelayedTasksService - rebuilt service interface
+ */
+public interface DelayedTasksService {
+    
+    /**
+     * Find all records
+     */
+    List<Map<String, Object>> findAll();
+    
+    /**
+     * Find by id
+     */
+    Map<String, Object> findById(Long id);
+    
+    /**
+     * Save record
+     */
+    int save(Map<String, Object> record);
 }
-
-
-
-
-

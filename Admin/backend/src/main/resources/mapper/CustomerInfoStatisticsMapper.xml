@@ -1,30 +1,30 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kuafuweb.web.mapper.CustomerInfoStatisticsMapper">
+<mapper namespace="com.kuafu.web.mapper.CustomerInfoStatisticsMapper">
 
-    <resultMap id="customer_info_rfm_level_enum_rfm_level_enum_id_1_status_statistic_ef82b098_countStatistic0" type="com.kuafuweb.web.entity.CustomerInfoRfmLevelEnumRfmLevelEnumId1StatusStatisticEf82b098Count$Statistic0">
-        <result property="rfmLevelEnumRfmLevelEnumId1" column="rfm_level_enum_rfm_level_enum_id_1"/>
-        <result property="result_kf" column="result_kf"/>
+    <resultMap id="customer_info_rfm_level_enum_rfm_level_enum_id_1_status_statistic_ef82b098_countStatistic0" type="com.kuafu.web.entity.CustomerInfoRfmLevelEnumRfmLevelEnumId1StatusStatisticEf82b098Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="customer_info_rfm_level_enum_rfm_level_enum_id_1_status_statistic_77cd48e4_countStatistic0" type="com.kuafuweb.web.entity.CustomerInfoRfmLevelEnumRfmLevelEnumId1StatusStatistic77cd48e4Count$Statistic0">
-        <result property="rfmLevelEnumRfmLevelEnumId1" column="rfm_level_enum_rfm_level_enum_id_1"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="customer_info_rfm_level_enum_rfm_level_enum_id_1_status_statistic_77cd48e4_countStatistic0" type="com.kuafu.web.entity.CustomerInfoRfmLevelEnumRfmLevelEnumId1StatusStatistic77cd48e4Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="customer_info_rfm_level_enum_rfm_level_enum_id_1_status_statistic_b209e896_countStatistic0" type="com.kuafuweb.web.entity.CustomerInfoRfmLevelEnumRfmLevelEnumId1StatusStatisticB209e896Count$Statistic0">
-        <result property="rfmLevelEnumRfmLevelEnumId1" column="rfm_level_enum_rfm_level_enum_id_1"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="customer_info_rfm_level_enum_rfm_level_enum_id_1_status_statistic_b209e896_countStatistic0" type="com.kuafu.web.entity.CustomerInfoRfmLevelEnumRfmLevelEnumId1StatusStatisticB209e896Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="customer_info_customer_tag_enum_customer_tag_enum_id_1_status_statistic_376f16a9_countStatistic0" type="com.kuafuweb.web.entity.CustomerInfoCustomerTagEnumCustomerTagEnumId1StatusStatistic376f16a9Count$Statistic0">
-        <result property="customerTagEnumCustomerTagEnumId1" column="customer_tag_enum_customer_tag_enum_id_1"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="customer_info_customer_tag_enum_customer_tag_enum_id_1_status_statistic_376f16a9_countStatistic0" type="com.kuafu.web.entity.CustomerInfoCustomerTagEnumCustomerTagEnumId1StatusStatistic376f16a9Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="customer_info_customer_tag_enum_customer_tag_enum_id_1_status_statistic_dc7b8cc0_countStatistic0" type="com.kuafuweb.web.entity.CustomerInfoCustomerTagEnumCustomerTagEnumId1StatusStatisticDc7b8cc0Count$Statistic0">
-        <result property="customerTagEnumCustomerTagEnumId1" column="customer_tag_enum_customer_tag_enum_id_1"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="customer_info_customer_tag_enum_customer_tag_enum_id_1_status_statistic_dc7b8cc0_countStatistic0" type="com.kuafu.web.entity.CustomerInfoCustomerTagEnumCustomerTagEnumId1StatusStatisticDc7b8cc0Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="customer_info_customer_tag_enum_customer_tag_enum_id_1_status_statistic_c56bdc0c_countStatistic0" type="com.kuafuweb.web.entity.CustomerInfoCustomerTagEnumCustomerTagEnumId1StatusStatisticC56bdc0cCount$Statistic0">
-        <result property="customerTagEnumCustomerTagEnumId1" column="customer_tag_enum_customer_tag_enum_id_1"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="customer_info_customer_tag_enum_customer_tag_enum_id_1_status_statistic_c56bdc0c_countStatistic0" type="com.kuafu.web.entity.CustomerInfoCustomerTagEnumCustomerTagEnumId1StatusStatisticC56bdc0cCount">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
 
 

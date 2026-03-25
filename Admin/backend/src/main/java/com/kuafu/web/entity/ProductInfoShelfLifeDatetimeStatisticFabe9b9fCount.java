@@ -1,42 +1,18 @@
-﻿package com.kuafuweb.web.entity;
+package com.kuafu.web.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.List;
-
-
+/**
+ * ProductInfoShelfLifeDatetimeStatisticFabe9b9fCount - rebuilt statistical entity
+ */
 @Data
 public class ProductInfoShelfLifeDatetimeStatisticFabe9b9fCount {
-
-        @Data
-        @NoArgsConstructor
-        public static class Statistic0{
-
-
-                        @JsonProperty("name")
-
-
-
-
-
-                private   java.util.Date shelfLife;
-
-
-
-                @JsonProperty("value")
-
-
-
-                private   String result_kf;
-
-        }
+    
+    private Long count;
+    
+    public ProductInfoShelfLifeDatetimeStatisticFabe9b9fCount() {}
+    
+    public ProductInfoShelfLifeDatetimeStatisticFabe9b9fCount(Long count) {
+        this.count = count;
+    }
 }
-
-
-
-
-

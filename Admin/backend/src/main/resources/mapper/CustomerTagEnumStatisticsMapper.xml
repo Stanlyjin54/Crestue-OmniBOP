@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kuafuweb.web.mapper.CustomerTagEnumStatisticsMapper">
+<mapper namespace="com.kuafu.web.mapper.CustomerTagEnumStatisticsMapper">
 
-    <resultMap id="customer_tag_enum_customer_tag_enum_id_status_statistic_9083f377_countStatistic0" type="com.kuafuweb.web.entity.CustomerTagEnumCustomerTagEnumIdStatusStatistic9083f377Count$Statistic0">
-        <result property="customerTagEnumId" column="customer_tag_enum_id"/>
-        <result property="result_kf" column="result_kf"/>
+    <resultMap id="customer_tag_enum_customer_tag_enum_id_status_statistic_9083f377_countStatistic0" type="com.kuafu.web.entity.CustomerTagEnumCustomerTagEnumIdStatusStatistic9083f377Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="customer_tag_enum_customer_tag_enum_id_status_statistic_027cbb5f_countStatistic0" type="com.kuafuweb.web.entity.CustomerTagEnumCustomerTagEnumIdStatusStatistic027cbb5fCount$Statistic0">
-        <result property="customerTagEnumId" column="customer_tag_enum_id"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="customer_tag_enum_customer_tag_enum_id_status_statistic_027cbb5f_countStatistic0" type="com.kuafu.web.entity.CustomerTagEnumCustomerTagEnumIdStatusStatistic027cbb5fCount">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="customer_tag_enum_customer_tag_enum_id_status_statistic_73a04ddf_countStatistic0" type="com.kuafuweb.web.entity.CustomerTagEnumCustomerTagEnumIdStatusStatistic73a04ddfCount$Statistic0">
-        <result property="customerTagEnumId" column="customer_tag_enum_id"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="customer_tag_enum_customer_tag_enum_id_status_statistic_73a04ddf_countStatistic0" type="com.kuafu.web.entity.CustomerTagEnumCustomerTagEnumIdStatusStatistic73a04ddfCount">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
 
 

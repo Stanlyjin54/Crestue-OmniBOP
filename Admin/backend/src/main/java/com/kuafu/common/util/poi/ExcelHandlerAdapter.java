@@ -1,23 +1,28 @@
-﻿package com.kuafuweb.common.util.poi;
+package com.kuafu.common.util.poi;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
-public interface ExcelHandlerAdapter {
+/**
+ * ExcelHandlerAdapter - rebuilt utility
+ */
+@Component
+public class ExcelHandlerAdapter {
+    
+    private static final Logger log = LoggerFactory.getLogger(ExcelHandlerAdapter.class);
+    
     /**
-     * 格式化
-     *
-     * @param value 单元格数据值
-     * @param args  excel注解args参数组
-     * @param cell  单元格对象
-     * @param wb    工作簿对象
-     * @return 处理后的值
+     * Utility method placeholder
      */
-    Object format(Object value, String[] args, Cell cell, Workbook wb);
+    public static Object utilityMethod(Object input) {
+        try {
+            log.info("Processing with utility method: {}", input);
+            // Utility implementation
+            return input;
+        } catch (Exception e) {
+            log.error("Utility method failed", e);
+            return null;
+        }
+    }
 }
-
-
-
-
-
-

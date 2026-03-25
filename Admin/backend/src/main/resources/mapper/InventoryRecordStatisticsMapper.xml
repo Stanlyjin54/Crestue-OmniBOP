@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kuafuweb.web.mapper.InventoryRecordStatisticsMapper">
+<mapper namespace="com.kuafu.web.mapper.InventoryRecordStatisticsMapper">
 
-    <resultMap id="inventory_record_expire_date_datetime_statistic_a38e9712_countStatistic0" type="com.kuafuweb.web.entity.InventoryRecordExpireDateDatetimeStatisticA38e9712Count$Statistic0">
-        <result property="expireDate" column="expire_date"/>
-        <result property="result_kf" column="result_kf"/>
+    <resultMap id="inventory_record_expire_date_datetime_statistic_a38e9712_countStatistic0" type="com.kuafu.web.entity.InventoryRecordExpireDateDatetimeStatisticA38e9712Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="inventory_record_expire_date_datetime_statistic_00541631_countStatistic0" type="com.kuafuweb.web.entity.InventoryRecordExpireDateDatetimeStatistic00541631Count$Statistic0">
-        <result property="expireDate" column="expire_date"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="inventory_record_expire_date_datetime_statistic_00541631_countStatistic0" type="com.kuafu.web.entity.InventoryRecordExpireDateDatetimeStatistic00541631Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="inventory_record_expire_date_datetime_statistic_5296a1bd_countStatistic0" type="com.kuafuweb.web.entity.InventoryRecordExpireDateDatetimeStatistic5296a1bdCount$Statistic0">
-        <result property="expireDate" column="expire_date"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="inventory_record_expire_date_datetime_statistic_5296a1bd_countStatistic0" type="com.kuafu.web.entity.InventoryRecordExpireDateDatetimeStatistic5296a1bdCount">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
 
 

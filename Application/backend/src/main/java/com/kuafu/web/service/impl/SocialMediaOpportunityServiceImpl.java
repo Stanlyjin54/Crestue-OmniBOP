@@ -560,7 +560,7 @@ public class SocialMediaOpportunityServiceImpl implements ISocialMediaOpportunit
                     opportunity.setScore((int) (confidence * 100));
                     opportunity.setTags(String.join(",", keywords));
                     opportunity.setCreatedTime(new Date());
-                    opportunity.setUpdateTime(new Date());
+                    opportunity.setUpdatedTime(new Date());
                     
                     opportunities.add(opportunity);
                 }

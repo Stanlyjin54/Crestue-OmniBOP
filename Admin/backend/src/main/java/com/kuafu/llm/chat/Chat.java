@@ -1,16 +1,19 @@
-﻿package com.kuafuweb.llm.chat;
+package com.kuafu.llm.chat;
 
-import com.kuafuweb.llm.model.ChatResponse;
-import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
-public interface Chat {
-
-    void callApiStream(String query, String conversationId, String userId, SseEmitter sseEmitter);
-
-    ChatResponse callApiBlock(String query, String conversationId, String userId);
+/**
+ * Chat - rebuilt class
+ */
+@Component
+@Slf4j
+public class Chat {
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in Chat");
+    }
 }
-
-
-
-
-

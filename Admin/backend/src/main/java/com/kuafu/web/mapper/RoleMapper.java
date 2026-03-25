@@ -1,26 +1,40 @@
-﻿package com.kuafuweb.web.mapper;
+package com.kuafu.web.mapper;
 
-import java.util.List;
-import com.kuafuweb.web.entity.Role;
-
-import org.apache.ibatis.annotations.Param;
+import com.kuafu.web.entity.Role;
 import org.apache.ibatis.annotations.Mapper;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
+import org.apache.ibatis.annotations.Select;
+import java.util.List;
 
 /**
- * <p> 角色 Mapper </p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * RoleMapper - rebuilt mapper
  */
 @Mapper
-public interface RoleMapper extends BaseMapper<Role> {
-
+public interface RoleMapper {
+    
+    /**
+     * Find all roles
+     */
+    @Select("SELECT * FROM role")
+    List<Role> findAll();
+    
+    /**
+     * Find by id
+     */
+    @Select("SELECT * FROM role WHERE id = #{id}")
+    Role findById(Long id);
+    
+    /**
+     * Insert role
+     */
+    int insert(Role role);
+    
+    /**
+     * Update role
+     */
+    int updateById(Role role);
+    
+    /**
+     * Delete by id
+     */
+    int deleteById(Long id);
 }
-
-
-
-
-

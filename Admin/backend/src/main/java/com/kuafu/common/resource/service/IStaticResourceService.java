@@ -1,13 +1,25 @@
-﻿package com.kuafuweb.common.resource.service;
+package com.kuafu.common.resource.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.kuafuweb.common.domin.StaticResource;
+import java.util.List;
+import java.util.Map;
 
-
-public interface IStaticResourceService extends IService<StaticResource> {
+/**
+ * IStaticResourceService - rebuilt service interface
+ */
+public interface IStaticResourceService {
+    
+    /**
+     * Find all records
+     */
+    List<Map<String, Object>> findAll();
+    
+    /**
+     * Find by id
+     */
+    Map<String, Object> findById(Long id);
+    
+    /**
+     * Save record
+     */
+    int save(Map<String, Object> record);
 }
-
-
-
-
-

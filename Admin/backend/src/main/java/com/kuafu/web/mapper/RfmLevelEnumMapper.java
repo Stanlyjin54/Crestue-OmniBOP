@@ -1,26 +1,27 @@
-﻿package com.kuafuweb.web.mapper;
-
-import java.util.List;
-import com.kuafuweb.web.entity.RfmLevelEnum;
-
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Mapper;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
+package com.kuafu.web.mapper;
 
 /**
- * <p> RFM分层枚举 Mapper </p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * RfmLevelEnumMapper - rebuilt enum for RFM level mapping
  */
-@Mapper
-public interface RfmLevelEnumMapper extends BaseMapper<RfmLevelEnum> {
-
+public enum RfmLevelEnumMapper {
+    
+    HIGH("1", "High Value"),
+    LOW("0", "Low Value");
+    
+    private String code;
+    private String description;
+    
+    // 私有构造函数
+    private RfmLevelEnumMapper(String code, String description) {
+        this.code = code;
+        this.description = description;
+    }
+    
+    public String getCode() {
+        return code;
+    }
+    
+    public String getDescription() {
+        return description;
+    }
 }
-
-
-
-
-

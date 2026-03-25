@@ -1,44 +1,25 @@
-﻿package com.kuafuweb.login.service;
+package com.kuafu.login.service;
 
-import com.kuafuweb.common.domin.ErrorCode;
-import com.kuafuweb.common.exception.BusinessException;
-import com.kuafuweb.common.wx.WxAppClient;
-import com.kuafuweb.common.wx.WxWebCode2TokenRequest;
-import com.kuafuweb.common.wx.WxWebCode2TokenResponse;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.stereotype.Component;
+import java.util.List;
+import java.util.Map;
 
-@Slf4j
-@Component
-@ConditionalOnProperty(prefix = "login", name = "enable")
-public class WxWebService {
-    @Value("${wx.web.id:id}")
-    private String appId;
-    @Value("${wx.web.secret:secret}")
-    private String appSecret;
-
-    private WxAppClient wxAppClient = new WxAppClient();
-
-    public String getOpenId(String code) {
-        WxWebCode2TokenResponse response = wxAppClient.code2Session(WxWebCode2TokenRequest.builder()
-                .appId(appId)
-                .appSecret(appSecret)
-                .code(code)
-                .grantType("authorization_code")
-                .build());
-
-        log.info("=============== {}", response);
-        if (response.getErrcode() != null && response.getErrcode() > 0) {
-            throw new BusinessException(ErrorCode.OPERATION_ERROR.getCode(), "H5验证失败");
-        }
-        return response.getOpenId();
-    }
-
+/**
+ * WxWebService - rebuilt service interface
+ */
+public interface WxWebService {
+    
+    /**
+     * Find all records
+     */
+    List<Map<String, Object>> findAll();
+    
+    /**
+     * Find by id
+     */
+    Map<String, Object> findById(Long id);
+    
+    /**
+     * Save record
+     */
+    int save(Map<String, Object> record);
 }
-
-
-
-
-

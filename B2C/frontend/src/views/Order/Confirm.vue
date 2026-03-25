@@ -47,10 +47,10 @@
           <h2>商品清单</h2>
           <div class="product-list">
             <div v-for="item in orderItems" :key="item.id" class="product-item">
-              <img :src="item.image" :alt="item.name" />
+              <img :src="item.productImage" :alt="item.productName" />
               <div class="product-info">
-                <h4>{{ item.name }}</h4>
-                <p>{{ item.specification }}</p>
+                <h4>{{ item.productName }}</h4>
+                <p>{{ item.skuName }}</p>
               </div>
               <div class="product-price">
                 <span class="price">¥{{ item.price.toFixed(2) }}</span>
@@ -187,9 +187,7 @@ import {
   ShoppingCart, 
   Plus, 
   Check, 
-  ArrowLeft,
-  Wallet,
-  CreditCard
+  ArrowLeft
 } from '@element-plus/icons-vue'
 import { getAddressList, addAddress } from '@/api/address'
 import { createOrder } from '@/api/order'
@@ -356,7 +354,7 @@ const submitOrder = async () => {
     }
     
     const response = await createOrder(orderData)
-    const orderId = response.data.id
+    const orderId = response.id
     
     // 清空购物车
     await cartStore.clearCart()

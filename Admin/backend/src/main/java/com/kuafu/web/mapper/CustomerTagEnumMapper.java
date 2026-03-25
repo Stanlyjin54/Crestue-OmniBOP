@@ -1,26 +1,26 @@
-﻿package com.kuafuweb.web.mapper;
-
-import java.util.List;
-import com.kuafuweb.web.entity.CustomerTagEnum;
-
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Mapper;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
+package com.kuafu.web.mapper;
 
 /**
- * <p> 客户标签枚举 Mapper </p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * CustomerTagEnumMapper - rebuilt enum
  */
-@Mapper
-public interface CustomerTagEnumMapper extends BaseMapper<CustomerTagEnum> {
-
+public enum CustomerTagEnumMapper {
+    
+    VALUE1("1", "Value 1"),
+    VALUE2("0", "Value 2");
+    
+    private String code;
+    private String description;
+    
+    CustomerTagEnumMapper(String code, String description) {
+        this.code = code;
+        this.description = description;
+    }
+    
+    public String getCode() {
+        return code;
+    }
+    
+    public String getDescription() {
+        return description;
+    }
 }
-
-
-
-
-

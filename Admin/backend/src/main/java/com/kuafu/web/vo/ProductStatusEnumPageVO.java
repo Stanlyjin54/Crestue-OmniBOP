@@ -1,35 +1,27 @@
-﻿package com.kuafuweb.web.vo;
-
-import java.util.Date;
-
-import com.kuafuweb.common.domin.PageRequest;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+package com.kuafu.web.vo;
 
 /**
- * <p>商品状态枚举-分页列表-响应参数</p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * ProductStatusEnumPageVO - rebuilt enum
  */
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
-public class ProductStatusEnumPageVO extends PageRequest {
-
-    @JsonProperty(value = "productStatusEnumId")
-    private Integer productStatusEnumId;
-    @JsonProperty(value = "statusName")
-    private String statusName;
-
+public enum ProductStatusEnumPageVO {
+    
+    VALUE1("1", "Value 1"),
+    VALUE2("0", "Value 2");
+    
+    private String code;
+    private String description;
+    
+    // Constructor
+    ProductStatusEnumPageVO(String code, String description) {
+        this.code = code;
+        this.description = description;
+    }
+    
+    public String getCode() {
+        return code;
+    }
+    
+    public String getDescription() {
+        return description;
+    }
 }
-
-
-
-
-

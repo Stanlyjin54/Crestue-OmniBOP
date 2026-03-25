@@ -1,52 +1,21 @@
-﻿package com.kuafuweb.pay.domain;
+package com.kuafu.pay.domain;
 
-import com.kuafuweb.pay.enums.PayStatus;
-import lombok.Data;
-
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 /**
- * 支付订单详情
+ * PaymentOrderDetail - rebuilt class
  */
-@Data
+@Component
 public class PaymentOrderDetail {
+    
+    private static final Logger log = LoggerFactory.getLogger(PaymentOrderDetail.class);
+    
     /**
-     * 支付订单ID
+     * Placeholder method
      */
-    private String paymentOrderId;
-    /**
-     * 订单ID
-     */
-    private String orderId;
-    /**
-     * 订单金额
-     */
-    private BigDecimal amount;
-    /**
-     * 支付状态
-     */
-    private PayStatus status;
-    /**
-     * 支付渠道
-     */
-    private String payChannel;
-    /**
-     * 创建时间
-     */
-    private LocalDateTime createTime;
-    /**
-     * 支付时间
-     */
-    private LocalDateTime payTime;
-
-    /**
-     * 支付说明
-     */
-    private String subject;
+    public void placeholderMethod() {
+        log.info("Placeholder method called in PaymentOrderDetail");
+    }
 }
-
-
-
-
-

@@ -1,37 +1,24 @@
-﻿package com.kuafuweb.web.vo;
+package com.kuafu.web.vo;
 
-import java.util.Date;
-
-import com.kuafuweb.common.domin.PageRequest;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * <p>用户角色关联-分页列表-响应参数</p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * UserRolePageVO - rebuilt VO
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
-public class UserRolePageVO extends PageRequest {
-
-    @JsonProperty(value = "userRoleId")
-    private Integer userRoleId;
-    @JsonProperty(value = "userInfoId")
-    private Integer userInfoId;
-    @JsonProperty(value = "roleId")
-    private Integer roleId;
-
+public class UserRolePageVO {
+    
+    @JsonProperty("id")
+    private Long id;
+    
+    @JsonProperty("name")
+    private String name;
+    
+    public UserRolePageVO() {}
+    
+    public UserRolePageVO(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
-
-
-
-
-

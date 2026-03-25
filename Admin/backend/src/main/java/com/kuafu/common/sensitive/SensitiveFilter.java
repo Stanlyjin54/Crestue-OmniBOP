@@ -1,15 +1,19 @@
-﻿package com.kuafuweb.common.sensitive;
+package com.kuafu.common.sensitive;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
-import java.lang.annotation.*;
-
-@Target({ElementType.METHOD}) // 作用在方法上
-@Retention(RetentionPolicy.RUNTIME) // 运行时可用
-@Documented
-public @interface SensitiveFilter {
+/**
+ * SensitiveFilter - rebuilt class
+ */
+@Component
+@Slf4j
+public class SensitiveFilter {
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in SensitiveFilter");
+    }
 }
-
-
-
-
-

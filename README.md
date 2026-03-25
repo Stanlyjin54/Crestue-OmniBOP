@@ -1,4 +1,4 @@
-# Crestue Omni-BOP - 一体化商业运营平台
+# Crestue OmniBOP - 一体化商业运营平台
 
 [![License](https://img.shields.io/badge/License-AGPLv3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Version](https://img.shields.io/badge/Version-1.0.0-green.svg)](https://github.com/crestue/omni-bop)
@@ -6,7 +6,7 @@
 
 ## 📖 项目简介
 
-Crestue Omni-BOP（Business Operations Platform）是一个面向中小企业的**一体化商业运营平台**，集成了B2C商城、B2B渠道管理、客户关系管理（CRM）、进销存管理、支付结算等核心业务功能。
+Crestue OmniBOP（Business Operations Platform）是一个面向中小企业的**一体化商业运营平台**，集成了B2C商城、B2B渠道管理、客户关系管理（CRM）、进销存管理、支付结算等核心业务功能。
 
 ### 🎯 核心特性
 
@@ -30,8 +30,8 @@ Crestue Omni-BOP（Business Operations Platform）是一个面向中小企业的
 
 #### 1. 克隆项目
 ```bash
-git clone https://github.com/crestue/omni-bop.git
-cd omni-bop
+git clone https://github.com/Stanlyjin54/Crestue-OmniBOP.git
+cd Crestue-OmniBOP
 ```
 
 #### 2. 数据库初始化
@@ -63,6 +63,7 @@ npm run dev
 ```
 
 #### 5. 访问系统
+- Admin 管理系统：http://localhost:5173
 - B2C商城：http://localhost:8080
 - B2B管理端：http://localhost:3000
 - API文档：http://localhost:8080/swagger-ui.html
@@ -74,6 +75,7 @@ npm run dev
 | 模块 | 技术栈 | 说明 |
 |------|--------|------|
 | 后端 | Spring Boot + MyBatis Plus + Spring Security | 微服务架构，RESTful API |
+| Admin 前端 | Vue 3 + Element Plus | 管理系统前端，响应式设计 |
 | B2C前端 | Vue 3 + TypeScript + Element Plus | 响应式设计，PWA支持 |
 | B2B管理端 | Uni-app + Vue 3 | 跨平台管理应用 |
 | 数据库 | MySQL + Redis | 关系型+缓存数据库 |
@@ -83,8 +85,13 @@ npm run dev
 
 ```
 Crestue-Omni-BOP/
-├── Application/                 # 核心应用
-│   ├── backend/                # 后端服务
+├── Admin/                      # 管理系统
+│   ├── backend/               # 管理后端服务
+│   │   └── src/               # 后端源码
+│   └── frontend/              # 管理前端
+│       └── src/               # 前端源码
+├── Application/               # 核心应用
+│   ├── backend/               # 后端服务
 │   │   ├── src/main/java/com/kuafu/
 │   │   │   ├── api/           # API网关和代理
 │   │   │   ├── llm/           # AI大语言模型模块
@@ -197,9 +204,9 @@ CHAT_PROVIDER=dify
 - [部署指南](docs/deployment.md)
 
 ### 社区支持
-- 📖 [GitHub Issues](https://github.com/crestue/omni-bop/issues) - 问题反馈
-- 💬 [Discussions](https://github.com/crestue/omni-bop/discussions) - 技术讨论
-- 📧 Email: support@crestue.com
+- 📖 [GitHub Issues](https://github.com/Stanlyjin54/Crestue-OmniBOP/issues) - 问题反馈
+- 💬 [Discussions](https://github.com/Stanlyjin54/Crestue-OmniBOP/discussions) - 技术讨论
+- 📧 Email: 549057226@qq.com
 
 ### 商业支持
 对于企业用户，我们提供专业的技术支持和定制开发服务：
@@ -208,7 +215,7 @@ CHAT_PROVIDER=dify
 - ☁️ 云托管服务
 - 📞 专业技术支持
 
-联系邮箱：business@crestue.com
+联系邮箱：549057226@qq.com
 
 ## 🏆 致谢
 
@@ -216,4 +223,4 @@ CHAT_PROVIDER=dify
 
 ---
 
-**Crestue Omni-BOP** - 让商业运营更简单、更智能！
+**Crestue OmniBOP** - 让商业运营更简单、更智能！

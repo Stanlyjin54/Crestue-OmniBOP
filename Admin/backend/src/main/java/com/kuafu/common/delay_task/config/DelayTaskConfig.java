@@ -1,16 +1,22 @@
-﻿package com.kuafuweb.common.delay_task.config;
+package com.kuafu.common.delay_task.config;
 
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * DelayTaskConfig - rebuilt config
+ */
 @Configuration
-@Slf4j
 public class DelayTaskConfig {
-
-
+    
+    private static final Logger log = LoggerFactory.getLogger(DelayTaskConfig.class);
+    
+    /**
+     * Initialize configuration
+     */
+    public void init() {
+        log.info("Initializing DelayTaskConfig");
+        // Configuration initialization code
+    }
 }
-
-
-
-
-

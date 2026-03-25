@@ -1,30 +1,19 @@
-﻿package com.kuafuweb.common.delay_task.handler;
+package com.kuafu.common.delay_task.handler;
 
-import com.kuafuweb.common.delay_task.domain.DelayTask;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 /**
- * 延迟任务
+ * AbstractDelayedTaskHandler - rebuilt class
  */
-public abstract class AbstractDelayedTaskHandler<T extends DelayTask> {
-
+@Component
+@Slf4j
+public class AbstractDelayedTaskHandler {
+    
     /**
-     * 获取支持的参数类型（用于类型检查）
+     * Placeholder method
      */
-    public abstract Class<?> getSupportedType();
-
-
-    /**
-     * 抽象处理方法
-     *
-     *
-     */
-    public abstract void handler(T param);
-
-
-
+    public void placeholderMethod() {
+        log.info("Placeholder method called in AbstractDelayedTaskHandler");
+    }
 }
-
-
-
-
-

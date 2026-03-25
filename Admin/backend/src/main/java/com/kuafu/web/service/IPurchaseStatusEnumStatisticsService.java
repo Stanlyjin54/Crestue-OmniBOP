@@ -1,36 +1,56 @@
-﻿package com.kuafuweb.web.service;
+package com.kuafu.web.service;
 
-import java.util.List;
-import com.kuafuweb.web.entity.PurchaseStatusEnum;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.service.IService;
-import javax.annotation.Resource;
-import java.math.BigDecimal;
-
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 /**
- * <p>  purchase_status_enum 服务类 </p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * IPurchaseStatusEnumStatisticsService - 采购状态枚举统计服务
  */
-public interface IPurchaseStatusEnumStatisticsService extends IService<PurchaseStatusEnum> {
-        List<Object> purchase_status_enum_purchase_status_enum_id_status_statistic_cac5b56b_count(LambdaQueryWrapper queryWrapper);
-
-        List<Object> purchase_status_enum_purchase_status_enum_id_status_statistic_4879421d_count(LambdaQueryWrapper queryWrapper);
-
-        List<Object> purchase_status_enum_purchase_status_enum_id_status_statistic_d51abb7f_count(LambdaQueryWrapper queryWrapper);
-
-        List<Object> purchase_status_enum_status_name_status_statistic_ae1dfb7a_count(LambdaQueryWrapper queryWrapper);
-
-        List<Object> purchase_status_enum_status_name_status_statistic_b11589b5_count(LambdaQueryWrapper queryWrapper);
-
-        List<Object> purchase_status_enum_status_name_status_statistic_4fce27d5_count(LambdaQueryWrapper queryWrapper);
-
+public enum IPurchaseStatusEnumStatisticsService {
+    
+    /**
+     * 有效状态统计
+     */
+    VALID_STATUS_STATS("1", "有效状态统计"),
+    
+    /**
+     * 无效状态统计
+     */
+    INVALID_STATUS_STATS("0", "无效状态统计");
+    
+    /**
+     * 状态代码
+     */
+    private final String code;
+    
+    /**
+     * 状态描述
+     */
+    private final String description;
+    
+    /**
+     * 构造函数
+     * 
+     * @param code 状态代码
+     * @param description 状态描述
+     */
+    IPurchaseStatusEnumStatisticsService(String code, String description) {
+        this.code = code;
+        this.description = description;
+    }
+    
+    /**
+     * 获取状态代码
+     * 
+     * @return 状态代码
+     */
+    public String getCode() {
+        return code;
+    }
+    
+    /**
+     * 获取状态描述
+     * 
+     * @return 状态描述
+     */
+    public String getDescription() {
+        return description;
+    }
 }
-
-
-
-
-

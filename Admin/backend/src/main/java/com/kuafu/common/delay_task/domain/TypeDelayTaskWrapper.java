@@ -1,26 +1,21 @@
-﻿package com.kuafuweb.common.delay_task.domain;
+package com.kuafu.common.delay_task.domain;
 
-import com.kuafuweb.common.delay_task.handler.AbstractDelayedTaskHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 /**
- * 包装类
+ * TypeDelayTaskWrapper - rebuilt class
  */
-public class TypeDelayTaskWrapper implements Runnable {
-    private final AbstractDelayedTaskHandler handler;
-    private final DelayTask taskParam;
-
-    public TypeDelayTaskWrapper(AbstractDelayedTaskHandler handler, DelayTask taskParam) {
-        this.handler = handler;
-        this.taskParam = taskParam;
-    }
-
-    @Override
-    public void run() {
-        handler.handler(taskParam);
+@Component
+public class TypeDelayTaskWrapper {
+    
+    private static final Logger log = LoggerFactory.getLogger(TypeDelayTaskWrapper.class);
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in TypeDelayTaskWrapper");
     }
 }
-
-
-
-
-

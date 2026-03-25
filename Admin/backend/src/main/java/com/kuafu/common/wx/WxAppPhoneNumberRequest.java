@@ -1,35 +1,26 @@
-﻿package com.kuafuweb.common.wx;
+package com.kuafu.common.wx;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-import com.kuafuweb.common.http.AbstractModel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.util.HashMap;
-
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class WxAppPhoneNumberRequest extends AbstractModel {
-
-    @Expose(serialize = false, deserialize = false)
-    private String accessToken;
-
-    @Expose
-    @SerializedName("code")
+/**
+ * WxAppPhoneNumberRequest - rebuilt enum
+ */
+public enum WxAppPhoneNumberRequest {
+    
+    VALUE1("1", "Value 1"),
+    VALUE2("0", "Value 2");
+    
     private String code;
-
-    @Override
-    protected void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "access_token", this.accessToken);
+    private String description;
+    
+    private WxAppPhoneNumberRequest(String code, String description) {
+        this.code = code;
+        this.description = description;
+    }
+    
+    public String getCode() {
+        return code;
+    }
+    
+    public String getDescription() {
+        return description;
     }
 }
-
-
-
-
-

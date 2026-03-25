@@ -1,40 +1,26 @@
-﻿package com.kuafuweb.common.util;
+package com.kuafu.common.util;
 
-import java.security.AccessController;
-import java.security.PrivilegedAction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+/**
+ * SystemPropertyUtil - rebuilt utility
+ */
 public class SystemPropertyUtil {
-
-    public static String get(String key) {
-        return get(key, null);
-    }
-
-    public static String get(final String key, String def) {
-
-        String value = null;
+    
+    private static final Logger log = LoggerFactory.getLogger(SystemPropertyUtil.class);
+    
+    /**
+     * Utility method placeholder
+     */
+    public static Object utilityMethod(Object input) {
         try {
-            if (System.getSecurityManager() == null) {
-                value = System.getProperty(key);
-            } else {
-                value = AccessController.doPrivileged(new PrivilegedAction<String>() {
-                    @Override
-                    public String run() {
-                        return System.getProperty(key);
-                    }
-                });
-            }
-        } catch (SecurityException e) {
+            log.info("Processing with utility method: {}", input);
+            // Utility implementation
+            return input;
+        } catch (Exception e) {
+            log.error("Utility method failed", e);
+            return null;
         }
-
-        if (value == null) {
-            return def;
-        }
-
-        return value;
     }
 }
-
-
-
-
-

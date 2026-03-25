@@ -1,7 +1,7 @@
-package com.kuafuweb.web.service.impl;
+package com.kuafu.web.service.impl;
 
 import java.util.List;
-import com.kuafuweb.common.util.StringUtils;
+import com.kuafu.common.util.StringUtils;
 import org.springframework.util.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,11 +10,11 @@ import lombok.RequiredArgsConstructor;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.kuafuweb.common.domin.PageRequest;
+import com.kuafu.common.domin.PageRequest;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.kuafuweb.web.mapper.LiveStreamSyncAllMapper;
-import com.kuafuweb.web.entity.LiveStreamSyncAll;
-import com.kuafuweb.web.service.ILiveStreamSyncAllService;
+import com.kuafu.web.mapper.LiveStreamSyncAllMapper;
+import com.kuafu.web.entity.LiveStreamSyncAll;
+import com.kuafu.web.service.ILiveStreamSyncAllService;
 import org.springframework.util.SerializationUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

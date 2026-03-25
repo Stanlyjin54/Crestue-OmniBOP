@@ -1,1 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuafuweb.web.mapper.AiAssistantLogMapper">
+
+    <resultMap id="selectListNewMap" type="com.kuafu.web.entity.AiAssistantLog">
+            <result property="aiAssistantLogId" column="ai_assistant_log_id"/>
+            <result property="userId" column="user_id"/>
+            <result property="userType" column="user_type"/>
+            <result property="question" column="question"/>
+            <result property="answer" column="answer"/>
+            <result property="questionType" column="question_type"/>
+            <result property="relatedId" column="related_id"/>
+            <result property="createTime" column="create_time"/>
+            <result property="updateTime" column="update_time"/>
+            <result property="deleted" column="deleted"/>
+    </resultMap>
+
+    <select id="selectList" resultMap="selectListNewMap">
+        select
+            ai_assistant_log_id   ,
+            user_id   ,
+            user_type   ,
+            question   ,
+            answer   ,
+            question_type   ,
+            related_id   ,
+            create_time   ,
+            update_time   ,
+            deleted   
+        FROM ai_assistant_log
+
+        ${ew.customSqlSegment}
+    </select>
+
+    <select id="selectPage" resultMap="selectListNewMap">
+        select
+            ai_assistant_log_id   ,
+            user_id   ,
+            user_type   ,
+            question   ,
+            answer   ,
+            question_type   ,
+            related_id   ,
+            create_time   ,
+            update_time   ,
+            deleted   
+        FROM ai_assistant_log
+
+        ${ew.customSqlSegment}
+    </select>
 </mapper>

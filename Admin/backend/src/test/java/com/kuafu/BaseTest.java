@@ -1,4 +1,4 @@
-﻿package com.kuafuweb;
+package com.kuafu;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -9,7 +9,7 @@ import java.util.Map;
 @Slf4j
 public class BaseTest {
 
-    private String pythonCmd = "D:\\software\\anaconda3\\envs\\charts;D:\\software\\anaconda3\\envs\\charts\\Library\\mingw-w64\\bin;D:\\software\\anaconda3\\envs\\charts\\Library\\usr\\bin;D:\\software\\anaconda3\\envs\\charts\\Library\\bin;D:\\software\\anaconda3\\envs\\charts\\Scripts;D:\\software\\anaconda3\\envs\\charts\\bin;D:\\software\\anaconda3\\condabin;";
+    private String pythonCmd = "D:softwareanaconda3envscharts;D:softwareanaconda3envschartsLibrarymingw-w64bin;D:softwareanaconda3envschartsLibraryusrbin;D:softwareanaconda3envschartsLibrarybin;D:softwareanaconda3envschartsScripts;D:softwareanaconda3envschartsbin;D:softwareanaconda3condabin;";
 
     @Test
     public void test1() {
@@ -59,6 +59,7 @@ public class BaseTest {
     }
 
 }
+
 
 
 

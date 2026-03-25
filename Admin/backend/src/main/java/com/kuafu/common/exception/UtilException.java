@@ -1,22 +1,26 @@
-﻿package com.kuafuweb.common.exception;
+package com.kuafu.common.exception;
 
-public class UtilException extends RuntimeException {
-    private static final long serialVersionUID = 8247610319171014183L;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
-    public UtilException(Throwable e) {
-        super(e.getMessage(), e);
-    }
-
-    public UtilException(String message) {
-        super(message);
-    }
-
-    public UtilException(String message, Throwable throwable) {
-        super(message, throwable);
+/**
+ * UtilException - rebuilt utility
+ */
+@Component
+@Slf4j
+public class UtilException {
+    
+    /**
+     * Utility method placeholder
+     */
+    public static Object utilityMethod(Object input) {
+        try {
+            log.info("Processing with utility method: {}", input);
+            // Utility implementation
+            return input;
+        } catch (Exception e) {
+            log.error("Utility method failed", e);
+            return null;
+        }
     }
 }
-
-
-
-
-

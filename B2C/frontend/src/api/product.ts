@@ -20,7 +20,7 @@ export const getProductDetail = (id: number): Promise<Product> => {
 }
 
 // 获取商品SKU列表
-export const getProductSkus = (productId: number): Promise<ProductSku[]> => {
+export const getProductSkus = (productId: number): Promise<{ skus: ProductSku[]; specs: { id: number; name: string; values: string[] }[] }> => {
   return request.get(`/product/${productId}/skus`)
 }
 

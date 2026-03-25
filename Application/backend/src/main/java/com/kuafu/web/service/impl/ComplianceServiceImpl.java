@@ -57,9 +57,9 @@ public class ComplianceServiceImpl implements IComplianceService {
     // 敏感关键词模式 - 政府公开信息中的联系方式（手机号、邮箱）属于正常商务信息，不视为敏感信息
     private final List<Pattern> sensitivePatterns = Arrays.asList(
         Pattern.compile("\\b(\\d{15}|\\d{18})\\b"), // 身份证号
-        Pattern.compile("\\b(\\d{4}\\s*\\d{4}\\s*\\d{4}\s*\\d{4})\\b"), // 银行卡号
+        Pattern.compile("\\b(\\d{4}\\s*\\d{4}\\s*\\d{4}\\s*\\d{4})\\b"), // 银行卡号
         Pattern.compile("\\b\\d{6}\\b"), // 验证码
-        Pattern.compile("\\b(password|pwd|密码|passwd)\\s*[:=]\\s*\\S+", Pattern.CASE_INSENSITIVE) // 密码
+        Pattern.compile("\\b(password|pwd|\u5bc6\u7801|passwd)\\s*[:=]\\s*\\S+", Pattern.CASE_INSENSITIVE) // 密码
     );
 
     // 域名访问计数器
@@ -270,12 +270,12 @@ public class ComplianceServiceImpl implements IComplianceService {
             }
             
             // 总访问次数
-            int totalAccess = accessLogMapper.selectCount(wrapper);
+            Long totalAccess = accessLogMapper.selectCount(wrapper);
             statistics.put("totalAccess", totalAccess);
             
             // 成功访问次数
             wrapper.eq("success", true);
-            int successAccess = accessLogMapper.selectCount(wrapper);
+            Long successAccess = accessLogMapper.selectCount(wrapper);
             statistics.put("successAccess", successAccess);
             
             // 成功率
@@ -291,7 +291,7 @@ public class ComplianceServiceImpl implements IComplianceService {
                 wrapper.between("access_time", startDate, endDate);
             }
             wrapper.eq("robots_compliant", true);
-            int robotsCompliant = accessLogMapper.selectCount(wrapper);
+            Long robotsCompliant = accessLogMapper.selectCount(wrapper);
             double robotsRate = totalAccess > 0 ? (double) robotsCompliant / totalAccess * 100 : 0;
             statistics.put("robotsComplianceRate", String.format("%.2f%%", robotsRate));
             

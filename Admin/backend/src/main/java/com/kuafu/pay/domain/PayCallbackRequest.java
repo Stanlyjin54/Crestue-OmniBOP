@@ -1,53 +1,21 @@
-﻿package com.kuafuweb.pay.domain;
+package com.kuafu.pay.domain;
 
-import com.kuafuweb.pay.enums.PayStatus;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.Map;
-
-@Data
-@ToString
-@EqualsAndHashCode
+/**
+ * PayCallbackRequest - rebuilt class
+ */
+@Component
 public class PayCallbackRequest {
-
+    
+    private static final Logger log = LoggerFactory.getLogger(PayCallbackRequest.class);
+    
     /**
-     * 支付系统中的订单id
+     * Placeholder method
      */
-    private String paymentOrderId;
-
-    /**
-     * 本系统中的业务订单号
-     */
-    private String orderNo;
-    /**
-     * 支付时间
-     */
-
-    private LocalDateTime paymentTime;
-    /**
-     * 实际支付金额
-     */
-
-    private BigDecimal paymentAmount;
-
-    /**
-     * 支付状态
-     */
-    private PayStatus payStatus;
-
-    /**
-     * 额外的其他参数
-     */
-    private Map<String, Object> extraParamMap;
-
-
+    public void placeholderMethod() {
+        log.info("Placeholder method called in PayCallbackRequest");
+    }
 }
-
-
-
-
-

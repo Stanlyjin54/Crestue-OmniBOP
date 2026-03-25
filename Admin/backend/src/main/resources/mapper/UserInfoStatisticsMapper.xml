@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kuafuweb.web.mapper.UserInfoStatisticsMapper">
+<mapper namespace="com.kuafu.web.mapper.UserInfoStatisticsMapper">
 
-    <resultMap id="user_info_registration_date_datetime_statistic_2ec47ef3_countStatistic0" type="com.kuafuweb.web.entity.UserInfoRegistrationDateDatetimeStatistic2ec47ef3Count$Statistic0">
-        <result property="registrationDate" column="registration_date"/>
-        <result property="result_kf" column="result_kf"/>
+    <resultMap id="user_info_registration_date_datetime_statistic_2ec47ef3_countStatistic0" type="com.kuafu.web.entity.UserInfoRegistrationDateDatetimeStatistic2ec47ef3Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="user_info_registration_date_datetime_statistic_2de39a8d_countStatistic0" type="com.kuafuweb.web.entity.UserInfoRegistrationDateDatetimeStatistic2de39a8dCount$Statistic0">
-        <result property="registrationDate" column="registration_date"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="user_info_registration_date_datetime_statistic_2de39a8d_countStatistic0" type="com.kuafu.web.entity.UserInfoRegistrationDateDatetimeStatistic2de39a8dCount">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="user_info_registration_date_datetime_statistic_2d54c52e_countStatistic0" type="com.kuafuweb.web.entity.UserInfoRegistrationDateDatetimeStatistic2d54c52eCount$Statistic0">
-        <result property="registrationDate" column="registration_date"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="user_info_registration_date_datetime_statistic_2d54c52e_countStatistic0" type="com.kuafu.web.entity.UserInfoRegistrationDateDatetimeStatistic2d54c52eCount">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
 
 

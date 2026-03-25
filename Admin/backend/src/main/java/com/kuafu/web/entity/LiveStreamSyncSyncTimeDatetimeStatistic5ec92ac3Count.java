@@ -1,42 +1,18 @@
-﻿package com.kuafuweb.web.entity;
+package com.kuafu.web.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.List;
-
-
+/**
+ * LiveStreamSyncSyncTimeDatetimeStatistic5ec92ac3Count - rebuilt statistical entity
+ */
 @Data
 public class LiveStreamSyncSyncTimeDatetimeStatistic5ec92ac3Count {
-
-        @Data
-        @NoArgsConstructor
-        public static class Statistic0{
-
-
-                        @JsonProperty("name")
-
-
-
-
-
-                private   java.util.Date syncTime;
-
-
-
-                @JsonProperty("value")
-
-
-
-                private   String result_kf;
-
-        }
+    
+    private Long count;
+    
+    public LiveStreamSyncSyncTimeDatetimeStatistic5ec92ac3Count() {}
+    
+    public LiveStreamSyncSyncTimeDatetimeStatistic5ec92ac3Count(Long count) {
+        this.count = count;
+    }
 }
-
-
-
-
-

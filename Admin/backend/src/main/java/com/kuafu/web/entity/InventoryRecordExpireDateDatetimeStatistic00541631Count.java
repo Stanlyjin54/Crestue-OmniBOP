@@ -1,42 +1,18 @@
-﻿package com.kuafuweb.web.entity;
+package com.kuafu.web.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.List;
-
-
+/**
+ * InventoryRecordExpireDateDatetimeStatistic00541631Count - rebuilt statistical entity
+ */
 @Data
 public class InventoryRecordExpireDateDatetimeStatistic00541631Count {
-
-        @Data
-        @NoArgsConstructor
-        public static class Statistic0{
-
-
-                        @JsonProperty("name")
-
-
-
-
-
-                private   java.util.Date expireDate;
-
-
-
-                @JsonProperty("value")
-
-
-
-                private   String result_kf;
-
-        }
+    
+    private Long count;
+    
+    public InventoryRecordExpireDateDatetimeStatistic00541631Count() {}
+    
+    public InventoryRecordExpireDateDatetimeStatistic00541631Count(Long count) {
+        this.count = count;
+    }
 }
-
-
-
-
-

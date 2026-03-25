@@ -1,52 +1,56 @@
-﻿package com.kuafuweb.web.entity;
-
-import java.util.Date;
-import com.alibaba.excel.annotation.ExcelProperty;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.kuafuweb.common.annotation.Excel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import com.kuafuweb.common.domin.StaticResource;
-import java.util.List;
-import com.kuafuweb.common.annotation.Excel.*;
-
-
+package com.kuafu.web.entity;
 
 /**
- * <p>  调拨状态枚举 </p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * TransferStatusEnum - 转移状态枚举
  */
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@TableName("transfer_status_enum")
-public class TransferStatusEnum    {
-    @TableId(value = "transfer_status_enum_id", type = IdType.AUTO)
-    @JsonProperty(value = "transferStatusEnumId")
-    @Excel(name = "主键")
-
-    private Integer transferStatusEnumId;
-    @JsonProperty(value = "statusName")
-    @Excel(name = "状态名称")
-    @ExcelProperty(value = "状态名称")
-    @TableField(value = "status_name")
-
-    private String statusName;
-
-
+public enum TransferStatusEnum {
+    
+    /**
+     * 已转移
+     */
+    TRANSFERRED("1", "已转移"),
+    
+    /**
+     * 未转移
+     */
+    NOT_TRANSFERRED("0", "未转移");
+    
+    /**
+     * 状态代码
+     */
+    private final String code;
+    
+    /**
+     * 状态描述
+     */
+    private final String description;
+    
+    /**
+     * 构造函数
+     * 
+     * @param code 状态代码
+     * @param description 状态描述
+     */
+    TransferStatusEnum(String code, String description) {
+        this.code = code;
+        this.description = description;
+    }
+    
+    /**
+     * 获取状态代码
+     * 
+     * @return 状态代码
+     */
+    public String getCode() {
+        return code;
+    }
+    
+    /**
+     * 获取状态描述
+     * 
+     * @return 状态描述
+     */
+    public String getDescription() {
+        return description;
+    }
 }
-
-
-
-
-

@@ -1,44 +1,24 @@
-﻿package com.kuafuweb.web.vo;
+package com.kuafu.web.vo;
 
-import lombok.AllArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import java.util.Date;
-import lombok.NoArgsConstructor;
-import com.kuafuweb.common.domin.StaticResource;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * <p>延迟任务</p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * DelayedTasksVO - rebuilt VO
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class DelayedTasksVO  {
-
-     @JsonProperty(value = "id")
-    private Integer id;
-     @JsonProperty(value = "taskType")
-    private String taskType;
-     @JsonProperty(value = "taskData")
-    private String taskData;
-     @JsonProperty(value = "status")
-    private String status;
-     @JsonProperty(value = "executeTime")
-    private Date executeTime;
-     @JsonProperty(value = "createTime")
-    private Date createTime;
-     @JsonProperty(value = "updateTime")
-    private Date updateTime;
-
-
+public class DelayedTasksVO {
+    
+    @JsonProperty("id")
+    private Long id;
+    
+    @JsonProperty("name")
+    private String name;
+    
+    public DelayedTasksVO() {}
+    
+    public DelayedTasksVO(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
-
-
-
-
-

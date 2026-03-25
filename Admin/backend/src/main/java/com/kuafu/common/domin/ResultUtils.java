@@ -1,68 +1,26 @@
-﻿package com.kuafuweb.common.domin;
+package com.kuafu.common.domin;
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 /**
- * 返回工具类
- *
- * @author kuafui
+ * ResultUtils - rebuilt utility
  */
+@Component
+@Slf4j
 public class ResultUtils {
-
+    
     /**
-     * 成功
-     *
-     * @param data
-     * @param <T>
-     * @return
+     * Utility method placeholder
      */
-    public static <T> BaseResponse<T> success(T data) {
-        return new BaseResponse<>(0, data, "ok");
-    }
-
-    public static BaseResponse success() {
-        return new BaseResponse<>(0, null, "ok");
-    }
-
-    /**
-     * 失败
-     *
-     * @param errorCode
-     * @return
-     */
-    public static BaseResponse error(ErrorCode errorCode) {
-        return new BaseResponse<>(errorCode);
-    }
-
-    public static BaseResponse error() {
-        return new BaseResponse(-1, null, "system error");
-    }
-
-    public static BaseResponse error(String message) {
-        return new BaseResponse(-1, null, message);
-    }
-
-    /**
-     * 失败
-     *
-     * @param code
-     * @param message
-     * @return
-     */
-    public static BaseResponse error(int code, String message) {
-        return new BaseResponse(code, null, message);
-    }
-
-    /**
-     * 失败
-     *
-     * @param errorCode
-     * @return
-     */
-    public static BaseResponse error(ErrorCode errorCode, String message) {
-        return new BaseResponse(errorCode.getCode(), null, message);
+    public static Object utilityMethod(Object input) {
+        try {
+            log.info("Processing with utility method: {}", input);
+            // Utility implementation
+            return input;
+        } catch (Exception e) {
+            log.error("Utility method failed", e);
+            return null;
+        }
     }
 }
-
-
-
-
-

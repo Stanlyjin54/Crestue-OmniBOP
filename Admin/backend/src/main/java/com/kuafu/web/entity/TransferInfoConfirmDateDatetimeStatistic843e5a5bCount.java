@@ -1,42 +1,18 @@
-﻿package com.kuafuweb.web.entity;
+package com.kuafu.web.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.List;
-
-
+/**
+ * TransferInfoConfirmDateDatetimeStatistic843e5a5bCount - rebuilt statistical entity
+ */
 @Data
 public class TransferInfoConfirmDateDatetimeStatistic843e5a5bCount {
-
-        @Data
-        @NoArgsConstructor
-        public static class Statistic0{
-
-
-                        @JsonProperty("name")
-
-
-
-
-
-                private   java.util.Date confirmDate;
-
-
-
-                @JsonProperty("value")
-
-
-
-                private   String result_kf;
-
-        }
+    
+    private Long count;
+    
+    public TransferInfoConfirmDateDatetimeStatistic843e5a5bCount() {}
+    
+    public TransferInfoConfirmDateDatetimeStatistic843e5a5bCount(Long count) {
+        this.count = count;
+    }
 }
-
-
-
-
-

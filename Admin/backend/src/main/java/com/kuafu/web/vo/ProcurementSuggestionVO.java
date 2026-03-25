@@ -1,40 +1,24 @@
-﻿package com.kuafuweb.web.vo;
+package com.kuafu.web.vo;
 
-import lombok.AllArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import java.util.Date;
-import lombok.NoArgsConstructor;
-import com.kuafuweb.common.domin.StaticResource;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * <p>采购建议</p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * ProcurementSuggestionVO - rebuilt VO
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class ProcurementSuggestionVO  {
-
-     @JsonProperty(value = "procurementSuggestionId")
-    private Integer procurementSuggestionId;
-     @JsonProperty(value = "productInfoProductInfoId1")
-    private Integer productInfoProductInfoId1;
-     @JsonProperty(value = "suggestQuantity")
-    private Integer suggestQuantity;
-     @JsonProperty(value = "reason")
-    private String reason;
-     @JsonProperty(value = "suggestDate")
-    private Date suggestDate;
-
-
+public class ProcurementSuggestionVO {
+    
+    @JsonProperty("id")
+    private Long id;
+    
+    @JsonProperty("name")
+    private String name;
+    
+    public ProcurementSuggestionVO() {}
+    
+    public ProcurementSuggestionVO(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
-
-
-
-
-

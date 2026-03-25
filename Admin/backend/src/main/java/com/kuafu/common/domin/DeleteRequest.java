@@ -1,24 +1,21 @@
-﻿package com.kuafuweb.common.domin;
+package com.kuafu.common.domin;
 
-import lombok.Data;
-
-import java.io.Serializable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 /**
- * 删除请求
- *
- * @author kuafui
+ * DeleteRequest - rebuilt class
  */
-@Data
-public class DeleteRequest implements Serializable {
+@Component
+public class DeleteRequest {
+    
+    private static final Logger log = LoggerFactory.getLogger(DeleteRequest.class);
+    
     /**
-     * id
+     * Placeholder method
      */
-    private Long id;
-
-    private static final long serialVersionUID = 1L;
+    public void placeholderMethod() {
+        log.info("Placeholder method called in DeleteRequest");
+    }
 }
-
-
-
-

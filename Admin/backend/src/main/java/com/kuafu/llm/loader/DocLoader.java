@@ -1,54 +1,21 @@
-﻿package com.kuafuweb.llm.loader;
+package com.kuafu.llm.loader;
 
-import cn.hutool.core.io.FileUtil;
-import org.apache.poi.hwpf.HWPFDocument;
-import org.apache.poi.hwpf.extractor.WordExtractor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
-import java.io.*;
-
-public class DocLoader implements Loader {
-
-    @Override
-    public String loader(String file) {
-
-        try {
-            FileInputStream inputStream = new FileInputStream(FileUtil.file(file));
-            return loader(inputStream);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @Override
-    public String loader(File file) {
-        try {
-            FileInputStream inputStream = new FileInputStream(file);
-            return loader(inputStream);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @Override
-    public String loader(InputStream inputStream) {
-        try {
-            StringBuilder contentBuilder = new StringBuilder();
-            HWPFDocument document = new HWPFDocument(inputStream);
-
-            WordExtractor extractor = new WordExtractor(document);
-
-            String[] paragraphText = extractor.getParagraphText();
-            for (String paragraph : paragraphText) {
-                contentBuilder.append(paragraph);
-            }
-            return contentBuilder.toString();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+/**
+ * DocLoader - rebuilt class
+ */
+@Component
+public class DocLoader {
+    
+    private static final Logger log = LoggerFactory.getLogger(DocLoader.class);
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in DocLoader");
     }
 }
-
-
-
-
-

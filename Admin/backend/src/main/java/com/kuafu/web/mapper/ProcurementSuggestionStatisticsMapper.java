@@ -1,37 +1,40 @@
-﻿package com.kuafuweb.web.mapper;
+package com.kuafu.web.mapper;
 
-import java.util.List;
-import java.math.BigDecimal;
-
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.kuafuweb.web.entity.ProcurementSuggestion;
-
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Mapper;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import org.apache.ibatis.annotations.Select;
+import java.util.List;
+import java.util.Map;
+
 /**
- * <p> procurement_suggestion Mapper </p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * ProcurementSuggestionStatisticsMapper - rebuilt mapper
  */
 @Mapper
-public interface ProcurementSuggestionStatisticsMapper extends BaseMapper<ProcurementSuggestion> {
-
-                        List<Object> procurement_suggestion_suggest_date_datetime_statistic_ec8b49be_count(@Param("ew") Wrapper queryWrapper);
-
-
-                        List<Object> procurement_suggestion_suggest_date_datetime_statistic_26e934d3_count(@Param("ew") Wrapper queryWrapper);
-
-
-                        List<Object> procurement_suggestion_suggest_date_datetime_statistic_00313900_count(@Param("ew") Wrapper queryWrapper);
-
+public interface ProcurementSuggestionStatisticsMapper {
+    
+    /**
+     * Find all records
+     */
+    @Select("SELECT * FROM placeholder_table")
+    List<Map<String, Object>> findAll();
+    
+    /**
+     * Find by id
+     */
+    @Select("SELECT * FROM placeholder_table WHERE id = #{id}")
+    Map<String, Object> findById(Long id);
+    
+    /**
+     * Insert record
+     */
+    int insert(Map<String, Object> record);
+    
+    /**
+     * Update record
+     */
+    int update(Map<String, Object> record);
+    
+    /**
+     * Delete by id
+     */
+    int deleteById(Long id);
 }
-
-
-
-
-

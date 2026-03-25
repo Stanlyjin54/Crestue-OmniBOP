@@ -1,22 +1,19 @@
-﻿package com.kuafuweb.common.wx;
+package com.kuafu.common.wx;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
-@Data
-public class WxAppCode2SessionResponse extends WxAppBaseResponse {
-
-    @Expose
-    @SerializedName("openid")
-    private String openId;
-
-    @Expose
-    @SerializedName("session_key")
-    private String session_key;
+/**
+ * WxAppCode2SessionResponse - rebuilt class
+ */
+@Component
+@Slf4j
+public class WxAppCode2SessionResponse {
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in WxAppCode2SessionResponse");
+    }
 }
-
-
-
-
-

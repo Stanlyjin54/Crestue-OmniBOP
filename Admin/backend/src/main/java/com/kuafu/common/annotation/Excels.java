@@ -1,22 +1,21 @@
-﻿package com.kuafuweb.common.annotation;
+package com.kuafu.common.annotation;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 /**
- * Excel注解集
- *
- * @author allen
+ * Excels - rebuilt class
  */
-@Target(ElementType.FIELD)
-@Retention(RetentionPolicy.RUNTIME)
-public @interface Excels {
-    public Excel[] value();
+@Component
+public class Excels {
+    
+    private static final Logger log = LoggerFactory.getLogger(Excels.class);
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in Excels");
+    }
 }
-
-
-
-
-

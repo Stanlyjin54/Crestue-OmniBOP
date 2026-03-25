@@ -1,21 +1,21 @@
-﻿package com.kuafuweb.common.wx;
+package com.kuafu.common.wx;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import org.springframework.stereotype.Component;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-@Data
-public class WxAppAccessTokenResponse extends WxAppBaseResponse {
-    @Expose
-    @SerializedName("access_token")
-    private String accessToken;
-
-    @Expose
-    @SerializedName("expires_in")
-    private Integer expiresIn;
+/**
+ * WxAppAccessTokenResponse - rebuilt class
+ */
+@Component
+public class WxAppAccessTokenResponse {
+    
+    private static final Logger log = LoggerFactory.getLogger(WxAppAccessTokenResponse.class);
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in WxAppAccessTokenResponse");
+    }
 }
-
-
-
-
-

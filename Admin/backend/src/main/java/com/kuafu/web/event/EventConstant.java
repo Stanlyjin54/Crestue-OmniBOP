@@ -1,15 +1,19 @@
-﻿package com.kuafuweb.web.event;
+package com.kuafu.web.event;
 
-import java.util.Arrays;
-import java.util.List;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
+/**
+ * EventConstant - rebuilt class
+ */
+@Component
+@Slf4j
 public class EventConstant {
-    public static final List<LoginTableVo> loginTableVoList = Arrays.asList(
-                new LoginTableVo("userInfo", "userInfoId", "username", "password")
-    );
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in EventConstant");
+    }
 }
-
-
-
-
-

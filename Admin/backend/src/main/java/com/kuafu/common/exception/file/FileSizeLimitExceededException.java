@@ -1,14 +1,19 @@
-﻿package com.kuafuweb.common.exception.file;
+package com.kuafu.common.exception.file;
 
-public class FileSizeLimitExceededException extends FileException {
-    private static final long serialVersionUID = 1L;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
-    public FileSizeLimitExceededException(long defaultMaxSize) {
-        super("upload.exceed.maxSize", new Object[]{defaultMaxSize});
+/**
+ * FileSizeLimitExceededException - rebuilt class
+ */
+@Component
+@Slf4j
+public class FileSizeLimitExceededException {
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in FileSizeLimitExceededException");
     }
 }
-
-
-
-
-

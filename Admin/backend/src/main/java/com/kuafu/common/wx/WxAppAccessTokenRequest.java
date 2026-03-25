@@ -1,42 +1,19 @@
-﻿package com.kuafuweb.common.wx;
+package com.kuafu.common.wx;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-import com.kuafuweb.common.http.AbstractModel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
-
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class WxAppAccessTokenRequest extends AbstractModel {
-
-    @Expose
-    @SerializedName("grant_type")
-    private String grantType = "client_credential";
-
-    @Expose
-    @SerializedName("appid")
-    private String appId;
-
-    @Expose
-    @SerializedName("secret")
-    private String appSecret;
-
-    @Override
-    protected void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "appid", this.appId);
-        this.setParamSimple(map, prefix + "secret", this.appSecret);
-        this.setParamSimple(map, prefix + "grant_type", this.grantType);
+/**
+ * WxAppAccessTokenRequest - rebuilt class
+ */
+@Component
+@Slf4j
+public class WxAppAccessTokenRequest {
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in WxAppAccessTokenRequest");
     }
 }
-
-
-
-
-

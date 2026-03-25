@@ -20,7 +20,7 @@
         left join customer_info ci on bco.customer_info_customer_info_id_1 = ci.customer_info_id
         </sql>
 
-        <resultMap id="selectListNewMap" type="com.kuafuweb.web.entity.BusinessCardOcrAll">
+        <resultMap id="selectListNewMap" type="com.kuafu.web.entity.BusinessCardOcrAll">
         <result property="wechatId" column="wechat_id"/>
         <result property="address" column="address"/>
         <result property="customerInfoCustomerInfoId1" column="customer_info_customer_info_id_1"/>
@@ -34,7 +34,7 @@
         <result property="ocrResult" column="ocr_result"/>
         <result property="email" column="email"/>
 
-                <collection property="cardImage" ofType="com.kuafuweb.common.entity.StaticResource">
+                <collection property="cardImage" ofType="com.kuafu.common.entity.StaticResource">
                             <id property="resourceId" column="card_image_resource_id"/>
                             <result property="resourceName" column="card_image_resource_name"/>
                             <result property="resourcePath" column="card_image_resource_path"/>
@@ -78,7 +78,7 @@ ci.email
 ${ew.customSqlSegment}
         </select>
 
-<select id="selectList" resultType="com.kuafuweb.web.entity.BusinessCardOcrAll">
+<select id="selectList" resultType="com.kuafu.web.entity.BusinessCardOcrAll">
 select
 ci.wechat_id   ,
 ci.address   ,
@@ -97,7 +97,7 @@ ci.email
 ${ew.customSqlSegment}
         </select>
 
-<select id="selectPage" resultType="com.kuafuweb.web.entity.BusinessCardOcrAll">
+<select id="selectPage" resultType="com.kuafu.web.entity.BusinessCardOcrAll">
 select
 ci.wechat_id  ,
 ci.address  ,
@@ -116,7 +116,7 @@ ci.email
 ${ew.customSqlSegment}
         </select>
 
-<select id="selectById" resultType="com.kuafuweb.web.entity.BusinessCardOcrAll">
+<select id="selectById" resultType="com.kuafu.web.entity.BusinessCardOcrAll">
 select
 ci.wechat_id  ,
 ci.address  ,

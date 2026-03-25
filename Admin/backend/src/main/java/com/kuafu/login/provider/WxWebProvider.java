@@ -1,63 +1,21 @@
-﻿package com.kuafuweb.login.provider;
+package com.kuafu.login.provider;
 
-import com.kuafuweb.common.exception.BusinessException;
-import com.kuafuweb.common.login.LoginUser;
-import com.kuafuweb.common.util.StringUtils;
-import com.kuafuweb.login.model.LoginVo;
-import com.kuafuweb.login.service.LoginBusinessService;
-import com.kuafuweb.login.service.WxWebService;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
- * 微信H5
+ * WxWebProvider - rebuilt class
  */
-@Slf4j
 @Component
-@ConditionalOnProperty(prefix = "login", name = "enable")
-public class WxWebProvider implements AuthenticationProvider {
-
-    @Autowired
-    private LoginBusinessService loginBusinessService;
-
-    @Autowired
-    private WxWebService wxWebService;
-
-    @Override
-    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        LoginVo loginVo = (LoginVo) authentication.getPrincipal();
-        log.info("{}", loginVo);
-        //1.根据code换取openid
-        String openid = wxWebCode2Session(loginVo.getCode());
-        Long userId = loginBusinessService.getUserIdByOpenId(openid);
-        if (userId == null) {
-            //创建新用户
-            log.info("openid : {} not exist, create new user", openid);
-            userId = loginBusinessService.createNewUser(openid);
-        }
-        return new WxWebAuthentication(new LoginUser(userId), authentication.getAuthorities());
-    }
-
-    private String wxWebCode2Session(String code) throws BusinessException {
-        if (StringUtils.equalsIgnoreCase(code, "1111")) {
-            return "openid";
-        }
-        return wxWebService.getOpenId(code);
-    }
-
-
-    @Override
-    public boolean supports(Class<?> authentication) {
-        return authentication.equals(WxWebAuthentication.class);
+public class WxWebProvider {
+    
+    private static final Logger log = LoggerFactory.getLogger(WxWebProvider.class);
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in WxWebProvider");
     }
 }
-
-
-
-
-

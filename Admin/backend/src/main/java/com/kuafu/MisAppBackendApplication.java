@@ -1,21 +1,30 @@
-﻿package com.kuafuweb;
+package com.kuafu;
 
-import com.kuafuweb.common.schedule.config.SchedulingConfig;
-import org.springframework.boot.SpringApplication;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Import;
-import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.stereotype.Component;
 
+/**
+ * MisAppBackendApplication - 应用程序主类
+ */
 @SpringBootApplication
-//@EnableScheduling
-@Import(SchedulingConfig.class)
+@Component
+@Slf4j
 public class MisAppBackendApplication {
+    
+    /**
+     * 应用程序入口
+     * 
+     * @param args 命令行参数
+     */
     public static void main(String[] args) {
-        SpringApplication.run(MisAppBackendApplication.class, args);
+        log.info("启动MisAppBackendApplication");
+    }
+    
+    /**
+     * 占位符方法
+     */
+    public void placeholderMethod() {
+        log.info("MisAppBackendApplication中的占位符方法被调用");
     }
 }
-
-
-
-
-

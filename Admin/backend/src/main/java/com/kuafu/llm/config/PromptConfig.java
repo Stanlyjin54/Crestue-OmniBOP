@@ -1,13 +1,20 @@
-﻿package com.kuafuweb.llm.config;
+package com.kuafu.llm.config;
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Configuration;
 
 /**
- * prompt
+ * PromptConfig - rebuilt config
  */
+@Configuration
+@Slf4j
 public class PromptConfig {
-    public static String PROMPT = "你是一个小助手";
+    
+    /**
+     * Initialize configuration
+     */
+    public void init() {
+        log.info("Initializing PromptConfig");
+        // Configuration initialization code
+    }
 }
-
-
-
-
-

@@ -259,7 +259,7 @@ class UserServiceTest {
 ## ❓ 常见问题
 
 ### Q: 如何选择要贡献的功能？
-A: 可以查看项目的 [Issues](https://github.com/crestue/omni-bop/issues) 页面，选择标记为 `good first issue` 或 `help wanted` 的 Issue。
+A: 可以查看项目的 [Issues](https://github.com/Stanlyjin54/Crestue-OmniBOP/issues) 页面，选择标记为 `good first issue` 或 `help wanted` 的 Issue。
 
 ### Q: 贡献代码需要签署 CLA 吗？
 A: 目前不需要签署 CLA，但请确保您拥有提交代码的版权。
@@ -277,10 +277,10 @@ A: 我们会在 3-5 个工作日内审核 PR，重大功能可能需要更长时
 
 如有任何问题，可以通过以下方式联系我们：
 
-- 📧 Email: dev@crestue.com
+- 📧 Email: 549057226@qq.com
 - 💬 GitHub Discussions
 - 🐛 GitHub Issues
 
 ---
 
-感谢您的贡献！让我们一起打造更好的 Crestue Omni-BOP！ 🚀
+感谢您的贡献！让我们一起打造更好的 Crestue OmniBOP！ 🚀

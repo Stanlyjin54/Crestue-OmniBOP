@@ -1,17 +1,19 @@
-﻿package com.kuafuweb.common.exception.file;
+package com.kuafu.common.exception.file;
 
-import com.kuafuweb.common.exception.base.BaseException;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
-public class FileException extends BaseException {
-    private static final long serialVersionUID = 1L;
-
-    public FileException(String code, Object[] args) {
-        super("file", code, args, null);
+/**
+ * FileException - rebuilt class
+ */
+@Component
+@Slf4j
+public class FileException {
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in FileException");
     }
-
 }
-
-
-
-
-

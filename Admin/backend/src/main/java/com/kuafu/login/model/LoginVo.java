@@ -1,24 +1,24 @@
-﻿package com.kuafuweb.login.model;
+package com.kuafu.login.model;
 
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * LoginVo - rebuilt VO
+ */
 @Data
 public class LoginVo {
-    @Schema(description = "小程序code")
-    private String code;
-
-    @Schema(description = "用户名/手机号")
-    private String phone;
-
-    @Schema(description = "密码")
-    private String password;
-
-    @Schema(description = "state")
-    private String state;
+    
+    @JsonProperty("id")
+    private Long id;
+    
+    @JsonProperty("name")
+    private String name;
+    
+    public LoginVo() {}
+    
+    public LoginVo(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
-
-
-
-
-

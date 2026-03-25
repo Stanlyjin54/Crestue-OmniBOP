@@ -164,8 +164,13 @@ export const useCartStore = defineStore('cart', () => {
   }
 
   // 检查商品是否已选中
-  const isItemSelected = (cartItemId: number) => 
+  const isItemSelected = (cartItemId: number) =>
     selectedItems.value.includes(cartItemId)
+
+  // 更新购物车商品数量（用于外部调用后刷新）
+  const updateCartCount = () => {
+    return fetchCart()
+  }
 
   return {
     // 状态
@@ -190,6 +195,7 @@ export const useCartStore = defineStore('cart', () => {
     toggleItemSelection,
     toggleAllSelection,
     setSelectedItems,
-    isItemSelected
+    isItemSelected,
+    updateCartCount
   }
 })

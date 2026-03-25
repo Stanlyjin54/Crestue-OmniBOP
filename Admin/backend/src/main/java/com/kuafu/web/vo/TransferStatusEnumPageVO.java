@@ -1,35 +1,56 @@
-﻿package com.kuafuweb.web.vo;
-
-import java.util.Date;
-
-import com.kuafuweb.common.domin.PageRequest;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+package com.kuafu.web.vo;
 
 /**
- * <p>调拨状态枚举-分页列表-响应参数</p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * TransferStatusEnumPageVO - 转移状态枚举分页视图对象
  */
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
-public class TransferStatusEnumPageVO extends PageRequest {
-
-    @JsonProperty(value = "transferStatusEnumId")
-    private Integer transferStatusEnumId;
-    @JsonProperty(value = "statusName")
-    private String statusName;
-
+public enum TransferStatusEnumPageVO {
+    
+    /**
+     * 已转移状态
+     */
+    TRANSFERRED("1", "已转移状态"),
+    
+    /**
+     * 未转移状态
+     */
+    NOT_TRANSFERRED("0", "未转移状态");
+    
+    /**
+     * 状态代码
+     */
+    private final String code;
+    
+    /**
+     * 状态描述
+     */
+    private final String description;
+    
+    /**
+     * 构造函数
+     * 
+     * @param code 状态代码
+     * @param description 状态描述
+     */
+    TransferStatusEnumPageVO(String code, String description) {
+        this.code = code;
+        this.description = description;
+    }
+    
+    /**
+     * 获取状态代码
+     * 
+     * @return 状态代码
+     */
+    public String getCode() {
+        return code;
+    }
+    
+    /**
+     * 获取状态描述
+     * 
+     * @return 状态描述
+     */
+    public String getDescription() {
+        return description;
+    }
 }
-
-
-
-
-

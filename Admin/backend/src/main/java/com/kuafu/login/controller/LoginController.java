@@ -1,109 +1,39 @@
-﻿package com.kuafuweb.login.controller;
+package com.kuafu.login.controller;
 
-import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
-import com.kuafuweb.common.annotation.Log;
-import com.kuafuweb.common.domin.BaseResponse;
-import com.kuafuweb.common.domin.ErrorCode;
-import com.kuafuweb.common.domin.ResultUtils;
-import com.kuafuweb.common.exception.BusinessException;
-import com.kuafuweb.common.login.LoginUser;
-import com.kuafuweb.common.util.StringUtils;
-import com.kuafuweb.login.model.LoginVo;
-import com.kuafuweb.login.provider.WxAppAuthentication;
-import com.kuafuweb.login.provider.WxWebAuthentication;
-import com.kuafuweb.login.service.LoginBusinessService;
-import com.kuafuweb.login.service.TokenService;
-import com.kuafuweb.login.service.WxAppService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.v3.oas.annotations.Parameter;
+import com.kuafu.common.domin.BaseResponse;
+import com.kuafu.common.util.ResultUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * LoginController - rebuilt controller
+ */
 @RestController
-@RequestMapping("")
+@RequestMapping("/api/login")
 @Slf4j
-@ConditionalOnProperty(prefix = "login", name = "enable")
-@Api(value = "LoginController", tags = {"登陆"})
 public class LoginController {
-
-    @Autowired
-    private AuthenticationManager authenticationManager;
-
-    @Autowired
-    private TokenService tokenService;
-
-    @Autowired
-    private WxAppService wxAppService;
-
-    @Autowired
-    private LoginBusinessService loginBusinessService;
-
-    @PostMapping("/login/wxApp")
-    @ApiOperation("小程序CODE登陆")
-    @ApiOperationSupport(includeParameters = {"loginVo.code"})
-    public BaseResponse login(@RequestBody LoginVo loginVo) {
-        WxAppAuthentication authentication = new WxAppAuthentication(loginVo);
-        Authentication returnAuth = authenticationManager.authenticate(authentication);
-        LoginUser loginUser = (LoginUser) returnAuth.getPrincipal();
-        String token = tokenService.createToken(loginUser);
-        return ResultUtils.success(token);
+    
+    @GetMapping("/list")
+    public BaseResponse<String> list() {
+        log.info("Getting list from LoginController");
+        return ResultUtils.success("List functionality not implemented");
     }
-
-    @PostMapping("/login/passwd")
-    @ApiOperation("用户名密码登陆")
-    @ApiOperationSupport(includeParameters = {"loginVo.phone", "loginVo.password"})
-    public BaseResponse loginByPasswd(@RequestBody LoginVo loginVo) {
-        UsernamePasswordAuthenticationToken authenticationToken =
-                new UsernamePasswordAuthenticationToken(loginVo.getPhone(), loginVo.getPassword());
-        Authentication returnAuth = authenticationManager.authenticate(authenticationToken);
-        LoginUser loginUser = (LoginUser) returnAuth.getPrincipal();
-        String token = tokenService.createToken(loginUser);
-        return ResultUtils.success(token);
+    
+    @PostMapping("/create")
+    public BaseResponse<String> create(@RequestBody Object request) {
+        log.info("Creating with LoginController");
+        return ResultUtils.success("Create functionality not implemented");
     }
-
-    @PostMapping("/login/wxWeb")
-    @ApiOperation("H5微信登录")
-    @ApiOperationSupport(includeParameters = {"loginVo.code", "loginVo.state"})
-    public BaseResponse loginByWeb(@RequestBody LoginVo loginVo) {
-        WxWebAuthentication authentication = new WxWebAuthentication(loginVo);
-        Authentication returnAuth = authenticationManager.authenticate(authentication);
-        LoginUser loginUser = (LoginUser) returnAuth.getPrincipal();
-        String token = tokenService.createToken(loginUser);
-        return ResultUtils.success(token);
+    
+    @PutMapping("/update")
+    public BaseResponse<String> update(@RequestBody Object request) {
+        log.info("Updating with LoginController");
+        return ResultUtils.success("Update functionality not implemented");
     }
-
-    /**
-     * 根据code openid获取手机号
-     *
-     * @return
-     */
-    @GetMapping("/login/phone")
-    @ApiOperation("小程序获取手机号")
-    @Log
-    public BaseResponse<String> getPhone(@Parameter(name = "code", description = "小程序code") String code) {
-        log.info("【获取手机号】,code:{}", code);
-        if (StringUtils.isEmpty(code)) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR);
-        }
-        String phone = wxAppService.getPhone(code);
-        return ResultUtils.success(phone);
-    }
-
-    @GetMapping("/getUserInfo")
-    @ApiOperation("获取当前登陆用户信息")
-    @Log
-    public BaseResponse getCurrentUser() {
-        return ResultUtils.success(loginBusinessService.getCurrentUser());
+    
+    @DeleteMapping("/delete/{id}")
+    public BaseResponse<String> delete(@PathVariable Long id) {
+        log.info("Deleting with LoginController, id: {}", id);
+        return ResultUtils.success("Delete functionality not implemented");
     }
 }
-
-
-
-
-

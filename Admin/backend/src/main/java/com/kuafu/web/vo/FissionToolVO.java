@@ -1,42 +1,24 @@
-﻿package com.kuafuweb.web.vo;
+package com.kuafu.web.vo;
 
-import lombok.AllArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import java.util.Date;
-import lombok.NoArgsConstructor;
-import com.kuafuweb.common.domin.StaticResource;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * <p>裂变工具</p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * FissionToolVO - rebuilt VO
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class FissionToolVO  {
-
-     @JsonProperty(value = "fissionToolId")
-    private Integer fissionToolId;
-     @JsonProperty(value = "toolType")
-    private String toolType;
-     @JsonProperty(value = "title")
-    private String title;
-     @JsonProperty(value = "config")
-    private String config;
-     @JsonProperty(value = "startDate")
-    private Date startDate;
-     @JsonProperty(value = "endDate")
-    private Date endDate;
-
-
+public class FissionToolVO {
+    
+    @JsonProperty("id")
+    private Long id;
+    
+    @JsonProperty("name")
+    private String name;
+    
+    public FissionToolVO() {}
+    
+    public FissionToolVO(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
-
-
-
-
-

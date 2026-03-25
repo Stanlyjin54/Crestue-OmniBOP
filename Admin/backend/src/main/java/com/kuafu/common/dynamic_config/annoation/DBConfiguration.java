@@ -1,24 +1,23 @@
-﻿package com.kuafuweb.common.dynamic_config.annoation;
+package com.kuafu.common.dynamic_config.annoation;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Configuration;
 
-import org.springframework.context.annotation.DependsOn;
-import org.springframework.stereotype.Component;
-
-import java.lang.annotation.*;
 
 /**
- * 用于标注数据库配置的类
+ * DBConfiguration - rebuilt config
  */
-@Target({ElementType.TYPE})
-@Retention(RetentionPolicy.RUNTIME)
-@Documented
-@Component
-@DependsOn("DBConfigLoader") // 等待DBConfigLoader加载完成，后再加载对应的bean
-public @interface DBConfiguration {
-
+@Configuration
+public class DBConfiguration {
+    
+    private static final Logger log = LoggerFactory.getLogger(DBConfiguration.class);
+    
+    /**
+     * Initialize configuration
+     */
+    public void init() {
+        log.info("Initializing DBConfiguration");
+        // Configuration initialization code
+    }
 }
-
-
-
-
-

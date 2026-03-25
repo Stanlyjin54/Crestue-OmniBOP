@@ -1,42 +1,18 @@
-﻿package com.kuafuweb.web.entity;
+package com.kuafu.web.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.List;
-
-
+/**
+ * ProfitBoardStatDateDatetimeStatisticF80cc477Count - rebuilt statistical entity
+ */
 @Data
 public class ProfitBoardStatDateDatetimeStatisticF80cc477Count {
-
-        @Data
-        @NoArgsConstructor
-        public static class Statistic0{
-
-
-                        @JsonProperty("name")
-
-
-
-
-
-                private   java.util.Date statDate;
-
-
-
-                @JsonProperty("value")
-
-
-
-                private   String result_kf;
-
-        }
+    
+    private Long count;
+    
+    public ProfitBoardStatDateDatetimeStatisticF80cc477Count() {}
+    
+    public ProfitBoardStatDateDatetimeStatisticF80cc477Count(Long count) {
+        this.count = count;
+    }
 }
-
-
-
-
-

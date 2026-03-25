@@ -1,38 +1,24 @@
-﻿package com.kuafuweb.web.vo;
+package com.kuafu.web.vo;
 
-import lombok.AllArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import java.util.Date;
-import lombok.NoArgsConstructor;
-import com.kuafuweb.common.domin.StaticResource;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * <p>角色</p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * RoleVO - rebuilt VO
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class RoleVO  {
-
-     @JsonProperty(value = "roleId")
-    private Integer roleId;
-     @JsonProperty(value = "roleName")
-    private String roleName;
-     @JsonProperty(value = "roleDesc")
-    private String roleDesc;
-     @JsonProperty(value = "createTime")
-    private Date createTime;
-
-
+public class RoleVO {
+    
+    @JsonProperty("id")
+    private Long id;
+    
+    @JsonProperty("name")
+    private String name;
+    
+    public RoleVO() {}
+    
+    public RoleVO(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
-
-
-
-
-

@@ -1,19 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kuafuweb.web.mapper.BusinessCardOcrMapper">
+<mapper namespace="com.kuafu.web.mapper.BusinessCardOcrMapper">
 
-    <resultMap id="selectListNewMap" type="com.kuafuweb.web.entity.BusinessCardOcr">
-            <result property="businessCardOcrId" column="business_card_ocr_id"/>
-            <result property="customerInfoCustomerInfoId1" column="customer_info_customer_info_id_1"/>
-            <result property="cardImageResourceKey" column="card_image_resource_key"/>
-            <result property="ocrResult" column="ocr_result"/>
-            <collection property="cardImage" ofType="com.kuafuweb.common.domin.StaticResource">
+    <resultMap id="selectListNewMap" type="com.kuafu.web.entity.BusinessCardOcr">
+            <result property="count" column="result_kf"/>
+            <result property="count" column="result_kf"/>
+            <result property="count" column="result_kf"/>
+            <result property="count" column="result_kf"/>
+            <collection property="cardImage" ofType="com.kuafu.common.domin.StaticResource" javaType="java.util.List">
                 <id property="resourceId" column="card_image_resource_id"/>
-                <result property="resourceName" column="card_image_resource_name"/>
-                <result property="resourcePath" column="card_image_resource_path"/>
-                <result property="relatedTableName" column="card_image_related_table_name"/>
-                <result property="relatedTableKey" column="card_image_related_table_key"/>
-                <result property="relateTableColumnName" column="card_image_relate_table_column_name"/>
+                <result property="count" column="result_kf"/>
+                <result property="count" column="result_kf"/>
+                <result property="count" column="result_kf"/>
+                <result property="count" column="result_kf"/>
+                <result property="count" column="result_kf"/>
             </collection>
     </resultMap>
 

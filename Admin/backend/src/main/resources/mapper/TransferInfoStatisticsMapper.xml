@@ -1,42 +1,42 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kuafuweb.web.mapper.TransferInfoStatisticsMapper">
+<mapper namespace="com.kuafu.web.mapper.TransferInfoStatisticsMapper">
 
-    <resultMap id="transfer_info_transfer_status_enum_transfer_status_enum_id_1_status_statistic_0b0d5ec1_countStatistic0" type="com.kuafuweb.web.entity.TransferInfoTransferStatusEnumTransferStatusEnumId1StatusStatistic0b0d5ec1Count$Statistic0">
-        <result property="transferStatusEnumTransferStatusEnumId1" column="transfer_status_enum_transfer_status_enum_id_1"/>
-        <result property="result_kf" column="result_kf"/>
+    <resultMap id="transfer_info_transfer_status_enum_transfer_status_enum_id_1_status_statistic_0b0d5ec1_countStatistic0" type="com.kuafu.web.entity.TransferInfoTransferStatusEnumTransferStatusEnumId1StatusStatistic3a04bd30Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="transfer_info_transfer_status_enum_transfer_status_enum_id_1_status_statistic_3a04bd30_countStatistic0" type="com.kuafuweb.web.entity.TransferInfoTransferStatusEnumTransferStatusEnumId1StatusStatistic3a04bd30Count$Statistic0">
-        <result property="transferStatusEnumTransferStatusEnumId1" column="transfer_status_enum_transfer_status_enum_id_1"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="transfer_info_transfer_status_enum_transfer_status_enum_id_1_status_statistic_3a04bd30_countStatistic0" type="com.kuafu.web.entity.TransferInfoTransferStatusEnumTransferStatusEnumId1StatusStatistic3a04bd30Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="transfer_info_transfer_status_enum_transfer_status_enum_id_1_status_statistic_92a0f49d_countStatistic0" type="com.kuafuweb.web.entity.TransferInfoTransferStatusEnumTransferStatusEnumId1StatusStatistic92a0f49dCount$Statistic0">
-        <result property="transferStatusEnumTransferStatusEnumId1" column="transfer_status_enum_transfer_status_enum_id_1"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="transfer_info_transfer_status_enum_transfer_status_enum_id_1_status_statistic_92a0f49d_countStatistic0" type="com.kuafu.web.entity.TransferInfoTransferStatusEnumTransferStatusEnumId1StatusStatistic3a04bd30Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="transfer_info_apply_date_datetime_statistic_1ce09557_countStatistic0" type="com.kuafuweb.web.entity.TransferInfoApplyDateDatetimeStatistic1ce09557Count$Statistic0">
-        <result property="applyDate" column="apply_date"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="transfer_info_apply_date_datetime_statistic_1ce09557_countStatistic0" type="com.kuafu.web.entity.TransferInfoApplyDateDatetimeStatistic1ce09557Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="transfer_info_apply_date_datetime_statistic_747d5b62_countStatistic0" type="com.kuafuweb.web.entity.TransferInfoApplyDateDatetimeStatistic747d5b62Count$Statistic0">
-        <result property="applyDate" column="apply_date"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="transfer_info_apply_date_datetime_statistic_747d5b62_countStatistic0" type="com.kuafu.web.entity.TransferInfoApplyDateDatetimeStatistic747d5b62Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="transfer_info_apply_date_datetime_statistic_7f4dfcee_countStatistic0" type="com.kuafuweb.web.entity.TransferInfoApplyDateDatetimeStatistic7f4dfceeCount$Statistic0">
-        <result property="applyDate" column="apply_date"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="transfer_info_apply_date_datetime_statistic_7f4dfcee_countStatistic0" type="com.kuafu.web.entity.TransferInfoApplyDateDatetimeStatistic7f4dfceeCount">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="transfer_info_confirm_date_datetime_statistic_843e5a5b_countStatistic0" type="com.kuafuweb.web.entity.TransferInfoConfirmDateDatetimeStatistic843e5a5bCount$Statistic0">
-        <result property="confirmDate" column="confirm_date"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="transfer_info_confirm_date_datetime_statistic_843e5a5b_countStatistic0" type="com.kuafu.web.entity.TransferInfoConfirmDateDatetimeStatistic843e5a5bCount">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="transfer_info_confirm_date_datetime_statistic_c99d1d40_countStatistic0" type="com.kuafuweb.web.entity.TransferInfoConfirmDateDatetimeStatisticC99d1d40Count$Statistic0">
-        <result property="confirmDate" column="confirm_date"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="transfer_info_confirm_date_datetime_statistic_c99d1d40_countStatistic0" type="com.kuafu.web.entity.TransferInfoConfirmDateDatetimeStatisticC99d1d40Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="transfer_info_confirm_date_datetime_statistic_9e5bc169_countStatistic0" type="com.kuafuweb.web.entity.TransferInfoConfirmDateDatetimeStatistic9e5bc169Count$Statistic0">
-        <result property="confirmDate" column="confirm_date"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="transfer_info_confirm_date_datetime_statistic_9e5bc169_countStatistic0" type="com.kuafu.web.entity.TransferInfoConfirmDateDatetimeStatistic9e5bc169Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
 
 

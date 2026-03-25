@@ -1,52 +1,40 @@
-﻿package com.kuafuweb.common.config;
+package com.kuafu.common.config;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Configuration;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
-
-@Component
-@ConfigurationProperties(prefix = "app")
+/**
+ * AppConfig - 应用配置类
+ */
+@Configuration
+@Slf4j
 public class AppConfig {
-    private static String profile;
-
-    public void setProfile(String profile) {
-        AppConfig.profile = profile;
+    
+    private static String profile = "dev";
+    
+    /**
+     * 初始化配置
+     */
+    public void init() {
+        log.info("初始化AppConfig");
+        // 配置初始化代码
     }
-
+    
+    /**
+     * 获取当前配置环境
+     * 
+     * @return 配置环境
+     */
     public static String getProfile() {
         return profile;
     }
-
+    
     /**
-     * 获取导入上传路径
+     * 设置配置环境
+     * 
+     * @param profile 配置环境
      */
-    public static String getImportPath() {
-        return getProfile() + "/import";
-    }
-
-    /**
-     * 获取头像上传路径
-     */
-    public static String getAvatarPath() {
-        return getProfile() + "/avatar";
-    }
-
-    /**
-     * 获取下载路径
-     */
-    public static String getDownloadPath() {
-        return getProfile() + "/download/";
-    }
-
-    /**
-     * 获取上传路径
-     */
-    public static String getUploadPath() {
-        return getProfile() + "/upload";
+    public static void setProfile(String profile) {
+        AppConfig.profile = profile;
     }
 }
-
-
-
-
-

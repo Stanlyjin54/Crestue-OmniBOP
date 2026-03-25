@@ -1,14 +1,14 @@
-﻿package com.kuafuweb.pay.business;
+package com.kuafu.pay.business;
 
-import com.kuafuweb.pay.db.domain.GeneralOrders;
+import com.kuafu.pay.db.domain.GeneralOrders;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import javax.annotation.Resource;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-@SpringBootTest
+@SpringBootTest(classes = com.kuafu.MisAppBackendApplication.class, properties = {"spring.profiles.active=test"})
+@ActiveProfiles("test")
 class GeneralOrderBusinessServiceTest {
 
     @Resource
@@ -70,6 +70,7 @@ class GeneralOrderBusinessServiceTest {
     void cancelPay() {
     }
 }
+
 
 
 

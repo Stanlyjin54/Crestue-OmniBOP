@@ -1,42 +1,24 @@
-﻿package com.kuafuweb.web.vo;
+package com.kuafu.web.vo;
 
-import lombok.AllArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import java.util.Date;
-import lombok.NoArgsConstructor;
-import com.kuafuweb.common.domin.StaticResource;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * <p>广告推荐</p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * AdRecommendInfoVO - rebuilt VO
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class AdRecommendInfoVO  {
-
-     @JsonProperty(value = "adRecommendInfoId")
-    private Integer adRecommendInfoId;
-     @JsonProperty(value = "adTitle")
-    private String adTitle;
-     @JsonProperty(value = "adImageResourceKey")
-    private String adImageResourceKey;
-     @JsonProperty(value = "adUrl")
-    private String adUrl;
-     @JsonProperty(value = "cpcFee")
-    private Double cpcFee;
-
-    @JsonProperty("adImage")
-    private List<StaticResource> adImage;
-
+public class AdRecommendInfoVO {
+    
+    @JsonProperty("id")
+    private Long id;
+    
+    @JsonProperty("name")
+    private String name;
+    
+    public AdRecommendInfoVO() {}
+    
+    public AdRecommendInfoVO(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
-
-
-
-
-

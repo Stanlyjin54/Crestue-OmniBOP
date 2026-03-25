@@ -1,41 +1,24 @@
-﻿package com.kuafuweb.web.vo;
+package com.kuafu.web.vo;
 
-import java.util.Date;
-
-import com.kuafuweb.common.domin.PageRequest;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * <p>AI助手日志-分页列表-响应参数</p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * AiAssistantLogPageVO - rebuilt VO
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
-public class AiAssistantLogPageVO extends PageRequest {
-
-    @JsonProperty(value = "aiAssistantLogId")
-    private Integer aiAssistantLogId;
-    @JsonProperty(value = "userInfoUserInfoId1")
-    private Integer userInfoUserInfoId1;
-    @JsonProperty(value = "queryText")
-    private String queryText;
-    @JsonProperty(value = "responseText")
-    private String responseText;
-    @JsonProperty(value = "queryTime")
-    private Date queryTime;
-
+public class AiAssistantLogPageVO {
+    
+    @JsonProperty("id")
+    private Long id;
+    
+    @JsonProperty("name")
+    private String name;
+    
+    public AiAssistantLogPageVO() {}
+    
+    public AiAssistantLogPageVO(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
-
-
-
-
-

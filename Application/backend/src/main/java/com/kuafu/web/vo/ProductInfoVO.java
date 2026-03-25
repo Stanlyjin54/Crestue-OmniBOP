@@ -1,15 +1,16 @@
-package com.kuafuweb.web.vo;
+package com.kuafu.web.vo;
 
 import lombok.AllArgsConstructor;
-import com.kuafuweb.common.entity.StaticResource;
+import com.kuafu.common.entity.StaticResource;
 import java.util.List;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 import lombok.NoArgsConstructor;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.kuafuweb.common.deserializer.MultiDateDeserializer;
-import com.kuafuweb.common.entity.BaseEntity;
+import com.kuafu.common.deserializer.MultiDateDeserializer;
+import com.kuafu.common.entity.BaseEntity;
 /**
  * <p>商品信息</p>
  *
@@ -18,6 +19,7 @@ import com.kuafuweb.common.entity.BaseEntity;
  * @date 2025/06/18 13:48
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductInfoVO  extends BaseEntity {

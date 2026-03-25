@@ -1,22 +1,25 @@
-﻿package com.kuafuweb.web.service;
+package com.kuafu.web.service;
 
 import java.util.List;
-import com.kuafuweb.web.entity.Login;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.service.IService;
+import java.util.Map;
 
 /**
- * <p>  登录表 服务类 </p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * ILoginService - rebuilt service interface
  */
-public interface ILoginService extends IService<Login> {
-
+public interface ILoginService {
+    
+    /**
+     * Find all records
+     */
+    List<Map<String, Object>> findAll();
+    
+    /**
+     * Find by id
+     */
+    Map<String, Object> findById(Long id);
+    
+    /**
+     * Save record
+     */
+    int save(Map<String, Object> record);
 }
-
-
-
-
-

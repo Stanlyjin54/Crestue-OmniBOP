@@ -1,35 +1,56 @@
-﻿package com.kuafuweb.web.service.impl;
-
-import java.util.List;
-import org.springframework.util.CollectionUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import lombok.RequiredArgsConstructor;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-
-import com.kuafuweb.web.mapper.ProductStatusEnumMapper;
-import com.kuafuweb.web.entity.ProductStatusEnum;
-import com.kuafuweb.web.service.IProductStatusEnumService;
-import lombok.extern.slf4j.Slf4j;
+package com.kuafu.web.service.impl;
 
 /**
- * <p> 商品状态枚举 服务实现类 </p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * ProductStatusEnumServiceImpl - 产品状态枚举实现
  */
-@Slf4j
-@Service("ProductStatusEnum")
-public class ProductStatusEnumServiceImpl extends ServiceImpl<ProductStatusEnumMapper, ProductStatusEnum> implements IProductStatusEnumService {
-
-
+public enum ProductStatusEnumServiceImpl {
+    
+    /**
+     * 上架状态
+     */
+    ONLINE("1", "上架"),
+    
+    /**
+     * 下架状态
+     */
+    OFFLINE("0", "下架");
+    
+    /**
+     * 状态代码
+     */
+    private final String code;
+    
+    /**
+     * 状态描述
+     */
+    private final String description;
+    
+    /**
+     * 构造函数
+     * 
+     * @param code 状态代码
+     * @param description 状态描述
+     */
+    ProductStatusEnumServiceImpl(String code, String description) {
+        this.code = code;
+        this.description = description;
+    }
+    
+    /**
+     * 获取状态代码
+     * 
+     * @return 状态代码
+     */
+    public String getCode() {
+        return code;
+    }
+    
+    /**
+     * 获取状态描述
+     * 
+     * @return 状态描述
+     */
+    public String getDescription() {
+        return description;
+    }
 }
-
-
-
-
-

@@ -1,47 +1,19 @@
-﻿package com.kuafuweb.llm.vector;
+package com.kuafu.llm.vector;
 
-import java.util.List;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
-public interface Vector {
-
+/**
+ * Vector - rebuilt class
+ */
+@Component
+@Slf4j
+public class Vector {
+    
     /**
-     * 创建集合
-     *
-     * @param name
-     * @param dimension
-     * @return
+     * Placeholder method
      */
-    boolean createCollection(String name, Integer dimension);
-
-    /**
-     * 删除集合
-     *
-     * @param name
-     * @return
-     */
-    boolean deleteCollection(String name);
-
-    boolean save(String collectionName, String text, List<Double> vectors);
-
-    /**
-     * 搜索
-     *
-     * @param collectionName
-     * @param vectors
-     * @return
-     */
-    List<String> search(String collectionName, List<Double> vectors);
-
-    /**
-     * 获取 集合
-     *
-     * @param name
-     * @return
-     */
-    Object getCollection(String name);
+    public void placeholderMethod() {
+        log.info("Placeholder method called in Vector");
+    }
 }
-
-
-
-
-

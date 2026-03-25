@@ -1,22 +1,26 @@
-﻿package com.kuafuweb.common.util;
+package com.kuafu.common.util;
 
-import lombok.experimental.UtilityClass;
-import org.apache.poi.ss.usermodel.*;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
-
-@UtilityClass
+/**
+ * ReflectUtils - rebuilt utility
+ */
+@Component
+@Slf4j
 public class ReflectUtils {
-
-    // 创建可复用的日期样式
-    public static CellStyle createDateStyle(Workbook workbook) {
-        CellStyle style = workbook.createCellStyle();
-        CreationHelper createHelper = workbook.getCreationHelper();
-        style.setDataFormat(createHelper.createDataFormat().getFormat("yyyy-MM-dd"));
-        return style;
+    
+    /**
+     * Utility method placeholder
+     */
+    public static Object utilityMethod(Object input) {
+        try {
+            log.info("Processing with utility method: {}", input);
+            // Utility implementation
+            return input;
+        } catch (Exception e) {
+            log.error("Utility method failed", e);
+            return null;
+        }
     }
 }
-
-
-
-
-

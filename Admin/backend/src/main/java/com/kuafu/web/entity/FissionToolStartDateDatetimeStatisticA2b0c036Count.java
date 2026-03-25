@@ -1,42 +1,18 @@
-﻿package com.kuafuweb.web.entity;
+package com.kuafu.web.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.List;
-
-
+/**
+ * FissionToolStartDateDatetimeStatisticA2b0c036Count - rebuilt statistical entity
+ */
 @Data
 public class FissionToolStartDateDatetimeStatisticA2b0c036Count {
-
-        @Data
-        @NoArgsConstructor
-        public static class Statistic0{
-
-
-                        @JsonProperty("name")
-
-
-
-
-
-                private   java.util.Date startDate;
-
-
-
-                @JsonProperty("value")
-
-
-
-                private   String result_kf;
-
-        }
+    
+    private Long count;
+    
+    public FissionToolStartDateDatetimeStatisticA2b0c036Count() {}
+    
+    public FissionToolStartDateDatetimeStatisticA2b0c036Count(Long count) {
+        this.count = count;
+    }
 }
-
-
-
-
-

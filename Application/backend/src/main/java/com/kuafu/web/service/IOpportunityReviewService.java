@@ -1,6 +1,6 @@
-package com.kuafuweb.web.service;
+package com.kuafu.web.service;
 
-import com.kuafuweb.web.entity.BusinessOpportunity;
+import com.kuafu.web.entity.BusinessOpportunity;
 import java.util.List;
 import java.util.Map;
 

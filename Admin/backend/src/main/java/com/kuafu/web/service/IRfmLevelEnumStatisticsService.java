@@ -1,30 +1,56 @@
-﻿package com.kuafuweb.web.service;
+package com.kuafu.web.service;
 
-import java.util.List;
-import com.kuafuweb.web.entity.RfmLevelEnum;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.service.IService;
-import javax.annotation.Resource;
-import java.math.BigDecimal;
-
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 /**
- * <p>  rfm_level_enum 服务类 </p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * IRfmLevelEnumStatisticsService - RFM等级枚举统计服务
  */
-public interface IRfmLevelEnumStatisticsService extends IService<RfmLevelEnum> {
-        List<Object> rfm_level_enum_rfm_level_enum_id_status_statistic_37bad8f0_count(LambdaQueryWrapper queryWrapper);
-
-        List<Object> rfm_level_enum_rfm_level_enum_id_status_statistic_23d416cb_count(LambdaQueryWrapper queryWrapper);
-
-        List<Object> rfm_level_enum_rfm_level_enum_id_status_statistic_bcb4c0b6_count(LambdaQueryWrapper queryWrapper);
-
+public enum IRfmLevelEnumStatisticsService {
+    
+    /**
+     * 高价值客户统计
+     */
+    HIGH_VALUE_STATS("1", "高价值客户统计"),
+    
+    /**
+     * 普通价值客户统计
+     */
+    NORMAL_VALUE_STATS("0", "普通价值客户统计");
+    
+    /**
+     * 统计代码
+     */
+    private final String code;
+    
+    /**
+     * 统计描述
+     */
+    private final String description;
+    
+    /**
+     * 构造函数
+     * 
+     * @param code 统计代码
+     * @param description 统计描述
+     */
+    IRfmLevelEnumStatisticsService(String code, String description) {
+        this.code = code;
+        this.description = description;
+    }
+    
+    /**
+     * 获取统计代码
+     * 
+     * @return 统计代码
+     */
+    public String getCode() {
+        return code;
+    }
+    
+    /**
+     * 获取统计描述
+     * 
+     * @return 统计描述
+     */
+    public String getDescription() {
+        return description;
+    }
 }
-
-
-
-
-

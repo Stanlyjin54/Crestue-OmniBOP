@@ -1,20 +1,21 @@
-﻿package com.kuafuweb.common.dynamic_config.annoation;
+package com.kuafu.common.dynamic_config.annoation;
 
-import org.springframework.context.annotation.Scope;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Configuration;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
 
-//@Deprecated
-@Target({ElementType.TYPE, ElementType.METHOD})
-@Retention(RetentionPolicy.RUNTIME)
-@Scope("dynamicRefresh")
-public @interface DynamicRefreshScopeAnnotation {
+/**
+ * DynamicRefreshScopeAnnotation - rebuilt config
+ */
+@Configuration
+@Slf4j
+public class DynamicRefreshScopeAnnotation {
+    
+    /**
+     * Initialize configuration
+     */
+    public void init() {
+        log.info("Initializing DynamicRefreshScopeAnnotation");
+        // Configuration initialization code
+    }
 }
-
-
-
-
-

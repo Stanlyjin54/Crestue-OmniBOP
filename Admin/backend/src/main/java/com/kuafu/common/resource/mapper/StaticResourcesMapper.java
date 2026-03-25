@@ -1,24 +1,40 @@
-﻿package com.kuafuweb.common.resource.mapper;
+package com.kuafu.common.resource.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.kuafuweb.common.domin.StaticResource;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+import java.util.List;
+import java.util.Map;
 
-@Mapper
 /**
-* @description 针对表【static_resources】的数据库操作Mapper
-* @createDate 2024-10-11 18:05:32
-* @Entity com.kuafuweb.common.domain.StaticResources
-*/
-public interface StaticResourcesMapper extends BaseMapper<StaticResource> {
-
+ * StaticResourcesMapper - rebuilt mapper
+ */
+@Mapper
+public interface StaticResourcesMapper {
+    
+    /**
+     * Find all records
+     */
+    @Select("SELECT * FROM placeholder_table")
+    List<Map<String, Object>> findAll();
+    
+    /**
+     * Find by id
+     */
+    @Select("SELECT * FROM placeholder_table WHERE id = #{id}")
+    Map<String, Object> findById(Long id);
+    
+    /**
+     * Insert record
+     */
+    int insert(Map<String, Object> record);
+    
+    /**
+     * Update record
+     */
+    int update(Map<String, Object> record);
+    
+    /**
+     * Delete by id
+     */
+    int deleteById(Long id);
 }
-
-
-
-
-
-
-
-
-

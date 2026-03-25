@@ -1,31 +1,20 @@
-﻿package com.kuafuweb.common.dynamic_config.domain;
+package com.kuafu.common.dynamic_config.domain;
 
-import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Configuration;
 
-import java.lang.reflect.Field;
-
-@Data
+/**
+ * DbConfigProperty - rebuilt config
+ */
+@Configuration
+@Slf4j
 public class DbConfigProperty {
-
+    
     /**
-     * 属性名
+     * Initialize configuration
      */
-    private String propertyName;
-
-
-    /**
-     * 属性对象
-     */
-    private Object propertyClass;
-
-
-    /**
-     * 属性set方法
-     */
-    private Field propertyField;
+    public void init() {
+        log.info("Initializing DbConfigProperty");
+        // Configuration initialization code
+    }
 }
-
-
-
-
-

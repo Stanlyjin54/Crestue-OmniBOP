@@ -19,7 +19,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue'
 // 图标已在main.ts中全局注册，无需单独导入
 
 interface Category {

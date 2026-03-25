@@ -1,10 +1,10 @@
-package com.kuafuweb.web.service;
+package com.kuafu.web.service;
 
 import java.util.List;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.kuafuweb.common.domin.PageRequest;
-import com.kuafuweb.web.entity.BusinessOpportunityAll;
+import com.kuafu.common.domin.PageRequest;
+import com.kuafu.web.entity.BusinessOpportunityAll;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 

@@ -1,24 +1,24 @@
-﻿package com.kuafuweb.web.event;
+package com.kuafu.web.event;
 
-
-import com.baomidou.mybatisplus.annotation.TableField;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-
+/**
+ * BaseLoginVo - rebuilt VO
+ */
 @Data
-public class BaseLoginVo   {
-    @TableField(exist = false)
-    private String defaultUserName;
-    @TableField(exist = false)
-    private String defaultPassword;
-    @TableField(exist = false)
-    private String defaultPhone;
+public class BaseLoginVo {
+    
+    @JsonProperty("id")
+    private Long id;
+    
+    @JsonProperty("name")
+    private String name;
+    
+    public BaseLoginVo() {}
+    
+    public BaseLoginVo(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
-
-
-
-
-

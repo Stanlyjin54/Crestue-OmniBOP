@@ -40,7 +40,7 @@
           <div class="price-original" v-if="product.originalPrice > product.price">
             原价：¥{{ formatPrice(product.originalPrice) }}
           </div>
-          <div class="discount-badge" v-if="product.discount > 0">
+          <div class="discount-badge" v-if="product.discount">
             {{ product.discount }}折
           </div>
         </div>
@@ -66,7 +66,7 @@
             <div class="spec-label">{{ spec.name }}：</div>
             <div class="spec-options">
               <div
-                v-for="(option, optionIndex) in spec.options"
+                v-for="(option, optionIndex) in spec.values"
                 :key="optionIndex"
                 class="spec-option"
                 :class="{ 
@@ -174,7 +174,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import { ShoppingCart, Star, CircleCheck } from '@element-plus/icons-vue'
@@ -311,8 +311,7 @@ async function handleBuyNow() {
     // 添加到购物车
     await addToCart({
       productId: product.value.id,
-      quantity: quantity.value,
-      specs: selectedSpecs.value
+      quantity: quantity.value
     })
     
     // 跳转到结算页面
@@ -330,8 +329,7 @@ async function handleAddToCart() {
   try {
     await addToCart({
       productId: product.value.id,
-      quantity: quantity.value,
-      specs: selectedSpecs.value
+      quantity: quantity.value
     })
     
     ElMessage.success('已加入购物车')

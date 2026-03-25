@@ -1,33 +1,21 @@
-﻿package com.kuafuweb.common.config;
+package com.kuafu.common.config;
 
-import com.kuafuweb.common.constant.Constants;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
+/**
+ * ResourcesConfig - rebuilt config
+ */
 @Configuration
-public class ResourcesConfig implements WebMvcConfigurer {
-
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        /** 本地文件上传路径 */
-        registry.addResourceHandler(Constants.RESOURCE_PREFIX + "/**")
-                .addResourceLocations("file:" + AppConfig.getProfile() + "/");
-
-    }
-
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/{spring:\\w+}")
-                .setViewName("forward:/index.html");
-        registry.addViewController("/**/{spring:\\w+}")
-                .setViewName("forward:/index.html");
+@Slf4j
+public class ResourcesConfig {
+    
+    /**
+     * Initialize configuration
+     */
+    public void init() {
+        log.info("Initializing ResourcesConfig");
+        // Configuration initialization code
     }
 }
-
-
-
-
-

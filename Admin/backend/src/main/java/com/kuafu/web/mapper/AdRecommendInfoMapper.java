@@ -1,26 +1,40 @@
-﻿package com.kuafuweb.web.mapper;
+package com.kuafu.web.mapper;
 
-import java.util.List;
-import com.kuafuweb.web.entity.AdRecommendInfo;
-
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Mapper;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
+import org.apache.ibatis.annotations.Select;
+import java.util.List;
+import java.util.Map;
 
 /**
- * <p> 广告推荐 Mapper </p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * AdRecommendInfoMapper - rebuilt mapper
  */
 @Mapper
-public interface AdRecommendInfoMapper extends BaseMapper<AdRecommendInfo> {
-
+public interface AdRecommendInfoMapper {
+    
+    /**
+     * Find all records
+     */
+    @Select("SELECT * FROM placeholder_table")
+    List<Map<String, Object>> findAll();
+    
+    /**
+     * Find by id
+     */
+    @Select("SELECT * FROM placeholder_table WHERE id = #{id}")
+    Map<String, Object> findById(Long id);
+    
+    /**
+     * Insert record
+     */
+    int insert(Map<String, Object> record);
+    
+    /**
+     * Update record
+     */
+    int update(Map<String, Object> record);
+    
+    /**
+     * Delete by id
+     */
+    int deleteById(Long id);
 }
-
-
-
-
-

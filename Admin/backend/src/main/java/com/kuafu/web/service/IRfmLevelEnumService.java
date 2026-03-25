@@ -1,22 +1,56 @@
-﻿package com.kuafuweb.web.service;
-
-import java.util.List;
-import com.kuafuweb.web.entity.RfmLevelEnum;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.service.IService;
+package com.kuafu.web.service;
 
 /**
- * <p>  RFM分层枚举 服务类 </p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * IRfmLevelEnumService - RFM等级枚举服务
  */
-public interface IRfmLevelEnumService extends IService<RfmLevelEnum> {
-
+public enum IRfmLevelEnumService {
+    
+    /**
+     * 高价值客户等级
+     */
+    HIGH_VALUE_LEVEL("1", "高价值客户等级"),
+    
+    /**
+     * 普通价值客户等级
+     */
+    NORMAL_VALUE_LEVEL("0", "普通价值客户等级");
+    
+    /**
+     * 等级代码
+     */
+    private final String code;
+    
+    /**
+     * 等级描述
+     */
+    private final String description;
+    
+    /**
+     * 构造函数
+     * 
+     * @param code 等级代码
+     * @param description 等级描述
+     */
+    IRfmLevelEnumService(String code, String description) {
+        this.code = code;
+        this.description = description;
+    }
+    
+    /**
+     * 获取等级代码
+     * 
+     * @return 等级代码
+     */
+    public String getCode() {
+        return code;
+    }
+    
+    /**
+     * 获取等级描述
+     * 
+     * @return 等级描述
+     */
+    public String getDescription() {
+        return description;
+    }
 }
-
-
-
-
-

@@ -1,44 +1,24 @@
-﻿package com.kuafuweb.web.vo;
+package com.kuafu.web.vo;
 
-import lombok.AllArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import java.util.Date;
-import lombok.NoArgsConstructor;
-import com.kuafuweb.common.domin.StaticResource;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * <p>系统配置</p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * SystemConfigVO - rebuilt VO
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class SystemConfigVO  {
-
-     @JsonProperty(value = "id")
-    private Integer id;
-     @JsonProperty(value = "name")
+public class SystemConfigVO {
+    
+    @JsonProperty("id")
+    private Long id;
+    
+    @JsonProperty("name")
     private String name;
-     @JsonProperty(value = "chineseName")
-    private String chineseName;
-     @JsonProperty(value = "description")
-    private String description;
-     @JsonProperty(value = "content")
-    private String content;
-     @JsonProperty(value = "remark")
-    private String remark;
-     @JsonProperty(value = "type")
-    private String type;
-
-
+    
+    public SystemConfigVO() {}
+    
+    public SystemConfigVO(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
-
-
-
-
-

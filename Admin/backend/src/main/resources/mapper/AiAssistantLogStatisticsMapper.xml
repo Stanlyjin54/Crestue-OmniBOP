@@ -1,18 +1,15 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kuafuweb.web.mapper.AiAssistantLogStatisticsMapper">
+<mapper namespace="com.kuafu.web.mapper.AiAssistantLogStatisticsMapper">
 
-    <resultMap id="ai_assistant_log_query_time_datetime_statistic_9b682c72_countStatistic0" type="com.kuafuweb.web.entity.AiAssistantLogQueryTimeDatetimeStatistic9b682c72Count$Statistic0">
-        <result property="queryTime" column="query_time"/>
-        <result property="result_kf" column="result_kf"/>
+    <resultMap id="ai_assistant_log_query_time_datetime_statistic_9b682c72_countStatistic0" type="com.kuafu.web.entity.AiAssistantLogQueryTimeDatetimeStatistic9b682c72Count">
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="ai_assistant_log_query_time_datetime_statistic_df5261a6_countStatistic0" type="com.kuafuweb.web.entity.AiAssistantLogQueryTimeDatetimeStatisticDf5261a6Count$Statistic0">
-        <result property="queryTime" column="query_time"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="ai_assistant_log_query_time_datetime_statistic_df5261a6_countStatistic0" type="com.kuafu.web.entity.AiAssistantLogQueryTimeDatetimeStatisticDf5261a6Count">
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="ai_assistant_log_query_time_datetime_statistic_d691e2ab_countStatistic0" type="com.kuafuweb.web.entity.AiAssistantLogQueryTimeDatetimeStatisticD691e2abCount$Statistic0">
-        <result property="queryTime" column="query_time"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="ai_assistant_log_query_time_datetime_statistic_d691e2ab_countStatistic0" type="com.kuafu.web.entity.AiAssistantLogQueryTimeDatetimeStatisticD691e2abCount">
+        <result property="count" column="result_kf"/>
     </resultMap>
 
 

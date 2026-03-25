@@ -1,28 +1,21 @@
-﻿package com.kuafuweb.common.dynamic_config.config;
+package com.kuafu.common.dynamic_config.config;
 
-import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
-import org.springframework.context.annotation.Bean;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
-//@Deprecated
+
+
+/**
+ * KfDynamicRefreshScopeConfig - rebuilt config
+ */
 @Configuration
+@Slf4j
 public class KfDynamicRefreshScopeConfig {
-
-    @Bean
-    public  BeanFactoryPostProcessor beanFactoryPostProcessor() {
-        return beanFactory -> {
-            // 注册自定义作用域
-            beanFactory.registerScope("dynamicRefresh", dynamicRefreshScopeConfig());
-        };
+    
+    /**
+     * Initialize configuration
+     */
+    public void init() {
+        log.info("Initializing KfDynamicRefreshScopeConfig");
+        // Configuration initialization code
     }
-
-    @Bean
-    public  DynamicRefreshScope dynamicRefreshScopeConfig() {
-        return new DynamicRefreshScope();
-    }
-
 }
-
-
-
-
-

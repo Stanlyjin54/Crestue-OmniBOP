@@ -1,42 +1,18 @@
-﻿package com.kuafuweb.web.entity;
+package com.kuafu.web.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.List;
-
-
+/**
+ * PermissionLogActionTimeDatetimeStatistic975db700Count - rebuilt statistical entity
+ */
 @Data
 public class PermissionLogActionTimeDatetimeStatistic975db700Count {
-
-        @Data
-        @NoArgsConstructor
-        public static class Statistic0{
-
-
-                        @JsonProperty("name")
-
-
-
-
-
-                private   java.util.Date actionTime;
-
-
-
-                @JsonProperty("value")
-
-
-
-                private   String result_kf;
-
-        }
+    
+    private Long count;
+    
+    public PermissionLogActionTimeDatetimeStatistic975db700Count() {}
+    
+    public PermissionLogActionTimeDatetimeStatistic975db700Count(Long count) {
+        this.count = count;
+    }
 }
-
-
-
-
-

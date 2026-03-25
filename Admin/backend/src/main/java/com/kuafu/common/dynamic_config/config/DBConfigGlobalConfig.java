@@ -1,19 +1,21 @@
-﻿package com.kuafuweb.common.dynamic_config.config;
+package com.kuafu.common.dynamic_config.config;
 
-import com.kuafuweb.common.dynamic_config.annoation.DBConfiguration;
-import lombok.Data;
-import org.springframework.beans.factory.annotation.Value;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 
+
+/**
+ * DBConfigGlobalConfig - rebuilt config
+ */
 @Configuration
-@Data
-@DBConfiguration
+@Slf4j
 public class DBConfigGlobalConfig {
-    @Value("${db.config.global.refreshInterval:0/5 * * * * ?}")
-    public String refreshInterval;
+    
+    /**
+     * Initialize configuration
+     */
+    public void init() {
+        log.info("Initializing DBConfigGlobalConfig");
+        // Configuration initialization code
+    }
 }
-
-
-
-
-

@@ -1,42 +1,21 @@
-﻿package com.kuafuweb.common.exception;
+package com.kuafu.common.exception;
 
-import com.kuafuweb.common.domin.ErrorCode;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 /**
- * 自定义异常类
- *
- * @author lmx
+ * BusinessException - rebuilt class
  */
-public class BusinessException extends RuntimeException {
-
-    private final int code;
-
-    public BusinessException(String message) {
-        super(message);
-        this.code = ErrorCode.SYSTEM_ERROR.getCode();
-    }
-
-    public BusinessException(int code, String message) {
-        super(message);
-        this.code = code;
-    }
-
-    public BusinessException(ErrorCode errorCode) {
-        super(errorCode.getMessage());
-        this.code = errorCode.getCode();
-    }
-
-    public BusinessException(ErrorCode errorCode, String message) {
-        super(message);
-        this.code = errorCode.getCode();
-    }
-
-    public int getCode() {
-        return code;
+@Component
+public class BusinessException {
+    
+    private static final Logger log = LoggerFactory.getLogger(BusinessException.class);
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in BusinessException");
     }
 }
-
-
-
-
-

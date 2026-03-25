@@ -1,26 +1,26 @@
-﻿package com.kuafuweb.web.mapper;
-
-import java.util.List;
-import com.kuafuweb.web.entity.TransferStatusEnum;
-
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Mapper;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
+package com.kuafu.web.mapper;
 
 /**
- * <p> 调拨状态枚举 Mapper </p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * TransferStatusEnumMapper - rebuilt enum for transfer status mapping
  */
-@Mapper
-public interface TransferStatusEnumMapper extends BaseMapper<TransferStatusEnum> {
-
+public enum TransferStatusEnumMapper {
+    
+    PENDING("1", "Pending"),
+    COMPLETED("0", "Completed");
+    
+    private String code;
+    private String description;
+    
+    TransferStatusEnumMapper(String code, String description) {
+        this.code = code;
+        this.description = description;
+    }
+    
+    public String getCode() {
+        return code;
+    }
+    
+    public String getDescription() {
+        return description;
+    }
 }
-
-
-
-
-

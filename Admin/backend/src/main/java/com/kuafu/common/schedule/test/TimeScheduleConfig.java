@@ -1,19 +1,20 @@
-﻿package com.kuafuweb.common.schedule.test;
+package com.kuafu.common.schedule.test;
 
-import com.kuafuweb.common.dynamic_config.annoation.DBConfiguration;
-import lombok.Data;
-import org.springframework.beans.factory.annotation.Value;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * TimeScheduleConfig - rebuilt config
+ */
 @Configuration
-@DBConfiguration
-@Data
+@Slf4j
 public class TimeScheduleConfig {
-    @Value("${log:0/1 * * * * ?}")
-    private String cron;
+    
+    /**
+     * Initialize configuration
+     */
+    public void init() {
+        log.info("Initializing TimeScheduleConfig");
+        // Configuration initialization code
+    }
 }
-
-
-
-
-

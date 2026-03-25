@@ -1,59 +1,25 @@
-﻿package com.kuafuweb.pay.db.service;
+package com.kuafu.pay.db.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.kuafuweb.pay.db.domain.GeneralOrders;
-import com.kuafuweb.pay.enums.PayStatus;
+import java.util.List;
+import java.util.Map;
 
 /**
- * @description 针对表【general_orders】的数据库操作Service
- * @createDate 2025-05-09 17:20:09
+ * GeneralOrdersService - rebuilt service interface
  */
-public interface GeneralOrdersService extends IService<GeneralOrders> {
-
+public interface GeneralOrdersService {
+    
     /**
-     * 根据订单号获取订单信息
-     *
-     * @param orderNo
-     * @return
+     * Find all records
      */
-    GeneralOrders getByOrderNo(String orderNo);
-
-
+    List<Map<String, Object>> findAll();
+    
     /**
-     * 根据支付订单号获取订单信息
-     *
-     * @param paymentOrderId
-     * @return
+     * Find by id
      */
-    GeneralOrders getByPaymentOrderId(String paymentOrderId);
-
+    Map<String, Object> findById(Long id);
+    
     /**
-     * 根据退款
+     * Save record
      */
-
-    GeneralOrders getByRefundId(String refundId);
-
-    /**
-     * 更新支付订单状态
-     */
-
-    void updatePaymentStatusByPaymentOrderId(String paymentOrderId, PayStatus originalStatus, PayStatus newStatus);
-
-    /**
-     * 更新支付订单状态
-     *
-     * @param orderNo
-     * @param originalStatus
-     * @param newStatus
-     */
-
-    void updatePaymentStatusByOrderNo(String orderNo, PayStatus originalStatus, PayStatus newStatus);
-
-
-    GeneralOrders getByOpId(String opId);
+    int save(Map<String, Object> record);
 }
-
-
-
-
-

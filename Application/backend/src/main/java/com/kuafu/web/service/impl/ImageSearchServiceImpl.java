@@ -1,6 +1,6 @@
 package com.kuafu.web.service.impl;
 
-import com.kuafu.common.llm.LLMStartBusiness;
+import com.kuafu.llm.config.LLMStartBusiness;
 import com.kuafu.orc.service.OcrService;
 import com.kuafu.web.service.IImageSearchService;
 import lombok.extern.slf4j.Slf4j;

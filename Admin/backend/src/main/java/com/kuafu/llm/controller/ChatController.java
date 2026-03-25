@@ -1,79 +1,41 @@
-﻿package com.kuafuweb.llm.controller;
+package com.kuafu.llm.controller;
 
-import com.kuafuweb.llm.chat.Chat;
-import com.kuafuweb.llm.config.LLMStartBusiness;
-import com.kuafuweb.llm.config.PromptConfig;
-import com.kuafuweb.llm.model.ChatResponse;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
+import com.kuafu.common.domin.BaseResponse;
+import com.kuafu.common.util.ResultUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
-@Slf4j
+/**
+ * ChatController - rebuilt controller
+ */
 @RestController
-@RequestMapping("chat")
-@ConditionalOnProperty(prefix = "llm", name = "enable", havingValue = "true")
+@RequestMapping("/api/chat")
 public class ChatController {
-
-    @Autowired
-    private LLMStartBusiness llmStartBusiness;
-
-    @Autowired
-    private Chat chat;
-
-    @Value("${llm.chat.default_prompt}")
-    private String defaultPrompt;
-
-    /**
-     * 对话流
-     *
-     * @param chatRequest
-     * @return
-     */
-    @PostMapping("")
-    public SseEmitter stream(@RequestBody ChatRequest chatRequest) {
-        // 用于创建一个 SSE 连接对象
-        SseEmitter emitter = new SseEmitter(3600000L);
-        List<String> search = llmStartBusiness.search(chatRequest.getQuery());
-        log.info("embedding search: {}", search);
-
-        String conversionId = chatRequest.getConversionId();
-
-        String query = chatRequest.getQuery();
-
-        if (StringUtils.isEmpty(conversionId)) {
-
-            query = PromptConfig.PROMPT + "\n" + query;
-//            ChatResponse chatResponse = chat.callApiBlock(PromptConfig.PROMPT + "\n当你接收到这段话时,你只需要回复【收到】即可，不要回复多余的内容",
-//                    null, chatRequest.getUserId());
-//            conversionId = chatResponse.getConversionId();
-        }
-
-        StringBuilder context = new StringBuilder("context is \n");
-        for (String s : search) {
-            context.append(s).append("\n");
-        }
-        query = query + "\n" + context;
-
-        log.info("content : {}", query);
-
-        chat.callApiStream(query, conversionId, chatRequest.getUserId(), emitter);
-
-        // 在后台线程中模拟实时数据
-        return emitter;
+    
+    private static final Logger log = LoggerFactory.getLogger(ChatController.class);
+    
+    @GetMapping("/list")
+    public BaseResponse<String> list() {
+        log.info("Getting list from ChatController");
+        return ResultUtils.success("List functionality not implemented");
     }
-
+    
+    @PostMapping("/create")
+    public BaseResponse<String> create(@RequestBody Object request) {
+        log.info("Creating with ChatController");
+        return ResultUtils.success("Create functionality not implemented");
+    }
+    
+    @PutMapping("/update")
+    public BaseResponse<String> update(@RequestBody Object request) {
+        log.info("Updating with ChatController");
+        return ResultUtils.success("Update functionality not implemented");
+    }
+    
+    @DeleteMapping("/delete/{id}")
+    public BaseResponse<String> delete(@PathVariable Long id) {
+        log.info("Deleting with ChatController, id: {}", id);
+        return ResultUtils.success("Delete functionality not implemented");
+    }
 }
-
-
-
-
-

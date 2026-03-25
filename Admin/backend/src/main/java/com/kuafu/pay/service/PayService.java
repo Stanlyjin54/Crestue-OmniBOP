@@ -1,120 +1,46 @@
-﻿package com.kuafuweb.pay.service;
-
-
-
-import com.kuafuweb.pay.domain.PayCallbackRequest;
-import com.kuafuweb.pay.domain.PaymentOrderDetail;
-import com.kuafuweb.pay.enums.PayStatus;
-import com.kuafuweb.web.entity.Login;
+package com.kuafu.pay.service;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Map;
 
 /**
- * 通用订单支付服务接口
+ * PayService - 支付服务接口
  */
-public interface PayService<T extends PaymentOrderDetail> {
-
+public interface PayService {
+    
     /**
-     * 创建支付订单
-     *
-     * @param orderId     业务订单ID
-     * @param amount      支付金额
-     * @param subject     支付标题/商品描述
-     * @param extraParams 额外参数
-     * @return 支付订单ID
+     * 查找所有记录
+     * 
+     * @return 记录列表
      */
-    String createPaymentOrder(Login login, String orderId, BigDecimal amount, String subject, Object extraParams);
-
-
-    Object getPaymentParam(String paymentOrderId, Object extraParams);
-
+    List<Map<String, Object>> findAll();
+    
     /**
-     * 查询支付状态
-     *
-     * @param paymentOrderId 支付订单ID
-     * @return 支付状态枚举
+     * 根据ID查找记录
+     * 
+     * @param id 记录ID
+     * @return 记录详情
      */
-    PayStatus queryPaymentStatus(String paymentOrderId);
-
+    Map<String, Object> findById(Long id);
+    
     /**
-     * 取消支付订单
-     *
-     * @param paymentOrderId 支付订单ID
-     * @return 是否取消成功
+     * 保存记录
+     * 
+     * @param record 记录信息
+     * @return 保存结果
      */
-    boolean cancelPaymentOrder(String paymentOrderId);
-
+    int save(Map<String, Object> record);
+    
     /**
      * 申请退款
-     *
+     * 
+     * @param refundOrderNo 退款订单号
      * @param paymentOrderId 支付订单ID
-     * @param refundAmount   退款金额
-     * @param reason         退款原因
-     * @return 退款订单ID
+     * @param refundAmount 退款金额
+     * @param reason 退款原因
+     * @param totalAmount 总金额
+     * @return 退款结果
      */
-    String applyRefund(String refundOrderNo,String paymentOrderId, BigDecimal refundAmount, String reason, BigDecimal totalAmount);
-
-    /**
-     * 查询退款状态
-     *
-     * @param refundOrderId 退款订单ID
-     * @return 退款状态
-     */
-    PayStatus queryRefundStatus(String refundOrderId);
-
-    /**
-     * 处理支付回调通知
-     *
-     * @param callbackData 回调数据
-     * @return 处理结果
-     */
-    boolean processPaymentCallback(Object callbackData);
-
-
-    boolean processRefundCallback(Object callbackData);
-
-    /**
-     * 关闭支付订单
-     *
-     * @param paymentOrderId 支付订单ID
-     * @return 是否关闭成功
-     */
-    boolean closePaymentOrder(String paymentOrderId,String orderNo);
-
-    /**
-     * 获取支付订单详情
-     *
-     * @param paymentOrderId 支付订单ID
-     * @return 支付订单详情
-     */
-    T getPaymentOrderDetail(String orderNo);
-
-    /**
-     * 支付回调成功的返回结果
-     * @return
-     */
-    Object payCallbackProcessSuccess();
-
-    /**
-     * 支付回调失败的返回结果
-     * @return
-     */
-    Object payCallbackProcessFail();
-
-    /**
-     * 支付回调数据解密
-     *
-     * @param data
-     * @param headers
-     * @return
-     */
-
-    PayCallbackRequest callbackDecryption(Object requestData, Map<String, String> headers);
+    boolean applyRefund(String refundOrderNo, String paymentOrderId, BigDecimal refundAmount, String reason, BigDecimal totalAmount);
 }
-
-
-
-
-
-

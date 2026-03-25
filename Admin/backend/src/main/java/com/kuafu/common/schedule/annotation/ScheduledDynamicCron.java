@@ -1,33 +1,19 @@
-﻿package com.kuafuweb.common.schedule.annotation;
+package com.kuafu.common.schedule.annotation;
 
-import com.kuafuweb.common.schedule.handler.AbstractDynamicCronHandler;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
-import java.lang.annotation.*;
-
-@Target({ElementType.METHOD, ElementType.ANNOTATION_TYPE})
-@Retention(RetentionPolicy.RUNTIME)
-@Documented
-public @interface ScheduledDynamicCron {
-
+/**
+ * ScheduledDynamicCron - rebuilt class
+ */
+@Component
+@Slf4j
+public class ScheduledDynamicCron {
+    
     /**
-     * cornName的名称
-     * @return
+     * Placeholder method
      */
-    String cornName();
-
-
-
-
-
-    /**
-     * 动态cron处理类
-     * @return
-     */
-    Class<? extends AbstractDynamicCronHandler> handler();
-
+    public void placeholderMethod() {
+        log.info("Placeholder method called in ScheduledDynamicCron");
+    }
 }
-
-
-
-
-

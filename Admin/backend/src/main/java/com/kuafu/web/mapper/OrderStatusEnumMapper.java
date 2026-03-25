@@ -1,26 +1,26 @@
-﻿package com.kuafuweb.web.mapper;
-
-import java.util.List;
-import com.kuafuweb.web.entity.OrderStatusEnum;
-
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Mapper;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
+package com.kuafu.web.mapper;
 
 /**
- * <p> 订单状态枚举 Mapper </p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * OrderStatusEnumMapper - rebuilt enum for order status mapping
  */
-@Mapper
-public interface OrderStatusEnumMapper extends BaseMapper<OrderStatusEnum> {
-
+public enum OrderStatusEnumMapper {
+    
+    PENDING("1", "Pending"),
+    COMPLETED("0", "Completed");
+    
+    private String code;
+    private String description;
+    
+    OrderStatusEnumMapper(String code, String description) {
+        this.code = code;
+        this.description = description;
+    }
+    
+    public String getCode() {
+        return code;
+    }
+    
+    public String getDescription() {
+        return description;
+    }
 }
-
-
-
-
-

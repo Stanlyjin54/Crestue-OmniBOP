@@ -1,30 +1,30 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kuafuweb.web.mapper.ProductInfoStatisticsMapper">
+<mapper namespace="com.kuafu.web.mapper.ProductInfoStatisticsMapper">
 
-    <resultMap id="product_info_shelf_life_datetime_statistic_13b09a91_countStatistic0" type="com.kuafuweb.web.entity.ProductInfoShelfLifeDatetimeStatistic13b09a91Count$Statistic0">
-        <result property="shelfLife" column="shelf_life"/>
-        <result property="result_kf" column="result_kf"/>
+    <resultMap id="product_info_shelf_life_datetime_statistic_13b09a91_countStatistic0" type="com.kuafu.web.entity.ProductInfoShelfLifeDatetimeStatistic13b09a91Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="product_info_shelf_life_datetime_statistic_fabe9b9f_countStatistic0" type="com.kuafuweb.web.entity.ProductInfoShelfLifeDatetimeStatisticFabe9b9fCount$Statistic0">
-        <result property="shelfLife" column="shelf_life"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="product_info_shelf_life_datetime_statistic_fabe9b9f_countStatistic0" type="com.kuafu.web.entity.ProductInfoShelfLifeDatetimeStatisticFabe9b9fCount">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="product_info_shelf_life_datetime_statistic_b986a1ea_countStatistic0" type="com.kuafuweb.web.entity.ProductInfoShelfLifeDatetimeStatisticB986a1eaCount$Statistic0">
-        <result property="shelfLife" column="shelf_life"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="product_info_shelf_life_datetime_statistic_b986a1ea_countStatistic0" type="com.kuafu.web.entity.ProductInfoShelfLifeDatetimeStatisticB986a1eaCount">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="product_info_product_status_enum_product_status_enum_id_1_status_statistic_b8964b61_countStatistic0" type="com.kuafuweb.web.entity.ProductInfoProductStatusEnumProductStatusEnumId1StatusStatisticB8964b61Count$Statistic0">
-        <result property="productStatusEnumProductStatusEnumId1" column="product_status_enum_product_status_enum_id_1"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="product_info_product_status_enum_product_status_enum_id_1_status_statistic_b8964b61_countStatistic0" type="com.kuafu.web.entity.ProductInfoProductStatusEnumProductStatusEnumId1StatusStatisticB8964b61Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="product_info_product_status_enum_product_status_enum_id_1_status_statistic_858961b6_countStatistic0" type="com.kuafuweb.web.entity.ProductInfoProductStatusEnumProductStatusEnumId1StatusStatistic858961b6Count$Statistic0">
-        <result property="productStatusEnumProductStatusEnumId1" column="product_status_enum_product_status_enum_id_1"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="product_info_product_status_enum_product_status_enum_id_1_status_statistic_858961b6_countStatistic0" type="com.kuafu.web.entity.ProductInfoProductStatusEnumProductStatusEnumId1StatusStatistic858961b6Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="product_info_product_status_enum_product_status_enum_id_1_status_statistic_68c7c75c_countStatistic0" type="com.kuafuweb.web.entity.ProductInfoProductStatusEnumProductStatusEnumId1StatusStatistic68c7c75cCount$Statistic0">
-        <result property="productStatusEnumProductStatusEnumId1" column="product_status_enum_product_status_enum_id_1"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="product_info_product_status_enum_product_status_enum_id_1_status_statistic_68c7c75c_countStatistic0" type="com.kuafu.web.entity.ProductInfoProductStatusEnumProductStatusEnumId1StatusStatistic68c7c75cCount">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
 
 

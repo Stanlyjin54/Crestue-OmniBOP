@@ -1,40 +1,31 @@
-﻿package com.kuafuweb.common.domin;
+package com.kuafu.common.domin;
 
-import lombok.Data;
-
-import java.io.Serializable;
+import lombok.extern.slf4j.Slf4j;
 
 /**
- * 通用返回类
- *
- * @param <T>
- * @author kuafui
+ * BaseResponse - rebuilt with proper logging
  */
-@Data
-public class BaseResponse<T> implements Serializable {
-
+@Slf4j
+public class BaseResponse<T> {
     private int code;
-
-    private T data;
-
     private String message;
-
-    public BaseResponse(int code, T data, String message) {
+    private T data;
+    
+    public BaseResponse(int code, String message, T data) {
         this.code = code;
-        this.data = data;
         this.message = message;
+        this.data = data;
     }
-
-    public BaseResponse(int code, T data) {
-        this(code, data, "");
+    
+    public int getCode() {
+        return code;
     }
-
-    public BaseResponse(ErrorCode errorCode) {
-        this(errorCode.getCode(), null, errorCode.getMessage());
+    
+    public String getMessage() {
+        return message;
+    }
+    
+    public T getData() {
+        return data;
     }
 }
-
-
-
-
-

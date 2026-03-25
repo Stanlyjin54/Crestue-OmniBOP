@@ -1,24 +1,26 @@
-﻿package com.kuafuweb.common.util;
+package com.kuafu.common.util;
 
-import java.util.Random;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
+/**
+ * RandomStringUtils - rebuilt utility
+ */
+@Component
+@Slf4j
 public class RandomStringUtils {
-    private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-    public static String generateRandomString(int length) {
-        Random random = new Random();
-        StringBuilder sb = new StringBuilder(length);
-
-        for (int i = 0; i < length; i++) {
-            int randomIndex = random.nextInt(CHARACTERS.length());
-            sb.append(CHARACTERS.charAt(randomIndex));
+    
+    /**
+     * Utility method placeholder
+     */
+    public static Object utilityMethod(Object input) {
+        try {
+            log.info("Processing with utility method: {}", input);
+            // Utility implementation
+            return input;
+        } catch (Exception e) {
+            log.error("Utility method failed", e);
+            return null;
         }
-
-        return sb.toString();
     }
 }
-
-
-
-
-

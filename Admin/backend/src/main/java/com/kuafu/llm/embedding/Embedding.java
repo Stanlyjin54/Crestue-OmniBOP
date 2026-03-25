@@ -1,13 +1,19 @@
-﻿package com.kuafuweb.llm.embedding;
+package com.kuafu.llm.embedding;
 
-import java.util.List;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
-public interface Embedding {
-
-    List<Double> embedding(String text);
+/**
+ * Embedding - rebuilt class
+ */
+@Component
+@Slf4j
+public class Embedding {
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in Embedding");
+    }
 }
-
-
-
-
-

@@ -1,30 +1,19 @@
-﻿package com.kuafuweb.common.schedule.handler;
+package com.kuafu.common.schedule.handler;
 
-import com.kuafuweb.common.schedule.manger.DynamicCronScheduleTaskManager;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
-public abstract class AbstractDynamicCronHandler {
-
-    @Autowired
-    protected DynamicCronScheduleTaskManager dynamicCronScheduleTaskManager;
+/**
+ * AbstractDynamicCronHandler - rebuilt class
+ */
+@Component
+@Slf4j
+public class AbstractDynamicCronHandler {
+    
     /**
-     * 获取cron表达式
-     * @return
+     * Placeholder method
      */
-    public abstract String getCronExpression(String cronName);
-
-    /**
-     * 更新cronName对应的定时任务的触发时机
-     * @param cronName
-     */
-    public void updateTriggerTask(String cronName) {
-        dynamicCronScheduleTaskManager.updateTriggerTask(cronName);
+    public void placeholderMethod() {
+        log.info("Placeholder method called in AbstractDynamicCronHandler");
     }
-
-
 }
-
-
-
-
-

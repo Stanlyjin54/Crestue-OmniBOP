@@ -1,22 +1,22 @@
-﻿package com.kuafuweb.web.event;
+package com.kuafu.web.event;
 
-import com.google.common.eventbus.AsyncEventBus;
-import com.google.common.eventbus.EventBus;
-import org.springframework.context.annotation.Bean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
+/**
+ * EventBusConfig - rebuilt config
+ */
 @Configuration
 public class EventBusConfig {
-
-    @Bean("myAsyncEventBus")
-    @Lazy(value = true)
-    public EventBus createAsyncEventBus(ThreadPoolTaskExecutor threadPool) {
-        return new AsyncEventBus(threadPool);
+    
+    private static final Logger log = LoggerFactory.getLogger(EventBusConfig.class);
+    
+    /**
+     * Initialize configuration
+     */
+    public void init() {
+        log.info("Initializing EventBusConfig");
+        // Configuration initialization code
     }
 }
-
-
-
-

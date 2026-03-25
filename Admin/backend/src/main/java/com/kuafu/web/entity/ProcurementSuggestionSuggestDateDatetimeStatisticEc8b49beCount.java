@@ -1,42 +1,18 @@
-﻿package com.kuafuweb.web.entity;
+package com.kuafu.web.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.List;
-
-
+/**
+ * ProcurementSuggestionSuggestDateDatetimeStatisticEc8b49beCount - rebuilt statistical entity
+ */
 @Data
 public class ProcurementSuggestionSuggestDateDatetimeStatisticEc8b49beCount {
-
-        @Data
-        @NoArgsConstructor
-        public static class Statistic0{
-
-
-                        @JsonProperty("name")
-
-
-
-
-
-                private   java.util.Date suggestDate;
-
-
-
-                @JsonProperty("value")
-
-
-
-                private   String result_kf;
-
-        }
+    
+    private Long count;
+    
+    public ProcurementSuggestionSuggestDateDatetimeStatisticEc8b49beCount() {}
+    
+    public ProcurementSuggestionSuggestDateDatetimeStatisticEc8b49beCount(Long count) {
+        this.count = count;
+    }
 }
-
-
-
-
-

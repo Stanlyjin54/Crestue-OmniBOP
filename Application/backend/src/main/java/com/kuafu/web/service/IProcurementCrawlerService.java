@@ -1,6 +1,8 @@
-package com.kuafuweb.web.service;
+package com.kuafu.web.service;
 
-import com.kuafuweb.web.entity.ProcurementInfo;
+import com.kuafu.web.entity.ProcurementInfo;
+import com.kuafu.web.entity.BusinessOpportunity;
+import com.kuafu.web.entity.CrawlerStatistics;
 import com.baomidou.mybatisplus.extension.service.IService;
 import java.util.List;
 

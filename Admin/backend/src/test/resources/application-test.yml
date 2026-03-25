@@ -1,0 +1,34 @@
+spring:
+  # Use SQLite in-memory database for tests
+  datasource:
+    url: "jdbc:sqlite::memory:"
+    driver-class-name: org.sqlite.JDBC
+    username: ""
+    password: ""
+  # Disable Redis for tests
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+  # Allow custom configuration properties
+  config:
+    import: "optional:configtree:/etc/config"
+
+# Custom configuration properties
+redisson:
+  enabled: false
+
+cache:
+  type: local
+
+llm:
+  enable: false
+
+message:
+  enable: false
+
+storage:
+  type: local
+
+login:
+  enable: false

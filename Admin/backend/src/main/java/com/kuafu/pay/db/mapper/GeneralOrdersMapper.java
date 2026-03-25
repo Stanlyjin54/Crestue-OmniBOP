@@ -1,27 +1,40 @@
-﻿package com.kuafuweb.pay.db.mapper;
+package com.kuafu.pay.db.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.kuafuweb.pay.db.domain.GeneralOrders;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Select;
+import java.util.List;
+import java.util.Map;
 
-
-@Mapper
-@Component("payGeneralOrdersMapper")
 /**
-* @description 针对表【general_orders】的数据库操作Mapper
-* @createDate 2025-05-09 17:20:09
-* @Entity generator.domain.GeneralOrders
-*/
-public interface GeneralOrdersMapper extends BaseMapper<GeneralOrders> {
-
+ * GeneralOrdersMapper - rebuilt mapper
+ */
+@Repository("payGeneralOrdersMapper")
+public interface GeneralOrdersMapper {
+    
+    /**
+     * Find all records
+     */
+    @Select("SELECT * FROM placeholder_table")
+    List<Map<String, Object>> findAll();
+    
+    /**
+     * Find by id
+     */
+    @Select("SELECT * FROM placeholder_table WHERE id = #{id}")
+    Map<String, Object> findById(Long id);
+    
+    /**
+     * Insert record
+     */
+    int insert(Map<String, Object> record);
+    
+    /**
+     * Update record
+     */
+    int update(Map<String, Object> record);
+    
+    /**
+     * Delete by id
+     */
+    int deleteById(Long id);
 }
-
-
-
-
-
-
-
-
-

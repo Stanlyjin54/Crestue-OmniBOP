@@ -1,30 +1,30 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kuafuweb.web.mapper.PurchaseInfoStatisticsMapper">
+<mapper namespace="com.kuafu.web.mapper.PurchaseInfoStatisticsMapper">
 
-    <resultMap id="purchase_info_purchase_date_datetime_statistic_2bd78ba1_countStatistic0" type="com.kuafuweb.web.entity.PurchaseInfoPurchaseDateDatetimeStatistic2bd78ba1Count$Statistic0">
-        <result property="purchaseDate" column="purchase_date"/>
-        <result property="result_kf" column="result_kf"/>
+    <resultMap id="purchase_info_purchase_date_datetime_statistic_2bd78ba1_countStatistic0" type="com.kuafu.web.entity.PurchaseInfoPurchaseDateDatetimeStatistic2bd78ba1Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="purchase_info_purchase_date_datetime_statistic_11ee5598_countStatistic0" type="com.kuafuweb.web.entity.PurchaseInfoPurchaseDateDatetimeStatistic11ee5598Count$Statistic0">
-        <result property="purchaseDate" column="purchase_date"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="purchase_info_purchase_date_datetime_statistic_11ee5598_countStatistic0" type="com.kuafu.web.entity.PurchaseInfoPurchaseDateDatetimeStatistic11ee5598Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="purchase_info_purchase_date_datetime_statistic_8e593cc4_countStatistic0" type="com.kuafuweb.web.entity.PurchaseInfoPurchaseDateDatetimeStatistic8e593cc4Count$Statistic0">
-        <result property="purchaseDate" column="purchase_date"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="purchase_info_purchase_date_datetime_statistic_8e593cc4_countStatistic0" type="com.kuafu.web.entity.PurchaseInfoPurchaseDateDatetimeStatistic8e593cc4Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="purchase_info_purchase_status_enum_purchase_status_enum_id_1_status_statistic_c751e7be_countStatistic0" type="com.kuafuweb.web.entity.PurchaseInfoPurchaseStatusEnumPurchaseStatusEnumId1StatusStatisticC751e7beCount$Statistic0">
-        <result property="purchaseStatusEnumPurchaseStatusEnumId1" column="purchase_status_enum_purchase_status_enum_id_1"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="purchase_info_purchase_status_enum_purchase_status_enum_id_1_status_statistic_c751e7be_countStatistic0" type="com.kuafu.web.entity.PurchaseInfoPurchaseStatusEnumPurchaseStatusEnumId1StatusStatisticC751e7beCount">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="purchase_info_purchase_status_enum_purchase_status_enum_id_1_status_statistic_4d195a98_countStatistic0" type="com.kuafuweb.web.entity.PurchaseInfoPurchaseStatusEnumPurchaseStatusEnumId1StatusStatistic4d195a98Count$Statistic0">
-        <result property="purchaseStatusEnumPurchaseStatusEnumId1" column="purchase_status_enum_purchase_status_enum_id_1"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="purchase_info_purchase_status_enum_purchase_status_enum_id_1_status_statistic_4d195a98_countStatistic0" type="com.kuafu.web.entity.PurchaseInfoPurchaseStatusEnumPurchaseStatusEnumId1StatusStatistic4d195a98Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="purchase_info_purchase_status_enum_purchase_status_enum_id_1_status_statistic_f7e55886_countStatistic0" type="com.kuafuweb.web.entity.PurchaseInfoPurchaseStatusEnumPurchaseStatusEnumId1StatusStatisticF7e55886Count$Statistic0">
-        <result property="purchaseStatusEnumPurchaseStatusEnumId1" column="purchase_status_enum_purchase_status_enum_id_1"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="purchase_info_purchase_status_enum_purchase_status_enum_id_1_status_statistic_f7e55886_countStatistic0" type="com.kuafu.web.entity.PurchaseInfoPurchaseStatusEnumPurchaseStatusEnumId1StatusStatisticF7e55886Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
 
 

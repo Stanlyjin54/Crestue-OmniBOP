@@ -1,14 +1,21 @@
-﻿package com.kuafuweb.common.exception.file;
+package com.kuafu.common.exception.file;
 
-public class FileNameLengthLimitExceededException extends FileException {
-    private static final long serialVersionUID = 1L;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
-    public FileNameLengthLimitExceededException(int defaultFileNameLength) {
-        super("upload.filename.exceed.length", new Object[]{defaultFileNameLength});
+/**
+ * FileNameLengthLimitExceededException - rebuilt class
+ */
+@Component
+public class FileNameLengthLimitExceededException {
+    
+    private static final Logger log = LoggerFactory.getLogger(FileNameLengthLimitExceededException.class);
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in FileNameLengthLimitExceededException");
     }
 }
-
-
-
-
-

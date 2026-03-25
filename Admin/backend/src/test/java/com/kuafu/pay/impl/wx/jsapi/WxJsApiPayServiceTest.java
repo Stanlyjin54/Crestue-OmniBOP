@@ -1,17 +1,22 @@
-﻿package com.kuafuweb.pay.impl.wx.jsapi;
+package com.kuafu.pay.impl.wx.jsapi;
 
-import com.kuafuweb.pay.factoary.PayFactory;
-import com.kuafuweb.pay.service.PayService;
+import com.kuafu.pay.factoary.PayFactory;
+import com.kuafu.pay.service.PayService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
+import org.springframework.test.context.ActiveProfiles;
+import com.kuafu.common.config.TestRedisConfig;
 
 import javax.annotation.Resource;
 
 import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-@SpringBootTest
+@SpringBootTest(classes = com.kuafu.MisAppBackendApplication.class, 
+               properties = {"spring.profiles.active=test", 
+                            "spring.autoconfigure.exclude=org.redisson.spring.starter.RedissonAutoConfiguration,org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration"})
+@ActiveProfiles("test")
+@Import(TestRedisConfig.class)
 class WxJsApiPayServiceTest {
 
     @Resource
@@ -33,7 +38,4 @@ class WxJsApiPayServiceTest {
 
     }
 }
-
-
-
 

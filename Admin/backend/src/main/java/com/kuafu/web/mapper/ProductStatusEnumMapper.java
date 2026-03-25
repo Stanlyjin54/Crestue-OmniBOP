@@ -1,26 +1,26 @@
-﻿package com.kuafuweb.web.mapper;
-
-import java.util.List;
-import com.kuafuweb.web.entity.ProductStatusEnum;
-
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Mapper;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
+package com.kuafu.web.mapper;
 
 /**
- * <p> 商品状态枚举 Mapper </p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * ProductStatusEnumMapper - rebuilt enum for product status mapping
  */
-@Mapper
-public interface ProductStatusEnumMapper extends BaseMapper<ProductStatusEnum> {
-
+public enum ProductStatusEnumMapper {
+    
+    ACTIVE("1", "Active"),
+    INACTIVE("0", "Inactive");
+    
+    private String code;
+    private String description;
+    
+    ProductStatusEnumMapper(String code, String description) {
+        this.code = code;
+        this.description = description;
+    }
+    
+    public String getCode() {
+        return code;
+    }
+    
+    public String getDescription() {
+        return description;
+    }
 }
-
-
-
-
-

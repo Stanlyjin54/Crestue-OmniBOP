@@ -2,7 +2,7 @@ package com.kuafu.web.controller;
 
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.kuafu.web.entity.Result;
+import com.kuafu.common.domin.Result;
 import com.kuafu.web.entity.SocialMediaContent;
 import com.kuafu.web.entity.BusinessOpportunity;
 import com.kuafu.web.mapper.SocialMediaContentMapper;
@@ -10,9 +10,10 @@ import com.kuafu.web.service.ISocialMediaOpportunityService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 社交媒体商机获取控制器
@@ -50,7 +51,7 @@ public class SocialMediaOpportunityController {
                 videoUrl, videoTitle, videoDescription, authorInfo);
             
             log.info("抖音视频分析完成，找到 {} 个商机", opportunities.size());
-            return Result.success(opportunities);
+            return Result.<List<BusinessOpportunity>>success(opportunities);
             
         } catch (Exception e) {
             log.error("分析抖音视频失败", e);

@@ -1,50 +1,19 @@
-﻿package com.kuafuweb.common.wx;
+package com.kuafu.common.wx;
 
-import com.kuafuweb.common.http.AbstractClient;
-import com.kuafuweb.common.util.JSON;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
-public class WxAppClient extends AbstractClient {
-
-
-    public WxAppClient() {
-        super();
-    }
-
-    public WxAppCode2SessionResponse code2Session(WxAppCode2SessionRequest request) {
-        String value = this.internalRequest("https://api.weixin.qq.com/sns/jscode2session", "GET", request);
-        WxAppCode2SessionResponse response = JSON.parseObject(value, WxAppCode2SessionResponse.class);
-        return response;
-    }
-
-    public WxAppAccessTokenResponse getAccessToken(WxAppAccessTokenRequest request) {
-        String value = this.internalRequest("https://api.weixin.qq.com/cgi-bin/token", "GET", request);
-        WxAppAccessTokenResponse response = JSON.parseObject(value, WxAppAccessTokenResponse.class);
-        return response;
-    }
-
-    public WxAppPhoneNumberResponse getPhoneNumber(WxAppPhoneNumberRequest request) {
-        String value = this.internalRequest("https://api.weixin.qq.com/wxa/business/getuserphonenumber", "POST", request);
-        log.info("==================" + value);
-        WxAppPhoneNumberResponse response = JSON.parseObject(value, WxAppPhoneNumberResponse.class);
-        return response;
-    }
-
+/**
+ * WxAppClient - rebuilt class
+ */
+@Component
+@Slf4j
+public class WxAppClient {
+    
     /**
-     * h5 获取openId
-     *
-     * @param request re
-     * @return rsp
+     * Placeholder method
      */
-    public WxWebCode2TokenResponse code2Session(WxWebCode2TokenRequest request) {
-        String value = this.internalRequest("https://api.weixin.qq.com/sns/oauth2/access_token", "GET", request);
-
-        WxWebCode2TokenResponse response = JSON.parseObject(value, WxWebCode2TokenResponse.class);
-        return response;
+    public void placeholderMethod() {
+        log.info("Placeholder method called in WxAppClient");
     }
-
 }
-
-
-
-
-

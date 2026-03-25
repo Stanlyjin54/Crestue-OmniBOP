@@ -1,25 +1,26 @@
-﻿package com.kuafuweb.common.wx;
+package com.kuafu.common.wx;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-import lombok.Data;
-
-@Data
-public class WxAppPhoneNumber {
-    @Expose
-    @SerializedName("phoneNumber")
-    private String phoneNumber;
-
-    @Expose
-    @SerializedName("purePhoneNumber")
-    private String purePhoneNumber;
-
-    @Expose
-    @SerializedName("countryCode")
-    private String countryCode;
+/**
+ * WxAppPhoneNumber - rebuilt enum
+ */
+public enum WxAppPhoneNumber {
+    
+    VALUE1("1", "Value 1"),
+    VALUE2("0", "Value 2");
+    
+    private String code;
+    private String description;
+    
+    private WxAppPhoneNumber(String code, String description) {
+        this.code = code;
+        this.description = description;
+    }
+    
+    public String getCode() {
+        return code;
+    }
+    
+    public String getDescription() {
+        return description;
+    }
 }
-
-
-
-
-

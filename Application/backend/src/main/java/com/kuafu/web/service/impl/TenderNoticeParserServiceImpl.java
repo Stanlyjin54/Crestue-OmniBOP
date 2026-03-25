@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -76,10 +79,10 @@ public class TenderNoticeParserServiceImpl implements ITenderNoticeParserService
         info.setTitle(title);
         info.setContent(content);
         info.setSourceUrl(sourceUrl);
-        info.setSourceType("招标公告");
+        info.setSourceWebsite("招标公告");
         info.setStatus("parsed");
-        info.setCreateTime(new Date());
-        info.setUpdateTime(new Date());
+        info.setCreateTime(LocalDateTime.now());
+        info.setUpdateTime(LocalDateTime.now());
 
         try {
             // 提取各项信息
@@ -89,9 +92,20 @@ public class TenderNoticeParserServiceImpl implements ITenderNoticeParserService
             info.setRegion(extractRegion(content));
             
             Map<String, String> contactInfo = extractContactInfo(content);
-            info.setContactName(contactInfo.get("name"));
-            info.setContactPhone(contactInfo.get("phone"));
-            info.setContactEmail(contactInfo.get("email"));
+            // 将联系人信息合并到contactInfo字段中
+            StringBuilder contactBuilder = new StringBuilder();
+            if (contactInfo.get("name") != null) {
+                contactBuilder.append("联系人: ").append(contactInfo.get("name"));
+            }
+            if (contactInfo.get("phone") != null) {
+                if (contactBuilder.length() > 0) contactBuilder.append(", ");
+                contactBuilder.append("电话: ").append(contactInfo.get("phone"));
+            }
+            if (contactInfo.get("email") != null) {
+                if (contactBuilder.length() > 0) contactBuilder.append(", ");
+                contactBuilder.append("邮箱: ").append(contactInfo.get("email"));
+            }
+            info.setContactInfo(contactBuilder.toString());
 
             // 验证解析结果
             if (validateProcurementInfo(info)) {
@@ -122,7 +136,7 @@ public class TenderNoticeParserServiceImpl implements ITenderNoticeParserService
     }
 
     @Override
-    public Long extractBudget(String content) {
+    public String extractBudget(String content) {
         if (content == null) return null;
         
         for (Pattern pattern : BUDGET_PATTERNS) {
@@ -132,9 +146,9 @@ public class TenderNoticeParserServiceImpl implements ITenderNoticeParserService
                 try {
                     // 检查是否为万元
                     if (pattern.pattern().contains("万元")) {
-                        return Long.parseLong(amountStr) * 10000;
+                        return amountStr + "万元";
                     }
-                    return Long.parseLong(amountStr);
+                    return amountStr + "元";
                 } catch (NumberFormatException e) {
                     log.warn("预算金额转换失败: {}", amountStr);
                 }
@@ -144,7 +158,7 @@ public class TenderNoticeParserServiceImpl implements ITenderNoticeParserService
     }
 
     @Override
-    public Long extractDeadline(String content) {
+    public LocalDateTime extractDeadline(String content) {
         if (content == null) return null;
         
         for (Pattern pattern : DATE_PATTERNS) {
@@ -153,7 +167,7 @@ public class TenderNoticeParserServiceImpl implements ITenderNoticeParserService
                 String dateStr = matcher.group(1);
                 try {
                     Date date = parseChineseDate(dateStr);
-                    return date != null ? date.getTime() : null;
+                    return date != null ? date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime() : null;
                 } catch (Exception e) {
                     log.warn("日期解析失败: {}", dateStr);
                 }
@@ -226,12 +240,12 @@ public class TenderNoticeParserServiceImpl implements ITenderNoticeParserService
         }
 
         // 预算金额验证（可选字段，但如果存在必须合理）
-        if (procurementInfo.getBudget() != null && procurementInfo.getBudget() < 0) {
+        if (procurementInfo.getBudget() != null && procurementInfo.getBudget().trim().isEmpty()) {
             return false;
         }
 
         // 截止日期验证（必须大于当前时间）
-        if (procurementInfo.getDeadline() != null && procurementInfo.getDeadline() < System.currentTimeMillis()) {
+        if (procurementInfo.getDeadline() != null && procurementInfo.getDeadline().isBefore(LocalDateTime.now())) {
             return false;
         }
 
@@ -244,22 +258,22 @@ public class TenderNoticeParserServiceImpl implements ITenderNoticeParserService
         
         // 总解析数量
         QueryWrapper<ProcurementInfo> wrapper = new QueryWrapper<>();
-        wrapper.eq("source_type", "招标公告");
-        int totalParsed = procurementInfoMapper.selectCount(wrapper);
+        wrapper.eq("source_website", "招标公告");
+        Long totalParsed = procurementInfoMapper.selectCount(wrapper);
         statistics.put("totalParsed", totalParsed);
 
         // 今日解析数量
         wrapper = new QueryWrapper<>();
-        wrapper.eq("source_type", "招标公告");
-        wrapper.likeRight("create_time", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
-        int todayParsed = procurementInfoMapper.selectCount(wrapper);
+        wrapper.eq("source_website", "招标公告");
+        wrapper.likeRight("create_time", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        Long todayParsed = procurementInfoMapper.selectCount(wrapper);
         statistics.put("todayParsed", todayParsed);
 
         // 验证成功率
         wrapper = new QueryWrapper<>();
-        wrapper.eq("source_type", "招标公告");
+        wrapper.eq("source_website", "招标公告");
         wrapper.eq("status", "validated");
-        int validatedCount = procurementInfoMapper.selectCount(wrapper);
+        Long validatedCount = procurementInfoMapper.selectCount(wrapper);
         
         double successRate = totalParsed > 0 ? (double) validatedCount / totalParsed * 100 : 0;
         statistics.put("validationSuccessRate", String.format("%.2f%%", successRate));

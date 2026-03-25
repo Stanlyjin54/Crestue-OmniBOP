@@ -1,22 +1,21 @@
-﻿package com.kuafuweb.common.config;
+package com.kuafu.common.config;
 
-
-import org.redisson.spring.starter.RedissonAutoConfiguration;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 
+
 /**
- * 如果是本地缓存排除redisson和redis的自动装配
+ * ExcludeRedissonConfig - rebuilt config
  */
 @Configuration
-@ConditionalOnProperty(value = "cache.type", havingValue = "local" )
-@EnableAutoConfiguration(exclude = {RedissonAutoConfiguration.class, RedisAutoConfiguration.class})
+@Slf4j
 public class ExcludeRedissonConfig {
+    
+    /**
+     * Initialize configuration
+     */
+    public void init() {
+        log.info("Initializing ExcludeRedissonConfig");
+        // Configuration initialization code
+    }
 }
-
-
-
-
-

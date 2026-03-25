@@ -1,47 +1,21 @@
-﻿package com.kuafuweb.common.wx;
+package com.kuafu.common.wx;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-import com.kuafuweb.common.http.AbstractModel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
-
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class WxWebCode2TokenRequest extends AbstractModel {
-
-    @Expose
-    @SerializedName("appid")
-    private String appId;
-
-    @Expose
-    @SerializedName("secret")
-    private String appSecret;
-
-    @Expose
-    @SerializedName("code")
-    private String code;
-
-    @Expose
-    @SerializedName("grant_type")
-    private String grantType = "authorization_code";
-
-    @Override
-    protected void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "appid", this.appId);
-        this.setParamSimple(map, prefix + "secret", this.appSecret);
-        this.setParamSimple(map, prefix + "code", this.code);
-        this.setParamSimple(map, prefix + "grant_type", this.grantType);
+/**
+ * WxWebCode2TokenRequest - rebuilt class
+ */
+@Component
+public class WxWebCode2TokenRequest {
+    
+    private static final Logger log = LoggerFactory.getLogger(WxWebCode2TokenRequest.class);
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in WxWebCode2TokenRequest");
     }
 }
-
-
-
-
-

@@ -1,7 +1,7 @@
-package com.kuafuweb.web.service;
+package com.kuafu.web.service;
 
 import java.util.List;
-import com.kuafuweb.web.entity.PurchaseStatusEnum;
+import com.kuafu.web.entity.PurchaseStatusEnum;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 

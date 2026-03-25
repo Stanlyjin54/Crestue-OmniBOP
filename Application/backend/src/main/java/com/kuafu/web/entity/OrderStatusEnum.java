@@ -1,4 +1,4 @@
-package com.kuafuweb.web.entity;
+package com.kuafu.web.entity;
 
 import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -6,9 +6,9 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.*;
-import com.kuafuweb.common.entity.StaticResource;
+import com.kuafu.common.entity.StaticResource;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.kuafuweb.web.annotation.IsNotNullField;
+import com.kuafu.web.annotation.IsNotNullField;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

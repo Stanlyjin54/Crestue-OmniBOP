@@ -1,42 +1,18 @@
-﻿package com.kuafuweb.web.entity;
+package com.kuafu.web.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.List;
-
-
+/**
+ * BusinessOpportunityStatusStatusStatistic7faf0bddCount - rebuilt statistical entity
+ */
 @Data
 public class BusinessOpportunityStatusStatusStatistic7faf0bddCount {
-
-        @Data
-        @NoArgsConstructor
-        public static class Statistic0{
-
-
-                        @JsonProperty("name")
-
-
-
-
-
-                private   String status;
-
-
-
-                @JsonProperty("value")
-
-
-
-                private   String result_kf;
-
-        }
+    
+    private Long count;
+    
+    public BusinessOpportunityStatusStatusStatistic7faf0bddCount() {}
+    
+    public BusinessOpportunityStatusStatusStatistic7faf0bddCount(Long count) {
+        this.count = count;
+    }
 }
-
-
-
-
-

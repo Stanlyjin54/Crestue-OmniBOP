@@ -24,7 +24,7 @@
 
         </sql>
 
-        <resultMap id="selectListNewMap" type="com.kuafuweb.web.entity.CustomerInfoAll">
+        <resultMap id="selectListNewMap" type="com.kuafu.web.entity.CustomerInfoAll">
 
         <result property="wechatId" column="wechat_id"/>
 
@@ -92,7 +92,7 @@ ci.email
 ${ew.customSqlSegment}
         </select>
 
-<select id="selectList" resultType="com.kuafuweb.web.entity.CustomerInfoAll">
+<select id="selectList" resultType="com.kuafu.web.entity.CustomerInfoAll">
 select
 ci.wechat_id   ,
 ci.address   ,
@@ -117,7 +117,7 @@ ci.email
 ${ew.customSqlSegment}
         </select>
 
-<select id="selectPage" resultType="com.kuafuweb.web.entity.CustomerInfoAll">
+<select id="selectPage" resultType="com.kuafu.web.entity.CustomerInfoAll">
 select
 ci.wechat_id  ,
 ci.address  ,
@@ -146,7 +146,7 @@ ci.email
 ${ew.customSqlSegment}
         </select>
 
-<select id="selectById" resultType="com.kuafuweb.web.entity.CustomerInfoAll">
+<select id="selectById" resultType="com.kuafu.web.entity.CustomerInfoAll">
 select
 ci.wechat_id  ,
 ci.address  ,

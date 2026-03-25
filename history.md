@@ -1,6 +1,36 @@
 # 版本历史记录
 
-## 版本 0.1.4 (2025-12-16)
+## 版本 0.1.5 (2026-03-25)
+# 修复项目构建问题，更新文档和仓库地址
+
+### 主要改动
+- **Admin 后端修复**: 添加 Lombok 注解处理器配置，解决编译错误
+- **Admin 前端修复**: 创建缺失的 RoleFormDialog.vue 组件
+- **B2C 前端修复**: 更新 vue-tsc 版本，修复 TypeScript 类型错误
+- **Application 后端修复**: 复制 Maven Wrapper 文件，添加 Lombok 配置
+- **JDK 兼容性**: 安装 JDK 21 LTS 解决 Lombok 与 JDK 25 兼容性问题
+- **文档更新**: 更新 README.md，添加 Admin 目录信息和系统架构说明
+- **用户指南**: 新增 docs/user-guide.md 用户使用指南文档
+- **仓库地址**: 更新 GitHub 仓库地址为 Stanlyjin54/Crestue-OmniBOP
+
+### 技术总结
+- **核心问题**: Lombok 注解处理器与 JDK 25 不兼容
+- **解决策略**: 降级到 JDK 21 LTS，配置 maven-compiler-plugin
+- **TypeScript 修复**: 更新类型定义，修复组件导入和 API 返回值
+- **构建状态**: Admin 后端 ✅ / Admin 前端 ✅ / B2C 前端 ✅ / Application 后端 ✅
+
+### 文件变更
+- `Admin/backend/pom.xml`: 添加 maven-compiler-plugin Lombok 配置
+- `Admin/frontend/src/views/role/components/RoleFormDialog.vue`: 新增组件
+- `B2C/frontend/package.json`: 更新 vue-tsc 版本
+- `B2C/frontend/src/types/index.ts`: 补充类型定义
+- `B2C/frontend/src/api/product.ts`: 修复 API 返回类型
+- `B2C/frontend/src/stores/cart.ts`: 添加 updateCartCount 方法
+- `B2C/frontend/src/views/Order/Confirm.vue`: 修复模板类型错误
+- `B2C/frontend/src/views/Product/Detail.vue`: 修复规格选择和类型问题
+- `README.md`: 更新仓库地址和系统架构说明
+- `CONTRIBUTING.md`: 更新仓库地址
+- `docs/user-guide.md`: 新增用户使用指南
 # 修复SCSS循环导入错误，优化前端样式配置
 
 ### 主要改动

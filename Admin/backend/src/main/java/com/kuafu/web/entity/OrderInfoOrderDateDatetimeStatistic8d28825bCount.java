@@ -1,42 +1,18 @@
-﻿package com.kuafuweb.web.entity;
+package com.kuafu.web.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.List;
-
-
+/**
+ * OrderInfoOrderDateDatetimeStatistic8d28825bCount - rebuilt statistical entity
+ */
 @Data
 public class OrderInfoOrderDateDatetimeStatistic8d28825bCount {
-
-        @Data
-        @NoArgsConstructor
-        public static class Statistic0{
-
-
-                        @JsonProperty("name")
-
-
-
-
-
-                private   java.util.Date orderDate;
-
-
-
-                @JsonProperty("value")
-
-
-
-                private   String result_kf;
-
-        }
+    
+    private Long count;
+    
+    public OrderInfoOrderDateDatetimeStatistic8d28825bCount() {}
+    
+    public OrderInfoOrderDateDatetimeStatistic8d28825bCount(Long count) {
+        this.count = count;
+    }
 }
-
-
-
-
-

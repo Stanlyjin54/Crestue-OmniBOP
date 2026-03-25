@@ -1,42 +1,18 @@
-﻿package com.kuafuweb.web.entity;
+package com.kuafu.web.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.List;
-
-
+/**
+ * UserInfoRegistrationDateDatetimeStatistic2de39a8dCount - rebuilt statistical entity
+ */
 @Data
 public class UserInfoRegistrationDateDatetimeStatistic2de39a8dCount {
-
-        @Data
-        @NoArgsConstructor
-        public static class Statistic0{
-
-
-                        @JsonProperty("name")
-
-
-
-
-
-                private   java.util.Date registrationDate;
-
-
-
-                @JsonProperty("value")
-
-
-
-                private   String result_kf;
-
-        }
+    
+    private Long count;
+    
+    public UserInfoRegistrationDateDatetimeStatistic2de39a8dCount() {}
+    
+    public UserInfoRegistrationDateDatetimeStatistic2de39a8dCount(Long count) {
+        this.count = count;
+    }
 }
-
-
-
-
-

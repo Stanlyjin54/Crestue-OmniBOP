@@ -1,39 +1,24 @@
-﻿package com.kuafuweb.web.vo;
+package com.kuafu.web.vo;
 
-import java.util.Date;
-
-import com.kuafuweb.common.domin.PageRequest;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * <p>权限-分页列表-响应参数</p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * PermissionPageVO - rebuilt VO
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
-public class PermissionPageVO extends PageRequest {
-
-    @JsonProperty(value = "permissionId")
-    private Integer permissionId;
-    @JsonProperty(value = "permissionName")
-    private String permissionName;
-    @JsonProperty(value = "permissionDesc")
-    private String permissionDesc;
-    @JsonProperty(value = "featureCode")
-    private String featureCode;
-
+public class PermissionPageVO {
+    
+    @JsonProperty("id")
+    private Long id;
+    
+    @JsonProperty("name")
+    private String name;
+    
+    public PermissionPageVO() {}
+    
+    public PermissionPageVO(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
-
-
-
-
-

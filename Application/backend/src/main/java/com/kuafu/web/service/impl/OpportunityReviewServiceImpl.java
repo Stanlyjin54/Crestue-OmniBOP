@@ -5,10 +5,10 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kuafu.web.entity.BusinessOpportunity;
 import com.kuafu.web.entity.OpportunityReview;
-import com.kuafu.web.entity.User;
+import com.kuafu.web.entity.UserInfo;
 import com.kuafu.web.mapper.BusinessOpportunityMapper;
 import com.kuafu.web.mapper.OpportunityReviewMapper;
-import com.kuafu.web.mapper.UserMapper;
+import com.kuafu.web.mapper.UserInfoMapper;
 import com.kuafu.web.service.IOpportunityReviewService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +36,7 @@ public class OpportunityReviewServiceImpl implements IOpportunityReviewService {
     private BusinessOpportunityMapper businessOpportunityMapper;
 
     @Autowired
-    private UserMapper userMapper;
+    private UserInfoMapper userInfoMapper;
 
     @Autowired
     private JavaMailSender mailSender;
@@ -147,9 +147,11 @@ public class OpportunityReviewServiceImpl implements IOpportunityReviewService {
                 opportunity.setApprovedTime(new Date());
             } else if ("reject".equals(decision)) {
                 opportunity.setStatus("rejected");
-                opportunity.setRejectedBy(reviewerId);
-                opportunity.setRejectedTime(new Date());
-                opportunity.setRejectReason(comments);
+                // BusinessOpportunity实体没有setRejectedBy和setRejectedTime方法
+                // 可以使用reviewedBy和reviewDate字段来存储拒绝信息
+                opportunity.setReviewedBy(reviewerId);
+                opportunity.setReviewDate(new Date());
+                opportunity.setReviewComments(comments);
             }
             businessOpportunityMapper.updateById(opportunity);
 
@@ -235,23 +237,23 @@ public class OpportunityReviewServiceImpl implements IOpportunityReviewService {
         // 待审核数量
         QueryWrapper<OpportunityReview> pendingWrapper = new QueryWrapper<>();
         pendingWrapper.eq("status", "pending");
-        int pendingCount = opportunityReviewMapper.selectCount(pendingWrapper);
+        Long pendingCount = opportunityReviewMapper.selectCount(pendingWrapper);
         statistics.put("pendingCount", pendingCount);
 
         // 今日审核数量
         QueryWrapper<OpportunityReview> todayWrapper = new QueryWrapper<>();
         todayWrapper.likeRight("review_time", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
-        int todayReviewed = opportunityReviewMapper.selectCount(todayWrapper);
+        Long todayReviewed = opportunityReviewMapper.selectCount(todayWrapper);
         statistics.put("todayReviewed", todayReviewed);
 
         // 审核通过率
         QueryWrapper<OpportunityReview> approvedWrapper = new QueryWrapper<>();
         approvedWrapper.eq("decision", "approve");
-        int approvedCount = opportunityReviewMapper.selectCount(approvedWrapper);
+        Long approvedCount = opportunityReviewMapper.selectCount(approvedWrapper);
         
         QueryWrapper<OpportunityReview> totalWrapper = new QueryWrapper<>();
         totalWrapper.eq("status", "completed");
-        int totalReviewed = opportunityReviewMapper.selectCount(totalWrapper);
+        Long totalReviewed = opportunityReviewMapper.selectCount(totalWrapper);
         
         double approvalRate = totalReviewed > 0 ? (double) approvedCount / totalReviewed * 100 : 0;
         statistics.put("approvalRate", String.format("%.2f%%", approvalRate));
@@ -300,10 +302,10 @@ public class OpportunityReviewServiceImpl implements IOpportunityReviewService {
     public Long autoAssignReviewer(Long opportunityId) {
         try {
             // 获取有审核权限的用户列表
-            QueryWrapper<User> userWrapper = new QueryWrapper<>();
+            QueryWrapper<UserInfo> userWrapper = new QueryWrapper<>();
             userWrapper.eq("status", "active");
             userWrapper.like("role", "reviewer");
-            List<User> reviewers = userMapper.selectList(userWrapper);
+            List<UserInfo> reviewers = userInfoMapper.selectList(userWrapper);
             
             if (reviewers.isEmpty()) {
                 log.warn("没有找到审核人");
@@ -312,8 +314,8 @@ public class OpportunityReviewServiceImpl implements IOpportunityReviewService {
 
             // 简单的轮询分配算法
             Long minWorkloadReviewer = reviewers.stream()
-                .min(Comparator.comparingLong(this::getReviewerWorkload))
-                .map(User::getId)
+                .min(Comparator.comparingLong(userInfo -> getReviewerWorkload(userInfo.getUserInfoId().longValue())))
+                .map(userInfo -> userInfo.getUserInfoId().longValue())
                 .orElse(null);
 
             if (minWorkloadReviewer != null) {
@@ -347,7 +349,7 @@ public class OpportunityReviewServiceImpl implements IOpportunityReviewService {
                 return;
             }
 
-            User reviewer = userMapper.selectById(review.getReviewerId());
+            UserInfo reviewer = userInfoMapper.selectById(review.getReviewerId());
             if (reviewer == null || reviewer.getEmail() == null) {
                 return;
             }
@@ -360,8 +362,8 @@ public class OpportunityReviewServiceImpl implements IOpportunityReviewService {
             String subject = "新的商机审核任务";
             String content = String.format(
                 "您有一个新的商机审核任务：\n\n商机名称：%s\n预算金额：%.2f元\n提交时间：%s\n优先级：%s\n\n请及时处理。",
-                opportunity.getName(),
-                opportunity.getAmount(),
+                opportunity.getOpportunityName(),
+                opportunity.getEstimatedValue() != null ? opportunity.getEstimatedValue() : 0.0,
                 new SimpleDateFormat("yyyy-MM-dd HH:mm").format(review.getSubmitTime()),
                 review.getPriority()
             );
@@ -404,7 +406,7 @@ public class OpportunityReviewServiceImpl implements IOpportunityReviewService {
             }
 
             // 检查用户角色
-            User user = userMapper.selectById(userId);
+            UserInfo user = userInfoMapper.selectById(userId);
             if (user != null && user.getRole() != null && user.getRole().contains("admin")) {
                 return true;
             }
@@ -422,12 +424,12 @@ public class OpportunityReviewServiceImpl implements IOpportunityReviewService {
      */
     private String calculatePriority(BusinessOpportunity opportunity) {
         // 基于预算金额和截止日期计算优先级
-        double amount = opportunity.getAmount() != null ? opportunity.getAmount() : 0;
-        Long deadline = opportunity.getDeadline();
+        double amount = opportunity.getEstimatedValue() != null ? opportunity.getEstimatedValue() : 0;
+        Date deadline = opportunity.getExpectedCloseDate();
         
         if (amount >= 1000000) { // 100万以上
             return "high";
-        } else if (deadline != null && (deadline - System.currentTimeMillis()) < 7 * 24 * 60 * 60 * 1000) { // 7天内截止
+        } else if (deadline != null && (deadline.getTime() - System.currentTimeMillis()) < 7 * 24 * 60 * 60 * 1000) { // 7天内截止
             return "high";
         } else if (amount >= 500000) { // 50万以上
             return "medium";
@@ -479,21 +481,21 @@ public class OpportunityReviewServiceImpl implements IOpportunityReviewService {
         // 添加商机信息
         BusinessOpportunity opportunity = businessOpportunityMapper.selectById(review.getOpportunityId());
         if (opportunity != null) {
-            result.put("opportunityName", opportunity.getName());
-            result.put("opportunityAmount", opportunity.getAmount());
+            result.put("opportunityName", opportunity.getOpportunityName());
+            result.put("opportunityAmount", opportunity.getEstimatedValue());
             result.put("opportunityStatus", opportunity.getStatus());
         }
 
         // 添加用户信息
         if (review.getSubmitterId() != null) {
-            User submitter = userMapper.selectById(review.getSubmitterId());
+            UserInfo submitter = userInfoMapper.selectById(review.getSubmitterId());
             if (submitter != null) {
                 result.put("submitterName", submitter.getUsername());
             }
         }
 
         if (review.getReviewerId() != null) {
-            User reviewer = userMapper.selectById(review.getReviewerId());
+            UserInfo reviewer = userInfoMapper.selectById(review.getReviewerId());
             if (reviewer != null) {
                 result.put("reviewerName", reviewer.getUsername());
             }

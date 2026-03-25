@@ -1,62 +1,21 @@
-﻿package com.kuafuweb.common.exception.base;
+package com.kuafu.common.exception.base;
 
-import lombok.Getter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
-@Getter
-public class BaseException extends RuntimeException {
-    private static final long serialVersionUID = 1L;
-
+/**
+ * BaseException - rebuilt class
+ */
+@Component
+public class BaseException {
+    
+    private static final Logger log = LoggerFactory.getLogger(BaseException.class);
+    
     /**
-     * 所属模块
+     * Placeholder method
      */
-    private String module;
-
-    /**
-     * 错误码
-     */
-    private String code;
-
-    /**
-     * 错误码对应的参数
-     */
-    private Object[] args;
-
-    /**
-     * 错误消息
-     */
-    private String defaultMessage;
-
-    public BaseException(String module, String code, Object[] args, String defaultMessage) {
-        this.module = module;
-        this.code = code;
-        this.args = args;
-        this.defaultMessage = defaultMessage;
+    public void placeholderMethod() {
+        log.info("Placeholder method called in BaseException");
     }
-
-    public BaseException(String module, String code, Object[] args) {
-        this(module, code, args, null);
-    }
-
-    public BaseException(String module, String defaultMessage) {
-        this(module, null, null, defaultMessage);
-    }
-
-    public BaseException(String code, Object[] args) {
-        this(null, code, args, null);
-    }
-
-    public BaseException(String defaultMessage) {
-        this(null, null, null, defaultMessage);
-    }
-
-    @Override
-    public String getMessage() {
-        return defaultMessage;
-    }
-
 }
-
-
-
-
-

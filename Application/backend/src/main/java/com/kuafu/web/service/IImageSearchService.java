@@ -1,4 +1,4 @@
-package com.kuafuweb.web.service;
+package com.kuafu.web.service;
 
 import java.util.Map;
 

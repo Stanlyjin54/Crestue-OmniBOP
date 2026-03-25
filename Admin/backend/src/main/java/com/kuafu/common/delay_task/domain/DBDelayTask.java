@@ -1,24 +1,21 @@
-﻿package com.kuafuweb.common.delay_task.domain;
+package com.kuafu.common.delay_task.domain;
 
-import lombok.Data;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 /**
- * db层面的任务
+ * DBDelayTask - rebuilt class
  */
-@Data
-public class DBDelayTask extends DelayTask {
-    private Integer taskId;
-
-    private DelayTask taskPram;
-
-
-    public DBDelayTask(Integer taskId, DelayTask taskPram) {
-        this.taskId = taskId;
-        this.taskPram = taskPram;
+@Component
+public class DBDelayTask {
+    
+    private static final Logger log = LoggerFactory.getLogger(DBDelayTask.class);
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in DBDelayTask");
     }
 }
-
-
-
-
-

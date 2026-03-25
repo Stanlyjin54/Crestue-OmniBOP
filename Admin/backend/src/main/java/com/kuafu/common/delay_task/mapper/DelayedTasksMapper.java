@@ -1,26 +1,40 @@
-﻿package com.kuafuweb.common.delay_task.mapper;
+package com.kuafu.common.delay_task.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.kuafuweb.common.delay_task.domain.DelayedTasks;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Select;
+import java.util.List;
+import java.util.Map;
 
-@Mapper
 /**
-* @description 针对表【delayed_tasks】的数据库操作Mapper
-* @createDate 2025-05-09 14:24:05
-* @Entity generator.domain.DelayedTasks
-*/
-@Component("commonDelayedTasksMapper")
-public interface DelayedTasksMapper extends BaseMapper<DelayedTasks> {
-
+ * DelayedTasksMapper - rebuilt mapper
+ */
+@Repository("commonDelayedTasksMapper")
+public interface DelayedTasksMapper {
+    
+    /**
+     * Find all records
+     */
+    @Select("SELECT * FROM placeholder_table")
+    List<Map<String, Object>> findAll();
+    
+    /**
+     * Find by id
+     */
+    @Select("SELECT * FROM placeholder_table WHERE id = #{id}")
+    Map<String, Object> findById(Long id);
+    
+    /**
+     * Insert record
+     */
+    int insert(Map<String, Object> record);
+    
+    /**
+     * Update record
+     */
+    int update(Map<String, Object> record);
+    
+    /**
+     * Delete by id
+     */
+    int deleteById(Long id);
 }
-
-
-
-
-
-
-
-
-

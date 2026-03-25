@@ -1,7 +1,7 @@
-package com.kuafuweb.web.mapper;
+package com.kuafu.web.mapper;
 
 import java.util.List;
-import com.kuafuweb.web.entity.OrderItem;
+import com.kuafu.web.entity.OrderItem;
 
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Mapper;

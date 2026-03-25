@@ -1,21 +1,25 @@
 package com.kuafu.web.controller;
 
 import cn.hutool.core.util.StrUtil;
-import com.kuafu.web.entity.Result;
+import com.kuafu.common.domin.Result;
 import com.kuafu.web.service.ISocialMediaComplianceService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 社交媒体内容合规性检查控制器
- * 处理抖音、微信、小红书等平台的内容合规性检查
+ * 提供对抖音、微信、小红书等平台内容的合规性检查功能
  */
-@Slf4j
 @RestController
-@RequestMapping("/api/social-media-compliance")
+@RequestMapping("/api/social-media/compliance")
+@Slf4j
 public class SocialMediaComplianceController {
 
     @Autowired
@@ -56,7 +60,7 @@ public class SocialMediaComplianceController {
     @PostMapping("/batch-check")
     public Result<List<Map<String, Object>>> batchCheckContentCompliance(@RequestBody List<Map<String, String>> contentList) {
         try {
-            log.info("开始批量检查 {} 条社交媒体内容合规性", contentList.size());
+            log.info("开始批量检查{}条社交媒体内容合规性", contentList.size());
             
             if (contentList == null || contentList.isEmpty()) {
                 return Result.error("内容列表不能为空");
@@ -128,7 +132,6 @@ public class SocialMediaComplianceController {
             @RequestParam String content,
             @RequestParam String platform,
             @RequestParam(required = false, defaultValue = "text") String contentType) {
-        
         try {
             if (StrUtil.isBlank(content) || StrUtil.isBlank(platform)) {
                 return Result.error("内容和平台不能为空");
@@ -138,7 +141,7 @@ public class SocialMediaComplianceController {
             return Result.success(result);
             
         } catch (Exception e) {
-            log.error("平台特定规则检查失败", e);
+            log.error("平台规则检查失败", e);
             return Result.error("平台检查失败: " + e.getMessage());
         }
     }
@@ -206,11 +209,14 @@ public class SocialMediaComplianceController {
     @PostMapping("/influencer-check")
     public Result<Map<String, Object>> checkInfluencerCompliance(
             @RequestParam String content,
-            @RequestBody Map<String, Object> influencerInfo) {
-        
+            @RequestBody(required = false) Map<String, Object> influencerInfo) {
         try {
             if (StrUtil.isBlank(content)) {
                 return Result.error("内容不能为空");
+            }
+            
+            if (influencerInfo == null) {
+                influencerInfo = new HashMap<>();
             }
             
             Map<String, Object> result = socialMediaComplianceService.checkInfluencerCompliance(content, influencerInfo);
@@ -225,11 +231,10 @@ public class SocialMediaComplianceController {
     /**
      * 生成合规报告
      */
-    @PostMapping("/compliance-report")
+    @PostMapping("/generate-report")
     public Result<Map<String, Object>> generateComplianceReport(
             @RequestBody List<String> contentIds,
-            @RequestParam(required = false) String platform) {
-        
+            @RequestParam String platform) {
         try {
             if (contentIds == null || contentIds.isEmpty()) {
                 return Result.error("内容ID列表不能为空");
@@ -247,7 +252,7 @@ public class SocialMediaComplianceController {
     /**
      * 设置合规配置
      */
-    @PostMapping("/compliance-config")
+    @PostMapping("/config")
     public Result<Boolean> setComplianceConfig(@RequestBody Map<String, Object> config) {
         try {
             if (config == null || config.isEmpty()) {
@@ -266,7 +271,7 @@ public class SocialMediaComplianceController {
     /**
      * 获取合规状态
      */
-    @GetMapping("/compliance-status")
+    @GetMapping("/status")
     public Result<Map<String, Object>> getComplianceStatus() {
         try {
             Map<String, Object> status = socialMediaComplianceService.getComplianceStatus();
@@ -279,7 +284,7 @@ public class SocialMediaComplianceController {
     }
 
     /**
-     * 获取平台合规规则
+     * 获取平台规则
      */
     @GetMapping("/platform-rules")
     public Result<Map<String, Object>> getPlatformRules(@RequestParam String platform) {
@@ -288,7 +293,6 @@ public class SocialMediaComplianceController {
                 return Result.error("平台不能为空");
             }
             
-            // 返回平台特定的合规规则
             Map<String, Object> rules = new HashMap<>();
             
             switch (platform.toLowerCase()) {
@@ -303,22 +307,19 @@ public class SocialMediaComplianceController {
                     rules.put("minArticleLength", 300);
                     rules.put("maxAdvertisingRatio", 0.3);
                     rules.put("prohibitedCategories", Arrays.asList("色情", "赌博", "毒品", "枪支", "政治"));
-                    rules.put("requiredTags", Arrays.asList("原创", "转载"));
+                    rules.put("requiredDisclaimers", Arrays.asList("广告", "推广"));
                     break;
                     
                 case "xiaohongshu":
                     rules.put("minNoteLength", 50);
-                    rules.put("maxHashtags", 10);
-                    rules.put("prohibitedCategories", Arrays.asList("医疗", "药品", "烟草", "酒精", "成人用品"));
-                    rules.put("requiredLabels", Arrays.asList("种草", "测评", "分享"));
+                    rules.put("maxImageCount", 9);
+                    rules.put("prohibitedCategories", Arrays.asList("医疗", "药品", "保健品", "金融投资"));
+                    rules.put("requiredDisclaimers", Arrays.asList("广告", "赞助", "合作"));
                     break;
                     
                 default:
                     return Result.error("未知平台: " + platform);
             }
-            
-            rules.put("platform", platform);
-            rules.put("updateTime", new Date());
             
             return Result.success(rules);
             
@@ -329,64 +330,42 @@ public class SocialMediaComplianceController {
     }
 
     /**
-     * 实时内容监控
+     * 实时监控内容
      */
-    @PostMapping("/realtime-monitor")
-    public Result<Map<String, Object>> realtimeContentMonitor(
-            @RequestBody List<Map<String, String>> contentList,
-            @RequestParam(required = false, defaultValue = "strict") String monitoringLevel) {
-        
+    @PostMapping("/monitor")
+    public Result<Map<String, Object>> monitorContent(@RequestBody List<Map<String, Object>> contentList) {
         try {
             if (contentList == null || contentList.isEmpty()) {
                 return Result.error("监控内容列表不能为空");
             }
             
             Map<String, Object> monitoringResult = new HashMap<>();
-            List<Map<String, Object>> checkResults = new ArrayList<>();
-            int totalViolations = 0;
-            int totalWarnings = 0;
+            List<Map<String, Object>> violations = new ArrayList<>();
             
-            for (Map<String, String> contentInfo : contentList) {
-                try {
-                    String content = contentInfo.get("content");
-                    String platform = contentInfo.get("platform");
-                    String contentId = contentInfo.get("contentId");
-                    
-                    if (StrUtil.isBlank(content) || StrUtil.isBlank(platform)) {
-                        continue;
-                    }
-                    
-                    Map<String, Object> checkResult = socialMediaComplianceService.checkContentCompliance(content, platform, "text");
-                    checkResult.put("contentId", contentId);
-                    checkResults.add(checkResult);
-                    
-                    if (!(Boolean) checkResult.get("isCompliant")) {
-                        totalViolations++;
-                    }
-                    
-                    List<String> warnings = (List<String>) checkResult.get("warnings");
-                    if (warnings != null && !warnings.isEmpty()) {
-                        totalWarnings++;
-                    }
-                    
-                } catch (Exception e) {
-                    log.error("实时监控单条内容失败", e);
+            for (Map<String, Object> contentInfo : contentList) {
+                String content = (String) contentInfo.get("content");
+                String platform = (String) contentInfo.get("platform");
+                String contentType = (String) contentInfo.getOrDefault("contentType", "text");
+                
+                Map<String, Object> complianceResult = socialMediaComplianceService.checkContentCompliance(content, platform, contentType);
+                
+                if ((Boolean) complianceResult.getOrDefault("isCompliant", true)) {
+                    Map<String, Object> violation = new HashMap<>();
+                    violation.put("contentId", contentInfo.get("contentId"));
+                    violation.put("platform", platform);
+                    violation.put("violations", complianceResult.get("violations"));
+                    violations.add(violation);
                 }
             }
             
             monitoringResult.put("totalChecked", contentList.size());
-            monitoringResult.put("totalViolations", totalViolations);
-            monitoringResult.put("totalWarnings", totalWarnings);
-            monitoringResult.put("violationRate", String.format("%.1f%%", (double) totalViolations / contentList.size() * 100));
-            monitoringResult.put("warningRate", String.format("%.1f%%", (double) totalWarnings / contentList.size() * 100));
-            monitoringResult.put("monitoringLevel", monitoringLevel);
-            monitoringResult.put("checkResults", checkResults);
-            monitoringResult.put("monitorTime", new Date());
+            monitoringResult.put("violations", violations);
+            monitoringResult.put("complianceRate", (contentList.size() - violations.size()) * 100.0 / contentList.size());
             
             return Result.success(monitoringResult);
             
         } catch (Exception e) {
-            log.error("实时内容监控失败", e);
+            log.error("实时监控失败", e);
             return Result.error("实时监控失败: " + e.getMessage());
         }
     }

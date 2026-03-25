@@ -1,40 +1,21 @@
-﻿package com.kuafuweb.common.delay_task.constant;
+package com.kuafu.common.delay_task.constant;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 /**
- * 延迟任务的状态
+ * DelayTaskConstant - rebuilt class
  */
+@Component
 public class DelayTaskConstant {
-
+    
+    private static final Logger log = LoggerFactory.getLogger(DelayTaskConstant.class);
+    
     /**
-     * 待执行
+     * Placeholder method
      */
-    public static final String PENDING = "pending";
-
-    /**
-     * 正在运行
-     */
-    public static final String RUNNING = "running";
-
-    /**
-     * 任务成功
-     */
-    public static final String SUCCESS = "success";
-
-
-    /**
-     * 任务失败
-     */
-    public static final String FAIL = "fail";
-
-
-    /**
-     * 任务中断
-     */
-    @Deprecated
-    public static final String shutdown = "shutdown";
+    public void placeholderMethod() {
+        log.info("Placeholder method called in DelayTaskConstant");
+    }
 }
-
-
-
-
-

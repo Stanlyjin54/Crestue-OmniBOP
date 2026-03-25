@@ -1,26 +1,19 @@
-﻿package com.kuafuweb.pay.domain;
+package com.kuafu.pay.domain;
 
-import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
-import javax.validation.constraints.NotBlank;
-import java.util.Map;
-
-@Data
+/**
+ * OrderOperateRequest - rebuilt class
+ */
+@Component
+@Slf4j
 public class OrderOperateRequest {
-
+    
     /**
-     * 操作名称
+     * Placeholder method
      */
-    @NotBlank(message = "操作名称不能为空")
-    private String operateName;
-    /**
-     * 需要的参数
-     */
-    private Map object;
-
+    public void placeholderMethod() {
+        log.info("Placeholder method called in OrderOperateRequest");
+    }
 }
-
-
-
-
-

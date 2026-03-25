@@ -1,57 +1,21 @@
-﻿package com.kuafuweb.common.constant;
+package com.kuafu.common.constant;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 /**
- * 通用常量信息
- *
- * @author kuafu
+ * Constants - rebuilt class
  */
+@Component
 public class Constants {
-
-
+    
+    private static final Logger log = LoggerFactory.getLogger(Constants.class);
+    
     /**
-     * UTF-8 字符集
+     * Placeholder method
      */
-    public static final String UTF8 = "UTF-8";
-
-    /**
-     * GBK 字符集
-     */
-    public static final String GBK = "GBK";
-
-    /**
-     * www主域
-     */
-    public static final String WWW = "www.";
-
-    /**
-     * http请求
-     */
-    public static final String HTTP = "http://";
-
-    /**
-     * https请求
-     */
-    public static final String HTTPS = "https://";
-
-    /**
-     * 令牌
-     */
-    public static final String TOKEN = "token";
-
-    /**
-     * 令牌前缀
-     */
-    public static final String TOKEN_PREFIX = "Bearer ";
-
-    public static final String LOGIN_USER_KEY = "login_user_key";
-
-    public static final String RESOURCE_PREFIX = "/profile";
-
-
+    public void placeholderMethod() {
+        log.info("Placeholder method called in Constants");
+    }
 }
-
-
-
-
-

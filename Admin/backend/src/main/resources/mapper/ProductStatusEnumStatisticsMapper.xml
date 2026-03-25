@@ -1,30 +1,30 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kuafuweb.web.mapper.ProductStatusEnumStatisticsMapper">
+<mapper namespace="com.kuafu.web.mapper.ProductStatusEnumStatisticsMapper">
 
-    <resultMap id="product_status_enum_product_status_enum_id_status_statistic_d77ca5ce_countStatistic0" type="com.kuafuweb.web.entity.ProductStatusEnumProductStatusEnumIdStatusStatisticD77ca5ceCount$Statistic0">
-        <result property="productStatusEnumId" column="product_status_enum_id"/>
-        <result property="result_kf" column="result_kf"/>
+    <resultMap id="product_status_enum_product_status_enum_id_status_statistic_d77ca5ce_countStatistic0" type="com.kuafu.web.entity.ProductStatusEnumProductStatusEnumIdStatusStatisticD77ca5ceCount">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="product_status_enum_product_status_enum_id_status_statistic_e288bf0e_countStatistic0" type="com.kuafuweb.web.entity.ProductStatusEnumProductStatusEnumIdStatusStatisticE288bf0eCount$Statistic0">
-        <result property="productStatusEnumId" column="product_status_enum_id"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="product_status_enum_product_status_enum_id_status_statistic_e288bf0e_countStatistic0" type="com.kuafu.web.entity.ProductStatusEnumProductStatusEnumIdStatusStatisticE288bf0eCount">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="product_status_enum_product_status_enum_id_status_statistic_3e0cb3c6_countStatistic0" type="com.kuafuweb.web.entity.ProductStatusEnumProductStatusEnumIdStatusStatistic3e0cb3c6Count$Statistic0">
-        <result property="productStatusEnumId" column="product_status_enum_id"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="product_status_enum_product_status_enum_id_status_statistic_3e0cb3c6_countStatistic0" type="com.kuafu.web.entity.ProductStatusEnumProductStatusEnumIdStatusStatistic3e0cb3c6Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="product_status_enum_status_name_status_statistic_fe3afe34_countStatistic0" type="com.kuafuweb.web.entity.ProductStatusEnumStatusNameStatusStatisticFe3afe34Count$Statistic0">
-        <result property="statusName" column="status_name"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="product_status_enum_status_name_status_statistic_fe3afe34_countStatistic0" type="com.kuafu.web.entity.ProductStatusEnumStatusNameStatusStatisticFe3afe34Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="product_status_enum_status_name_status_statistic_1a658de2_countStatistic0" type="com.kuafuweb.web.entity.ProductStatusEnumStatusNameStatusStatistic1a658de2Count$Statistic0">
-        <result property="statusName" column="status_name"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="product_status_enum_status_name_status_statistic_1a658de2_countStatistic0" type="com.kuafu.web.entity.ProductStatusEnumStatusNameStatusStatistic1a658de2Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="product_status_enum_status_name_status_statistic_8130dea7_countStatistic0" type="com.kuafuweb.web.entity.ProductStatusEnumStatusNameStatusStatistic8130dea7Count$Statistic0">
-        <result property="statusName" column="status_name"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="product_status_enum_status_name_status_statistic_8130dea7_countStatistic0" type="com.kuafu.web.entity.ProductStatusEnumStatusNameStatusStatistic8130dea7Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
 
 

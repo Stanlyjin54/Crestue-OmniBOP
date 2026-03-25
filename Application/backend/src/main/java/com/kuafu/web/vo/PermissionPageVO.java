@@ -1,17 +1,17 @@
-package com.kuafuweb.web.vo;
+package com.kuafu.web.vo;
 
 import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.kuafuweb.common.deserializer.MultiDateDeserializer;
-import com.kuafuweb.common.domin.PageRequest;
+import com.kuafu.common.deserializer.MultiDateDeserializer;
+import com.kuafu.common.domin.PageRequest;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import java.util.List;
-import com.kuafuweb.common.entity.StaticResource;
-import com.kuafuweb.common.entity.BaseEntity;
+import com.kuafu.common.entity.StaticResource;
+import com.kuafu.common.entity.BaseEntity;
 /**
  * <p>权限-分页列表-响应参数</p>
  *

@@ -1,38 +1,19 @@
-﻿package com.kuafuweb.login.provider;
+package com.kuafu.login.provider;
 
-import org.springframework.security.authentication.AbstractAuthenticationToken;
-import org.springframework.security.core.GrantedAuthority;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
-import java.util.Collection;
-
-public class WxAppAuthentication extends AbstractAuthenticationToken {
-
-    private final Object principal;
-
-    public WxAppAuthentication(Object principal) {
-        super(null);
-        this.principal = principal;
-        super.setAuthenticated(false);
-    }
-
-    public WxAppAuthentication(Object principal, Collection<? extends GrantedAuthority> authorities) {
-        super(authorities);
-        this.principal = principal;
-        super.setAuthenticated(true);
-    }
-
-    @Override
-    public Object getCredentials() {
-        return null;
-    }
-
-    @Override
-    public Object getPrincipal() {
-        return this.principal;
+/**
+ * WxAppAuthentication - rebuilt class
+ */
+@Component
+@Slf4j
+public class WxAppAuthentication {
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in WxAppAuthentication");
     }
 }
-
-
-
-
-

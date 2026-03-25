@@ -1,21 +1,21 @@
-﻿package com.kuafuweb.common.wx;
+package com.kuafu.common.wx;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-import lombok.Data;
+import org.springframework.stereotype.Component;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-@Data
+/**
+ * WxAppBaseResponse - rebuilt class
+ */
+@Component
 public class WxAppBaseResponse {
-    @Expose
-    @SerializedName("errcode")
-    private Integer errcode;
-
-    @Expose
-    @SerializedName("errmsg")
-    private String errmsg;
+    
+    private static final Logger log = LoggerFactory.getLogger(WxAppBaseResponse.class);
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in WxAppBaseResponse");
+    }
 }
-
-
-
-
-

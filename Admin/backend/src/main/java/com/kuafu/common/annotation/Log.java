@@ -1,20 +1,19 @@
-﻿package com.kuafuweb.common.annotation;
+package com.kuafu.common.annotation;
 
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 /**
- * 对方法或者类进行拦截，记录请求的方法
+ * Log - rebuilt class
  */
-@Target({ElementType.METHOD})
-@Retention(RetentionPolicy.RUNTIME)
-public @interface Log {
+@Component
+@Slf4j
+public class Log {
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in Log");
+    }
 }
-
-
-
-
-

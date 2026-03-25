@@ -47,6 +47,11 @@ export interface Product {
   tags?: string[]
   rating?: number
   reviewCount?: number
+  // 详情页字段
+  subtitle?: string
+  discount?: number
+  detail?: string
+  hasSku?: boolean
 }
 
 export interface ProductSpec {
@@ -306,4 +311,14 @@ export interface PaymentForm {
   orderId: number
   paymentMethod: string
   amount: number
+}
+
+// 兼容性别名（用于某些组件的导入）
+export type Sku = ProductSku
+export type Spec = ProductSpec
+
+// 订单相关类型
+export interface OrderCreateResponse {
+  id: number
+  orderNo: string
 }

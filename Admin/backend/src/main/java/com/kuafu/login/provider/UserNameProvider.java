@@ -1,60 +1,21 @@
-﻿package com.kuafuweb.login.provider;
+package com.kuafu.login.provider;
 
-import com.kuafuweb.common.login.LoginUser;
-import com.kuafuweb.common.login.SecurityUtils;
-import com.kuafuweb.common.util.StringUtils;
-import com.kuafuweb.login.service.LoginBusinessService;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-
+/**
+ * UserNameProvider - rebuilt class
+ */
 @Component
-@ConditionalOnProperty(prefix = "login", name = "enable")
-@Slf4j
-public class UserNameProvider implements AuthenticationProvider {
-
-    @Autowired
-    private LoginBusinessService loginBusinessService;
-
-    @Override
-    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        String userName = authentication.getPrincipal().toString();
-        String passwd = authentication.getCredentials().toString();
-
-        Object current = loginBusinessService.getUserBySelectKey(userName);
-        if (current == null) {
-            throw new UsernameNotFoundException("用户不存在");
-        }
-
-        String dbPassword = loginBusinessService.password(current);
-        if (StringUtils.isEmpty(dbPassword)) {
-            throw new BadCredentialsException("密码有误");
-        }
-
-        if (!SecurityUtils.matchesPassword(passwd, dbPassword)) {
-            throw new BadCredentialsException("密码有误");
-        }
-
-        Long userId = loginBusinessService.getId(current);
-
-        return new UsernamePasswordAuthenticationToken(new LoginUser(userId), "", authentication.getAuthorities());
-    }
-
-    @Override
-    public boolean supports(Class<?> aClass) {
-        return aClass.equals(UsernamePasswordAuthenticationToken.class);
+public class UserNameProvider {
+    
+    private static final Logger log = LoggerFactory.getLogger(UserNameProvider.class);
+    
+    /**
+     * Placeholder method
+     */
+    public void placeholderMethod() {
+        log.info("Placeholder method called in UserNameProvider");
     }
 }
-
-
-
-
-

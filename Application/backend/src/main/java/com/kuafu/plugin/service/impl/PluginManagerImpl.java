@@ -7,9 +7,9 @@ import com.kuafu.plugin.service.PluginRegistry;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.io.File;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 插件管理核心类，负责插件的生命周期管理
@@ -141,7 +141,7 @@ public class PluginManagerImpl implements PluginManager {
     
     @Override
     public List<PluginInfo> getAllPlugins() {
-        return pluginRegistry.getAllPlugins().values().stream().toList();
+        return pluginRegistry.getAllPlugins().values().stream().collect(Collectors.toList());
     }
     
     @Override

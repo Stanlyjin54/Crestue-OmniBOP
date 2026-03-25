@@ -1,21 +1,21 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kuafuweb.web.mapper.UserInfoMapper">
+<mapper namespace="com.kuafu.web.mapper.UserInfoMapper">
 
-    <resultMap id="selectListNewMap" type="com.kuafuweb.web.entity.UserInfo">
-            <result property="userInfoId" column="user_info_id"/>
-            <result property="phoneNumber" column="phone_number"/>
-            <result property="username" column="username"/>
-            <result property="password" column="password"/>
-            <result property="avatarResourceKey" column="avatar_resource_key"/>
-            <result property="registrationDate" column="registration_date"/>
-            <collection property="avatar" ofType="com.kuafuweb.common.domin.StaticResource">
+    <resultMap id="selectListNewMap" type="com.kuafu.web.entity.UserInfo">
+            <result property="count" column="result_kf"/>
+            <result property="count" column="result_kf"/>
+            <result property="count" column="result_kf"/>
+            <result property="count" column="result_kf"/>
+            <result property="count" column="result_kf"/>
+            <result property="count" column="result_kf"/>
+            <collection property="avatar" ofType="com.kuafu.common.domin.StaticResource" javaType="java.util.List">
                 <id property="resourceId" column="avatar_resource_id"/>
-                <result property="resourceName" column="avatar_resource_name"/>
-                <result property="resourcePath" column="avatar_resource_path"/>
-                <result property="relatedTableName" column="avatar_related_table_name"/>
-                <result property="relatedTableKey" column="avatar_related_table_key"/>
-                <result property="relateTableColumnName" column="avatar_relate_table_column_name"/>
+                <result property="count" column="result_kf"/>
+                <result property="count" column="result_kf"/>
+                <result property="count" column="result_kf"/>
+                <result property="count" column="result_kf"/>
+                <result property="count" column="result_kf"/>
             </collection>
     </resultMap>
 
@@ -109,8 +109,3 @@
     </select>
 
 </mapper>
-
-
-
-
-

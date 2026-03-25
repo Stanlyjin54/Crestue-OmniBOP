@@ -1,44 +1,24 @@
-﻿package com.kuafuweb.web.vo;
+package com.kuafu.web.vo;
 
-import lombok.AllArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import java.util.Date;
-import lombok.NoArgsConstructor;
-import com.kuafuweb.common.domin.StaticResource;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * <p>登录表</p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * LoginVO - rebuilt VO
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class LoginVO  {
-
-     @JsonProperty(value = "loginId")
-    private Integer loginId;
-     @JsonProperty(value = "relevanceId")
-    private String relevanceId;
-     @JsonProperty(value = "password")
-    private String password;
-     @JsonProperty(value = "userName")
-    private String userName;
-     @JsonProperty(value = "relevanceTable")
-    private String relevanceTable;
-     @JsonProperty(value = "phoneNumber")
-    private String phoneNumber;
-     @JsonProperty(value = "wxOpenId")
-    private String wxOpenId;
-
-
+public class LoginVO {
+    
+    @JsonProperty("id")
+    private Long id;
+    
+    @JsonProperty("name")
+    private String name;
+    
+    public LoginVO() {}
+    
+    public LoginVO(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
-
-
-
-
-

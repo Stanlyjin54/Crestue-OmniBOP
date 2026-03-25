@@ -1,37 +1,26 @@
-﻿package com.kuafuweb.web.mapper;
+package com.kuafu.web.mapper;
 
-import java.util.List;
-import java.math.BigDecimal;
-
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.kuafuweb.web.entity.CustomerTagEnum;
-
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Mapper;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 /**
- * <p> customer_tag_enum Mapper </p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * CustomerTagEnumStatisticsMapper - rebuilt enum
  */
-@Mapper
-public interface CustomerTagEnumStatisticsMapper extends BaseMapper<CustomerTagEnum> {
-
-                        List<Object> customer_tag_enum_customer_tag_enum_id_status_statistic_9083f377_count(@Param("ew") Wrapper queryWrapper);
-
-
-                        List<Object> customer_tag_enum_customer_tag_enum_id_status_statistic_027cbb5f_count(@Param("ew") Wrapper queryWrapper);
-
-
-                        List<Object> customer_tag_enum_customer_tag_enum_id_status_statistic_73a04ddf_count(@Param("ew") Wrapper queryWrapper);
-
+public enum CustomerTagEnumStatisticsMapper {
+    
+    VALUE1("1", "Value 1"),
+    VALUE2("0", "Value 2");
+    
+    private String code;
+    private String description;
+    
+    private CustomerTagEnumStatisticsMapper(String code, String description) {
+        this.code = code;
+        this.description = description;
+    }
+    
+    public String getCode() {
+        return code;
+    }
+    
+    public String getDescription() {
+        return description;
+    }
 }
-
-
-
-
-

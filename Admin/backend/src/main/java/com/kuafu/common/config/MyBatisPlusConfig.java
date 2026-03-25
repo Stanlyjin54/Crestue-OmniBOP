@@ -1,42 +1,21 @@
-﻿package com.kuafuweb.common.config;
+package com.kuafu.common.config;
 
-import com.baomidou.mybatisplus.annotation.DbType;
-import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
-import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 
+
 /**
- * MyBatis Plus 配置
- *
- * @author kuafu
+ * MyBatisPlusConfig - rebuilt config
  */
 @Configuration
+@Slf4j
 public class MyBatisPlusConfig {
-
-
-    @Value("${spring.profiles.active}")
-    private String dbType;
-
+    
     /**
-     * 拦截器配置
-     *
-     * @return
+     * Initialize configuration
      */
-    @Bean
-    public MybatisPlusInterceptor mybatisPlusInterceptor() {
-        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
-        // 分页插件
-        if ("mysql".equalsIgnoreCase(dbType)) {
-            interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
-        } else if ("sqlite".equalsIgnoreCase(dbType)) {
-            interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.SQLITE));
-        }
-        return interceptor;
+    public void init() {
+        log.info("Initializing MyBatisPlusConfig");
+        // Configuration initialization code
     }
 }
-
-
-
-

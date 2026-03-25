@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kuafuweb.web.mapper.ProfitBoardStatisticsMapper">
+<mapper namespace="com.kuafu.web.mapper.ProfitBoardStatisticsMapper">
 
-    <resultMap id="profit_board_stat_date_datetime_statistic_17470edd_countStatistic0" type="com.kuafuweb.web.entity.ProfitBoardStatDateDatetimeStatistic17470eddCount$Statistic0">
-        <result property="statDate" column="stat_date"/>
-        <result property="result_kf" column="result_kf"/>
+    <resultMap id="profit_board_stat_date_datetime_statistic_17470edd_countStatistic0" type="com.kuafu.web.entity.ProfitBoardStatDateDatetimeStatistic17470eddCount">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="profit_board_stat_date_datetime_statistic_edf98856_countStatistic0" type="com.kuafuweb.web.entity.ProfitBoardStatDateDatetimeStatisticEdf98856Count$Statistic0">
-        <result property="statDate" column="stat_date"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="profit_board_stat_date_datetime_statistic_edf98856_countStatistic0" type="com.kuafu.web.entity.ProfitBoardStatDateDatetimeStatisticEdf98856Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
-<resultMap id="profit_board_stat_date_datetime_statistic_f80cc477_countStatistic0" type="com.kuafuweb.web.entity.ProfitBoardStatDateDatetimeStatisticF80cc477Count$Statistic0">
-        <result property="statDate" column="stat_date"/>
-        <result property="result_kf" column="result_kf"/>
+<resultMap id="profit_board_stat_date_datetime_statistic_f80cc477_countStatistic0" type="com.kuafu.web.entity.ProfitBoardStatDateDatetimeStatisticF80cc477Count">
+        <result property="count" column="result_kf"/>
+        <result property="count" column="result_kf"/>
     </resultMap>
 
 

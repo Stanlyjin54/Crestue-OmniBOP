@@ -1,16 +1,23 @@
-﻿package com.kuafuweb.web.entity;
+package com.kuafu.web.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
+import java.time.LocalDateTime;
 
-@AllArgsConstructor
+/**
+ * SelectVO - rebuilt entity
+ */
 @Data
 public class SelectVO {
-    private Object value;
-    private String label;
+    
+    private Long id;
+    private String name;
+    private LocalDateTime createTime;
+    private LocalDateTime updateTime;
+    
+    public SelectVO() {}
+    
+    public SelectVO(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
-
-
-
-
-

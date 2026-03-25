@@ -1,34 +1,28 @@
-﻿package com.kuafuweb.web.vo;
-
-import lombok.AllArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
-import java.util.Date;
-import lombok.NoArgsConstructor;
-import com.kuafuweb.common.domin.StaticResource;
-import java.util.List;
+package com.kuafu.web.vo;
 
 /**
- * <p>RFM分层枚举</p>
- *
- * @author kuafuai
- * @description
- * @date 2025/06/18 13:48
+ * RfmLevelEnumVO - rebuilt enum
  */
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class RfmLevelEnumVO  {
-
-     @JsonProperty(value = "rfmLevelEnumId")
-    private Integer rfmLevelEnumId;
-     @JsonProperty(value = "levelName")
-    private String levelName;
-
-
+public enum RfmLevelEnumVO {
+    
+    HIGH("high", "High Value"),
+    MEDIUM("medium", "Medium Value"),
+    LOW("low", "Low Value");
+    
+    private String code;
+    private String description;
+    
+    // Constructor
+    RfmLevelEnumVO(String code, String description) {
+        this.code = code;
+        this.description = description;
+    }
+    
+    public String getCode() {
+        return code;
+    }
+    
+    public String getDescription() {
+        return description;
+    }
 }
-
-
-
-
-

@@ -60,6 +60,14 @@ public class UserInfo  {
     @TableField("registration_date")
     private Date registrationDate;
 
+    @JsonProperty("email")
+    @TableField("email")
+    private String email;
+
+    @JsonProperty("role")
+    @TableField("role")
+    private String role;
+
 
 
 @TableField(exist = false)
