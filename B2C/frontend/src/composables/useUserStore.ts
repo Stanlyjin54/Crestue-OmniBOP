@@ -19,12 +19,14 @@ export const useUserStore = () => {
       loading.value = true
       const response = await loginApi(loginData)
       
-      token.value = response.token
-      userInfo.value = response.user
+      // 后端返回的数据结构: { code: 0, data: token, message: '', success: true }
+      token.value = response.data
       
       // 保存到本地存储
       setToken(token.value)
-      setUserInfo(userInfo.value)
+      
+      // 获取用户信息
+      await fetchUserInfo()
       
       return response
     } catch (error) {

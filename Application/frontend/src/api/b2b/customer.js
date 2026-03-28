@@ -3,7 +3,7 @@
  * 支持企业客户、客户等级、信用管理等功能
  */
 
-import { request } from '@/utils/request.js';
+import request from '@/utils/request.js';
 
 /**
  * 获取B2B客户列表

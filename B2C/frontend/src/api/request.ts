@@ -34,7 +34,7 @@ service.interceptors.response.use(
     const { data } = response
     
     // 处理业务逻辑错误
-    if (data.code !== 200) {
+    if (data.code !== 0) {
       ElMessage.error(data.message || '请求失败')
       
       // 处理特定错误码

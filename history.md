@@ -1,5 +1,29 @@
 # 版本历史记录
 
+## 版本 0.1.6 (2026-03-28)
+# 添加用户类型区分和B2C接口支持
+
+### 主要改动
+- **用户类型区分**: 在 UserInfo 实体添加 user_type 字段，区分 consumer(B2C消费者) 和 operator(经营者)
+- **收货地址管理**: 创建 UserAddress 实体和 /user/addresses 接口，支持完整的收货地址CRUD
+- **B2C订单接口**: 创建 /b2c/order/create 等接口，支持B2C订单创建和管理
+- **商品SKU接口**: 创建 ProductSku 实体和 /product/{id}/skus 接口，支持商品规格管理
+- **数据库迁移**: 添加 V20250328190000 迁移脚本，创建新表和字段
+- **权限控制**: 使用 SecurityUtils.getUserId() 获取当前用户，确保数据隔离
+
+### 新增文件
+- `Application/backend/src/main/java/com/kuafu/web/entity/UserAddress.java`: 收货地址实体
+- `Application/backend/src/main/java/com/kuafu/web/controller/UserAddressController.java`: 收货地址控制器
+- `Application/backend/src/main/java/com/kuafu/web/entity/ProductSku.java`: 商品SKU实体
+- `Application/backend/src/main/java/com/kuafu/web/controller/ProductSkuController.java`: SKU控制器
+- `Application/backend/src/main/java/com/kuafu/web/controller/B2COrderController.java`: B2C订单控制器
+- `Application/backend/src/main/resources/db/sqlite/V20250328190000__add_user_type_and_b2c_tables.sql`: 数据库迁移脚本
+
+### 修改文件
+- `Application/backend/src/main/java/com/kuafu/web/entity/UserInfo.java`: 添加 user_type 字段
+- `Application/backend/src/main/java/com/kuafu/login/model/LoginVo.java`: 添加 userType 参数
+- `.gitignore`: 添加临时脚本和数据库文件忽略规则
+
 ## 版本 0.1.5 (2026-03-25)
 # 修复项目构建问题，更新文档和仓库地址
 

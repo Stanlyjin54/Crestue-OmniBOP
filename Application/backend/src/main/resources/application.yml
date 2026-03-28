@@ -96,7 +96,7 @@ alipay:
   test-amount: ${ALIPAY_TEST_AMOUNT:0.01}
 
 llm:
-  enable: ${LLM_ENABLE:true}
+  enable: ${LLM_ENABLE:false}
   vector:
     provider: ${VECTOR_PROVIDER:ali}
     collection_name: ${VECTOR_COLLECT_NAME:test}

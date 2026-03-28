@@ -11,4 +11,4 @@ drop table if exists login;
     relevance_table varchar(255)
 );
 insert into login (login_id, wx_open_id, phone_number, password, user_name, relevance_id, relevance_table)
-values (null, null, 'admin', '$2a$10$bOrRjyHCMT2DUnXoVuFWNO1dSd6Zj/fyjS0TETmcD1ZXlR/BGklc2', null, null,null);
+values (null, null, 'admin', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', null, '1', 'user_info');

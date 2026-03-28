@@ -3,7 +3,7 @@
  * 实现实时库存同步和预警机制
  */
 
-import { request } from '@/utils/request.js';
+import request from '@/utils/request.js';
 
 /**
  * 获取库存列表

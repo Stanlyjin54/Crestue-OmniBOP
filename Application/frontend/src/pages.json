@@ -260,7 +260,7 @@
                 "navigationStyle": "default"
             }
     }, {
-        "path": "api-test",
+        "path": "api-test/index",
         "style":  {
                 "navigationBarTitleText": "API测试",
                 "navigationStyle": "default"

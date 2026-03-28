@@ -3,7 +3,7 @@ import type { PageRequest, PageResponse } from '@/types'
 import type { Product, ProductSku, Category, Review } from '@/types'
 
 // 获取商品列表
-export const getProductList = (params: {
+export const getProductList = async (params: {
   categoryId?: number
   keyword?: string
   sort?: string
@@ -11,12 +11,33 @@ export const getProductList = (params: {
   minPrice?: number
   maxPrice?: number
 } & PageRequest): Promise<PageResponse<Product>> => {
-  return request.get('/product/list', { params })
+  const requestData = {
+    table: 'product_info',
+    method: 'page',
+    current: params.page || 1,
+    pageSize: params.pageSize || 10,
+    productName: params.keyword,
+    category: params.categoryId?.toString()
+  }
+  const response = await request.post('/api/data/invoke', requestData)
+  // 适配后端返回的数据结构（MyBatis-Plus 的 IPage）
+  return {
+    list: response.records || [],
+    total: response.total || 0,
+    current: response.current || 1,
+    size: response.size || 10
+  }
 }
 
 // 获取商品详情
-export const getProductDetail = (id: number): Promise<Product> => {
-  return request.get(`/product/${id}`)
+export const getProductDetail = async (id: number): Promise<Product> => {
+  const requestData = {
+    table: 'product_info',
+    method: 'get',
+    productInfoId: id
+  }
+  const response = await request.post('/api/data/invoke', requestData)
+  return response
 }
 
 // 获取商品SKU列表
@@ -25,8 +46,13 @@ export const getProductSkus = (productId: number): Promise<{ skus: ProductSku[];
 }
 
 // 获取商品分类列表
-export const getCategoryList = (): Promise<Category[]> => {
-  return request.get('/category/list')
+export const getCategoryList = async (): Promise<Category[]> => {
+  const requestData = {
+    table: 'category_info',
+    method: 'list'
+  }
+  const response = await request.post('/api/data/invoke', requestData)
+  return response || []
 }
 
 // 获取商品分类列表（别名）

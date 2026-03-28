@@ -2,7 +2,7 @@ import { defineConfig, loadEnv } from 'vite'
 import path from 'path'
 import uni from '@dcloudio/vite-plugin-uni'
 import AutoImport from 'unplugin-auto-import/vite'
-import tailwindcss from "tailwindcss";
+import tailwindcss from "@tailwindcss/postcss";
 import banner from 'vite-plugin-banner'
 import { UnifiedViteWeappTailwindcssPlugin as uvwt } from 'weapp-tailwindcss/vite';
 import autoprefixer from "autoprefixer";
@@ -16,7 +16,9 @@ export default defineConfig(({ command, mode }) => {
         base: env.VITE_BASE,
         plugins: [
             uni(),
-            uvwt(),
+            uvwt({
+                cssEntries: [path.resolve(__dirname, './src/styles/index.css')]
+            }),
             AutoImport({
                 imports: [
                     'vue',
@@ -39,10 +41,10 @@ export default defineConfig(({ command, mode }) => {
         server: {
             host: "0.0.0.0",
             proxy: {
-                [env.VITE_APP_BASE_API]: {
+                '/api': {
                     target: env.VITE_APP_SERVICE_API,
                     changeOrigin: true,
-                    rewrite: (path) => path.replace(new RegExp('^' + env.VITE_APP_BASE_API), ''),
+                    rewrite: (path) => path.replace(/^\/api/, ''),
                 },
             }
         },

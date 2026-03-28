@@ -78,18 +78,30 @@ export default {
                     if (mode === 'redirect'){
                         uni.redirectTo({
                             url,
-                            success: () => resolve({
-                                success: true
-                            }),
-                            fail:(err) => reject(err)
+                            success: () => {
+                                console.log('redirectTo 成功:', url)
+                                resolve({
+                                    success: true
+                                })
+                            },
+                            fail:(err) => {
+                                console.error('redirectTo 失败:', err)
+                                reject(err)
+                            }
                         })
                     }else {
                         uni.navigateTo({
                             url,
-                            success: () => resolve({
-                                success: true
-                            }),
-                            fail: (err) => reject(err)
+                            success: () => {
+                                console.log('navigateTo 成功:', url)
+                                resolve({
+                                    success: true
+                                })
+                            },
+                            fail: (err) => {
+                                console.error('navigateTo 失败:', err)
+                                reject(err)
+                            }
                         });
                     }
 

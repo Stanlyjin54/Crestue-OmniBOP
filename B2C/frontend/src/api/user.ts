@@ -4,17 +4,17 @@ import type { UserInfo, LoginRequest, LoginResponse, RegisterRequest } from '@/t
 
 // 用户登录
 export const login = (data: LoginRequest): Promise<LoginResponse> => {
-  return request.post('/user/login', data)
+  return request.post('/login/passwd', data)
 }
 
 // 用户注册
 export const register = (data: RegisterRequest): Promise<void> => {
-  return request.post('/user/register', data)
+  return request.post('/login/register', data)
 }
 
 // 获取用户信息
 export const getUserInfo = (): Promise<UserInfo> => {
-  return request.get('/user/info')
+  return request.get('/getUserInfo')
 }
 
 // 更新用户信息

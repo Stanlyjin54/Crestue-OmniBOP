@@ -68,6 +68,13 @@ public class UserInfo  {
     @TableField("role")
     private String role;
 
+    /**
+     * 用户类型：consumer-消费者(B2C), operator-经营者(Application)
+     */
+    @JsonProperty("user_type")
+    @TableField("user_type")
+    private String userType;
+
 
 
 @TableField(exist = false)

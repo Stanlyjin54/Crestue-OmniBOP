@@ -3,7 +3,7 @@
  * 实现B2B动态定价和促销策略
  */
 
-import { request } from '@/utils/request.js';
+import request from '@/utils/request.js';
 
 /**
  * 获取价格策略列表

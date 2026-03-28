@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kuafuweb.web.mapper.UserInfoAllMapper">
+<mapper namespace="com.kuafu.web.mapper.UserInfoAllMapper">
     <sql id="user_info_list_sql">
         select
         ui.password   ,
@@ -11,14 +11,14 @@
         FROM user_info ui
         </sql>
 
-        <resultMap id="selectListNewMap" type="com.kuafuweb.web.entity.UserInfoAll">
+        <resultMap id="selectListNewMap" type="com.kuafu.web.entity.UserInfoAll">
         <result property="password" column="password"/>
         <result property="registrationDate" column="registration_date"/>
         <result property="phoneNumber" column="phone_number"/>
         <result property="userInfoId" column="user_info_id"/>
         <result property="username" column="username"/>
 
-                <collection property="avatar" ofType="com.kuafuweb.common.entity.StaticResource">
+                <collection property="avatar" ofType="com.kuafu.common.entity.StaticResource">
                             <id property="resourceId" column="avatar_resource_id"/>
                             <result property="resourceName" column="avatar_resource_name"/>
                             <result property="resourcePath" column="avatar_resource_path"/>
@@ -54,7 +54,7 @@ ui.username
 ${ew.customSqlSegment}
         </select>
 
-<select id="selectList" resultType="com.kuafuweb.web.entity.UserInfoAll">
+<select id="selectList" resultType="com.kuafu.web.entity.UserInfoAll">
 select
 ui.password   ,
 ui.registration_date   ,
@@ -65,7 +65,7 @@ ui.username
 ${ew.customSqlSegment}
         </select>
 
-<select id="selectPage" resultType="com.kuafuweb.web.entity.UserInfoAll">
+<select id="selectPage" resultType="com.kuafu.web.entity.UserInfoAll">
 select
 ui.password  ,
 ui.registration_date  ,
@@ -76,7 +76,7 @@ ui.username
 ${ew.customSqlSegment}
         </select>
 
-<select id="selectById" resultType="com.kuafuweb.web.entity.UserInfoAll">
+<select id="selectById" resultType="com.kuafu.web.entity.UserInfoAll">
 select
 ui.password  ,
 ui.registration_date  ,

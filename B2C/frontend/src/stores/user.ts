@@ -2,11 +2,12 @@ import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import type { User } from '@/types'
 import { login as loginApi, getUserInfo, updateUserInfo, updatePassword as updatePasswordApi, updatePhone as updatePhoneApi, updateEmail as updateEmailApi, deleteAccount as deleteAccountApi, register as registerApi } from '@/api'
+import { getToken, setToken as setAuthToken } from '@/utils/auth'
 
 export const useUserStore = defineStore('user', () => {
   // 状态
   const user = ref<User | null>(null)
-  const token = ref<string>(localStorage.getItem('token') || '')
+  const token = ref<string>(getToken() || '')
 
   // 计算属性
   const isLoggedIn = computed(() => !!token.value)
@@ -19,11 +20,7 @@ export const useUserStore = defineStore('user', () => {
   // 方法
   const setToken = (newToken: string) => {
     token.value = newToken
-    if (newToken) {
-      localStorage.setItem('token', newToken)
-    } else {
-      localStorage.removeItem('token')
-    }
+    setAuthToken(newToken)
   }
 
   const setUser = (userData: User | null) => {
@@ -31,9 +28,19 @@ export const useUserStore = defineStore('user', () => {
   }
 
   const login = async (loginData: { username: string; password: string }) => {
-    const response = await loginApi(loginData)
-    setToken(response.token)
-    setUser(response.user)
+    // 转换为后端需要的格式
+    const loginRequest: any = {
+      phone: loginData.username,
+      password: loginData.password,
+      relevanceTable: 'user_info' // 默认用户表
+    }
+    console.log('userStore.login - 请求参数:', loginRequest)
+    const response = await loginApi(loginRequest)
+    console.log('userStore.login - 响应:', response)
+    setToken(response.data)
+    console.log('userStore.login - Token已设置:', response.data)
+    // 暂时跳过获取用户信息，先测试跳转
+    // await fetchUserInfo()
     return response
   }
 

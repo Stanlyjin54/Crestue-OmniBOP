@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kuafuweb.web.mapper.ProductInfoAllMapper">
+<mapper namespace="com.kuafu.web.mapper.ProductInfoAllMapper">
     <sql id="product_info_list_sql">
         select
         pi.unit   ,
@@ -19,7 +19,7 @@
         left join product_status_enum pse on pi.product_status_enum_product_status_enum_id_1 = pse.product_status_enum_id
         </sql>
 
-        <resultMap id="selectListNewMap" type="com.kuafuweb.web.entity.ProductInfoAll">
+        <resultMap id="selectListNewMap" type="com.kuafu.web.entity.ProductInfoAll">
         <result property="unit" column="unit"/>
         <result property="productInfoId" column="product_info_id"/>
         <result property="productStatusEnumProductStatusEnumId1" column="product_status_enum_product_status_enum_id_1"/>
@@ -33,7 +33,7 @@
         <result property="brand" column="brand"/>
         <result property="shelfLife" column="shelf_life"/>
 
-                <collection property="images" ofType="com.kuafuweb.common.entity.StaticResource">
+                <collection property="images" ofType="com.kuafu.common.entity.StaticResource">
                             <id property="resourceId" column="images_resource_id"/>
                             <result property="resourceName" column="images_resource_name"/>
                             <result property="resourcePath" column="images_resource_path"/>
@@ -77,7 +77,7 @@ pi.shelf_life
 ${ew.customSqlSegment}
         </select>
 
-<select id="selectList" resultType="com.kuafuweb.web.entity.ProductInfoAll">
+<select id="selectList" resultType="com.kuafu.web.entity.ProductInfoAll">
 select
 pi.unit   ,
 pi.product_info_id   ,
@@ -96,7 +96,7 @@ pi.shelf_life
 ${ew.customSqlSegment}
         </select>
 
-<select id="selectPage" resultType="com.kuafuweb.web.entity.ProductInfoAll">
+<select id="selectPage" resultType="com.kuafu.web.entity.ProductInfoAll">
 select
 pi.unit  ,
 pi.product_info_id  ,
@@ -115,7 +115,7 @@ pi.shelf_life
 ${ew.customSqlSegment}
         </select>
 
-<select id="selectById" resultType="com.kuafuweb.web.entity.ProductInfoAll">
+<select id="selectById" resultType="com.kuafu.web.entity.ProductInfoAll">
 select
 pi.unit  ,
 pi.product_info_id  ,

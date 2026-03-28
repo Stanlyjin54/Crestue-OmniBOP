@@ -63,13 +63,21 @@ public class LoginBusinessService {
 
         String pascalCase = StringUtils.dbStrToHumpUpper(relevanceTable);
         String pascalAll = pascalCase + "AllControllerService";
+        String serviceName = pascalCase + "Service";
+        // 直接使用表名作为服务名（因为 UserInfoServiceImpl 使用了 @Service("UserInfo")）
+        String directServiceName = pascalCase;
 
         if (SpringUtils.containsBean(pascalAll)) {
             IControllerService iService = SpringUtils.getBean(pascalAll);
             return iService.getById(loginUser.getRelevanceId());
-        } else {
-            IService iService = SpringUtils.getBean(pascalCase);
+        } else if (SpringUtils.containsBean(serviceName)) {
+            IService iService = SpringUtils.getBean(serviceName);
             return iService.getById(loginUser.getRelevanceId());
+        } else if (SpringUtils.containsBean(directServiceName)) {
+            IService iService = SpringUtils.getBean(directServiceName);
+            return iService.getById(loginUser.getRelevanceId());
+        } else {
+            throw new BusinessException(ErrorCode.NOT_FOUND_ERROR, "服务不存在: " + serviceName + ", " + directServiceName);
         }
     }
 
@@ -188,7 +196,6 @@ public class LoginBusinessService {
         IService iService = SpringUtils.getBean(table);
         QueryWrapper<?> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq(key, value)
-                .eq(relevance_table, StringUtils.dbStrToHumpLower(LoginRelevanceConfig.getLoginRelevanceTable()))
                 .isNotNull(relevance_id_name)
                 .ne(relevance_id_name, "");
         return iService.getOne(queryWrapper);

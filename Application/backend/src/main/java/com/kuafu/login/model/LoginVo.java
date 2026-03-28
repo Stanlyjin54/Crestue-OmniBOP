@@ -22,4 +22,7 @@ public class LoginVo {
 
     private String openId;
 
+    @Schema(description = "用户类型：consumer-消费者(B2C), operator-经营者(Application)")
+    private String userType;
+
 }

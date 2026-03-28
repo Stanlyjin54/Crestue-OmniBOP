@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kuafuweb.web.mapper.OrderItemAllMapper">
+<mapper namespace="com.kuafu.web.mapper.OrderItemAllMapper">
     <sql id="order_item_list_sql">
         select
         oi1.order_no   ,
@@ -37,7 +37,7 @@
     
         </sql>
     
-        <resultMap id="selectListNewMap" type="com.kuafuweb.web.entity.OrderItemAll">
+        <resultMap id="selectListNewMap" type="com.kuafu.web.entity.OrderItemAll">
     
         <result property="orderNo" column="order_no"/>
     
@@ -144,7 +144,7 @@ pi.category
 ${ew.customSqlSegment}
         </select>
     
-<select id="selectList" resultType="com.kuafuweb.web.entity.OrderItemAll">
+<select id="selectList" resultType="com.kuafu.web.entity.OrderItemAll">
 select
 oi1.order_no   ,
 oi1.order_status_enum_order_status_enum_id_1   ,
@@ -182,7 +182,7 @@ pi.category
 ${ew.customSqlSegment}
         </select>
     
-<select id="selectPage" resultType="com.kuafuweb.web.entity.OrderItemAll">
+<select id="selectPage" resultType="com.kuafu.web.entity.OrderItemAll">
 select
 oi1.order_no  ,
 oi1.order_status_enum_order_status_enum_id_1  ,
@@ -224,7 +224,7 @@ pi.category
 ${ew.customSqlSegment}
         </select>
     
-<select id="selectById" resultType="com.kuafuweb.web.entity.OrderItemAll">
+<select id="selectById" resultType="com.kuafu.web.entity.OrderItemAll">
 select
 oi1.order_no  ,
 oi1.order_status_enum_order_status_enum_id_1  ,

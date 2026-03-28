@@ -193,7 +193,7 @@ CHAT_PROVIDER=dify
 
 本项目采用 **AGPLv3** 开源许可证，详细信息请查看 [LICENSE](LICENSE) 文件。
 
-对于商业使用，我们提供商业许可证，请联系 business@crestue.com。
+对于商业使用，我们提供商业许可证，请联系 549057226@qq.com。
 
 ## 🆘 支持与帮助
 

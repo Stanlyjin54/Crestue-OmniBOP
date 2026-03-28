@@ -1,6 +1,25 @@
 <script setup>
+import { onMounted, nextTick } from "vue"
 
 console.log("stepup")
+
+const hideLoader = () => {
+  const loaderWrapper = document.getElementById('loader-wrapper')
+  if (loaderWrapper) {
+    loaderWrapper.classList.add('loaded')
+    console.log('Loader hidden')
+  }
+}
+
+onMounted(() => {
+  nextTick(() => {
+    hideLoader()
+  })
+})
+
+window.addEventListener('load', () => {
+  setTimeout(hideLoader, 100)
+})
 </script>
 
 <style>

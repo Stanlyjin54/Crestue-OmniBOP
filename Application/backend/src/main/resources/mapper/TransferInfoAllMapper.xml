@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kuafuweb.web.mapper.TransferInfoAllMapper">
+<mapper namespace="com.kuafu.web.mapper.TransferInfoAllMapper">
     <sql id="transfer_info_list_sql">
         select
         ti.transfer_info_id   ,
@@ -21,7 +21,7 @@
     
         </sql>
     
-        <resultMap id="selectListNewMap" type="com.kuafuweb.web.entity.TransferInfoAll">
+        <resultMap id="selectListNewMap" type="com.kuafu.web.entity.TransferInfoAll">
     
         <result property="transferInfoId" column="transfer_info_id"/>
     
@@ -76,7 +76,7 @@ ti.operator_user_info_id
 ${ew.customSqlSegment}
         </select>
     
-<select id="selectList" resultType="com.kuafuweb.web.entity.TransferInfoAll">
+<select id="selectList" resultType="com.kuafu.web.entity.TransferInfoAll">
 select
 ti.transfer_info_id   ,
 ti.create_time   ,
@@ -98,7 +98,7 @@ ti.operator_user_info_id
 ${ew.customSqlSegment}
         </select>
     
-<select id="selectPage" resultType="com.kuafuweb.web.entity.TransferInfoAll">
+<select id="selectPage" resultType="com.kuafu.web.entity.TransferInfoAll">
 select
 ti.transfer_info_id  ,
 ti.create_time  ,
@@ -124,7 +124,7 @@ ti.operator_user_info_id
 ${ew.customSqlSegment}
         </select>
     
-<select id="selectById" resultType="com.kuafuweb.web.entity.TransferInfoAll">
+<select id="selectById" resultType="com.kuafu.web.entity.TransferInfoAll">
 select
 ti.transfer_info_id  ,
 ti.create_time  ,

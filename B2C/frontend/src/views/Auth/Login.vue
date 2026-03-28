@@ -113,17 +113,23 @@ const handleLogin = async () => {
     if (valid) {
       try {
         loading.value = true
-        await userStore.login(loginForm)
+        console.log('开始登录，数据:', loginForm)
+        const response = await userStore.login(loginForm)
+        console.log('登录响应:', response)
         ElMessage.success('登录成功')
         
         // 处理重定向
         const redirect = route.query.redirect as string
+        console.log('重定向地址:', redirect)
         if (redirect) {
+          console.log('跳转到重定向地址:', redirect)
           router.push(redirect)
         } else {
+          console.log('跳转到首页')
           router.push('/')
         }
       } catch (error: any) {
+        console.error('登录错误:', error)
         ElMessage.error(error.message || '登录失败')
       } finally {
         loading.value = false

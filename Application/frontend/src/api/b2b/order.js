@@ -3,7 +3,7 @@
  * 支持批量下单、询价、合同管理等功能
  */
 
-import { request } from '@/utils/request.js';
+import request from '@/utils/request.js';
 
 /**
  * 创建B2B订单

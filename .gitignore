@@ -42,3 +42,17 @@ Thumbs.db
 # 测试覆盖率报告
 coverage/
 */coverage/
+
+# 临时工具和脚本
+*.py
+*.ps1
+*.class
+*.java
+!**/src/**/*.java
+tessdata/
+
+# 数据库文件
+*.db
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal

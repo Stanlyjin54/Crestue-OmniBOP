@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kuafuweb.web.mapper.ProcurementSuggestionAllMapper">
+<mapper namespace="com.kuafu.web.mapper.ProcurementSuggestionAllMapper">
     <sql id="procurement_suggestion_list_sql">
         select
         ps.reason   ,
@@ -25,7 +25,7 @@
 
         </sql>
 
-        <resultMap id="selectListNewMap" type="com.kuafuweb.web.entity.ProcurementSuggestionAll">
+        <resultMap id="selectListNewMap" type="com.kuafu.web.entity.ProcurementSuggestionAll">
 
         <result property="reason" column="reason"/>
 
@@ -94,7 +94,7 @@ pi.brand
 ${ew.customSqlSegment}
         </select>
 
-<select id="selectList" resultType="com.kuafuweb.web.entity.ProcurementSuggestionAll">
+<select id="selectList" resultType="com.kuafu.web.entity.ProcurementSuggestionAll">
 select
 ps.reason   ,
 pi.product_status_enum_product_status_enum_id_1   ,
@@ -120,7 +120,7 @@ pi.brand
 ${ew.customSqlSegment}
         </select>
 
-<select id="selectPage" resultType="com.kuafuweb.web.entity.ProcurementSuggestionAll">
+<select id="selectPage" resultType="com.kuafu.web.entity.ProcurementSuggestionAll">
 select
 ps.reason  ,
 pi.product_status_enum_product_status_enum_id_1  ,
@@ -150,7 +150,7 @@ pi.brand
 ${ew.customSqlSegment}
         </select>
 
-<select id="selectById" resultType="com.kuafuweb.web.entity.ProcurementSuggestionAll">
+<select id="selectById" resultType="com.kuafu.web.entity.ProcurementSuggestionAll">
 select
 ps.reason  ,
 pi.product_status_enum_product_status_enum_id_1  ,

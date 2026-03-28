@@ -6,8 +6,18 @@ const modules = import.meta.glob('./**/*.js', {
 // 构建api对象
 const api = {};
 Object.keys(modules).forEach((key) => {
-  const moduleName = key.replace(/\.\/(.*)\.js/, '$1');
-  api[moduleName] = modules[key];
+  let moduleName = key.replace(/\.\/(.*)\.js/, '$1');
+  // 处理嵌套目录，只取最后一个部分作为模块名
+  if (moduleName.includes('/')) {
+    const parts = moduleName.split('/');
+    // 如果是 login 目录下的文件，使用文件名作为模块名
+    if (parts[0] === 'login') {
+      moduleName = parts[parts.length - 1];
+    } else {
+      moduleName = parts[parts.length - 1];
+    }
+  }
+  api[moduleName] = modules[key].default || modules[key];
 });
 
 // 导出社交媒体相关API
@@ -15,6 +25,44 @@ export * from './social-media/index.js';
 
 // 导出政府采购信息采集相关API
 export * from './procurement/procurementCrawler.js';
+
+// 导出 page 目录下的模块并添加到 api 对象
+import globalVariable from './page/globalVariable.js';
+import loading from './page/loading.js';
+import qr from './page/qr.js';
+import file from './page/file.js';
+import navigate from './page/navigate.js';
+import toast from './page/toast.js';
+import reload from './page/reload.js';
+import model from './page/model.js';
+import location from './page/location.js';
+import interactWithComponent from './page/interactWithComponent.js';
+
+// 添加到 api 对象根级别
+api.globalVariable = globalVariable;
+api.loading = loading;
+api.qr = qr;
+api.file = file;
+api.navigate = navigate;
+api.toast = toast;
+api.reload = reload;
+api.model = model;
+api.location = location;
+api.interactWithComponent = interactWithComponent;
+
+// 同时添加到 page 子对象（保持兼容性）
+api.page = {
+  globalVariable,
+  loading,
+  qr,
+  file,
+  navigate,
+  toast,
+  reload,
+  model,
+  location,
+  interactWithComponent
+};
 
 export default api;
 

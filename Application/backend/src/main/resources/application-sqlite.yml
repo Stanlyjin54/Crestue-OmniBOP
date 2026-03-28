@@ -4,6 +4,10 @@ spring:
     enabled: false
     locations: classpath:db/sqlite
     baselineOnMigrate: true
+  sql:
+    init:
+      mode: never
+      continueOnError: true
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: org.sqlite.JDBC
@@ -11,4 +15,3 @@ spring:
       url: jdbc:sqlite:${SQLITE_PATH:demo.sqlite}?journal_mode=WAL&busy_timeout=5000
       username:
       password:
-

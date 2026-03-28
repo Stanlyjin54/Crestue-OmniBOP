@@ -3,7 +3,7 @@
  * 支持账期、分期付款、信用支付等企业支付方式
  */
 
-import { request } from '@/utils/request.js';
+import request from '@/utils/request.js';
 
 /**
  * 获取B2B支付条款列表

@@ -1,1 +1,40 @@
-        </mapper>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuafu.web.mapper.InventoryRecordAllMapper">
+
+    <sql id="inventory_record_list_sql">
+        SELECT
+            ir.inventory_record_id,
+            ir.product_info_product_info_id_1,
+            ir.warehouse_info_warehouse_info_id_1,
+            ir.quantity,
+            ir.batch_number,
+            ir.expire_date,
+            ir.serial_number
+        FROM inventory_record ir
+    </sql>
+
+    <resultMap id="BaseResultMap" type="com.kuafu.web.entity.InventoryRecordAll">
+        <id column="inventory_record_id" property="inventoryRecordId"/>
+        <result column="product_info_product_info_id_1" property="productInfoProductInfoId1"/>
+        <result column="warehouse_info_warehouse_info_id_1" property="warehouseInfoWarehouseInfoId1"/>
+        <result column="quantity" property="quantity"/>
+        <result column="batch_number" property="batchNumber"/>
+        <result column="expire_date" property="expireDate"/>
+        <result column="serial_number" property="serialNumber"/>
+    </resultMap>
+
+    <select id="selectList" resultMap="BaseResultMap">
+        <include refid="inventory_record_list_sql"/>
+    </select>
+
+    <select id="selectPage" resultMap="BaseResultMap">
+        <include refid="inventory_record_list_sql"/>
+    </select>
+
+    <select id="selectById" resultMap="BaseResultMap">
+        <include refid="inventory_record_list_sql"/>
+        WHERE ir.inventory_record_id = #{id}
+    </select>
+
+</mapper>

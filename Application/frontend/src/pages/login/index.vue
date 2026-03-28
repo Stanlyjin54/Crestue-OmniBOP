@@ -4,7 +4,7 @@
       <!-- Logo/品牌区块 -->
       <view class="flex flex-col items-center mb-8 mt-12">
         <image
-          src="https://www.codeflying.net/preview/ai-robot.jpg"
+          src="https://www.crestue.com/preview/ai-robot.jpg"
           mode="aspectFit"
           class="w-20 h-20 rounded-xl shadow-lg mb-4"
         />
@@ -25,7 +25,7 @@
 
       <!-- 底部版权 -->
       <view class="mt-12 text-center w-full text-xs text-neutral-400">
-        <text>© 2024 智能进销存系统 · CodeFlying</text>
+        <text>©Crestue智能一体化销售管理系统</text>
       </view>
     </view>
   </base-layout>
@@ -36,10 +36,15 @@ const { proxy } = getCurrentInstance()
 
 // 登录成功后跳转首页
 function onLoginSuccess() {
+  console.log('触发 onLoginSuccess，开始跳转')
   proxy.$cf.toast({ message: '登录成功，正在进入系统', level: 'success' })
   proxy.$cf.navigate.to({
-    url: '/pages/home/index',
+    url: '/pagesA/home/index',
     type: 'page'
+  }).then(res => {
+    console.log('跳转成功', res)
+  }).catch(err => {
+    console.error('跳转失败', err)
   })
 }
 

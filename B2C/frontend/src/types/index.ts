@@ -209,14 +209,17 @@ export interface UserInfo {
 }
 
 export interface LoginRequest {
-  username: string
+  phone: string
   password: string
   remember?: boolean
+  relevanceTable?: string
 }
 
 export interface LoginResponse {
-  token: string
-  user: UserInfo
+  code: number
+  data: string
+  message: string
+  success: boolean
 }
 
 export interface RegisterRequest {

@@ -3,7 +3,7 @@
  * 支持批发价格、阶梯定价、商品展示等功能
  */
 
-import { request } from '@/utils/request.js';
+import request from '@/utils/request.js';
 
 /**
  * 获取B2B商品列表
